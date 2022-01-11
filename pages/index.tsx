@@ -4,8 +4,17 @@ import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
+import { useEffect } from "react";
+import { client } from "../seacretDirectory/seacret";
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    client
+      .get({
+        endpoint: "blog",
+      })
+      .then((res) => console.log(res));
+  });
   return (
     <div className={styles.container}>
       <Head>
