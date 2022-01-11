@@ -5,6 +5,8 @@
   border: solid 1px #000;
   box-shadow: 22px 16px 27px -3px rgba(0, 0, 0, 0.6);
   border-radius: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .card:hover {
@@ -15,6 +17,18 @@
   height: 200px;
 }
 
+.thumbnail img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 248px;
+  height: 200px;
+}
+
 .title {
+  text-align: left;
   font-size: 14px;
+}
+
+.body {
+  text-align: left;
 }
