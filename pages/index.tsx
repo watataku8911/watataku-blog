@@ -1,20 +1,24 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
+import type { Contents, Blog } from "../types/blog";
+
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
-import { useEffect } from "react";
 import { client } from "../seacretDirectory/seacret";
 
-const Home: NextPage = () => {
-  useEffect(() => {
-    client
-      .get({
-        endpoint: "blog",
-      })
-      .then((res) => console.log(res));
-  });
+export const getStaticProps: GetStaticProps = async () => {
+  const data: Contents = await client.get({ endpoint: "blog" });
+
+  return {
+    props: {
+      blogs: data.contents,
+    },
+  };
+};
+
+const Home = ({ blogs }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -26,48 +30,17 @@ const Home: NextPage = () => {
       <Header />
 
       <main className={styles.main}>
-        <Card
-          thumbnail={"kkkkkkkkkkkkkkkkk"}
-          title={"タイトルです"}
-          body={
-            "詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。"
-          }
-        />
-        <Card
-          thumbnail={"kkkkkkkkkkkkkkkkk"}
-          title={"タイトルです"}
-          body={
-            "詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。"
-          }
-        />
-        <Card
-          thumbnail={"kkkkkkkkkkkkkkkkk"}
-          title={"タイトルです"}
-          body={
-            "詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。"
-          }
-        />
-        <Card
-          thumbnail={"kkkkkkkkkkkkkkkkk"}
-          title={"タイトルです"}
-          body={
-            "詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。"
-          }
-        />
-        <Card
-          thumbnail={"kkkkkkkkkkkkkkkkk"}
-          title={"タイトルです"}
-          body={
-            "詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。"
-          }
-        />
-        <Card
-          thumbnail={"kkkkkkkkkkkkkkkkk"}
-          title={"タイトルです"}
-          body={
-            "詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。詳細です。"
-          }
-        />
+        {blogs.map((blog: Blog) => {
+          return (
+            <Card
+              id={blog.id}
+              thumbnail={blog.thumbnail.url}
+              title={blog.title}
+              body={blog.body}
+              key={blog.id}
+            />
+          );
+        })}
       </main>
 
       <Footer />
