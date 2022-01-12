@@ -3,9 +3,7 @@ import type { Contents, Blog } from "../types/blog";
 
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Header from "../components/Header";
 import Card from "../components/Card";
-import Footer from "../components/Footer";
 import { client } from "../seacretDirectory/seacret";
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -27,8 +25,6 @@ const Home = ({ blogs }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-
       <main className={styles.main}>
         {blogs.map((blog: Blog) => {
           return (
@@ -42,8 +38,6 @@ const Home = ({ blogs }) => {
           );
         })}
       </main>
-
-      <Footer />
     </div>
   );
 };
