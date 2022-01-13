@@ -1,12 +1,15 @@
-import type { GetStaticProps, NextPage } from "next";
-import type { Contents, Blog } from "../types/blog";
-
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import Card from "../components/Card";
 import { client } from "../seacretDirectory/seacret";
 
-export const getStaticProps: GetStaticProps = async () => {
+import type { InferGetStaticPropsType, NextPage } from "next";
+import type { Contents, Blog } from "../types/blog";
+
+import styles from "../styles/Home.module.css";
+import Head from "next/head";
+import Card from "../components/Card";
+
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+
+export const getStaticProps = async () => {
   const data: Contents = await client.get({ endpoint: "blog" });
 
   return {
@@ -16,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Home = ({ blogs }) => {
+const Home: NextPage<Props> = ({ blogs }) => {
   return (
     <div className={styles.container}>
       <Head>

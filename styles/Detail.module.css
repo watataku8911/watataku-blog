@@ -1,3 +1,102 @@
-.main {
+.detail {
+  padding-top: 5%;
+  padding-bottom: 3%;
   background: #e0efff;
+}
+
+.detailHeader {
+  font-family: -apple-system, "BlinkMacSystemFont", "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif, "Segoe UI Emoji";
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.detailTtl {
+  font-size: 2em;
+  letter-spacing: 2px;
+}
+
+.dateArea {
+  width: 40%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+}
+
+.publishedAt {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.publishedAt img {
+  width: 20px;
+  height: 20px;
+}
+
+.revisedAt {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.revisedAt img {
+  width: 20px;
+  height: 20px;
+}
+
+.mainContents {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailContent {
+  letter-spacing: 1px;
+  width: 65%;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 1%;
+}
+
+.detailContent h1 {
+  border-bottom: solid 1px #aaa;
+}
+
+.detailContent h2 {
+  border-bottom: solid 1px #aaa;
+}
+
+/* .detailContent h3 {
+  border-bottom: solid 1px #aaa;
+} */
+
+.detailContent pre {
+  background-color: #222;
+  padding: 1.5%;
+}
+
+.detailContent pre code {
+  font-style: normal;
+  color: #e0efff;
+}
+
+.detailContent code {
+  font-style: italic;
+}
+
+.detailContent a {
+  color: blue;
+}
+
+.tagArea {
+  width: 20%;
+  background-color: #fff;
+  border-radius: 20px;
+  height: 200px;
 }
