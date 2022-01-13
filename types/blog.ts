@@ -13,7 +13,7 @@ export type Blog = {
   title: string;
 };
 
-type Tags = {
+export type Tags = {
   createdAt: string;
   id: string;
   publishedAt: string;
