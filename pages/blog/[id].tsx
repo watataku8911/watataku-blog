@@ -8,10 +8,12 @@ import type {
 import type { Blog, Tags } from "../../types/blog";
 
 import styles from "../../styles/Detail.module.css";
-//import IconPublish from "../img/icon/weekly-calendar-outline-event-interface-symbol_icon-icons.com_73108.svg";
+
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
+
+import IconPublish from "../../public/img/icon/calendar.svg";
+import IconRevise from "../../public/img/icon/refresh_update_icon.svg";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -58,16 +60,11 @@ const Detail: NextPage<Props> = ({ blog }) => {
           <h1 className={styles.detailTtl}>{blog.title}</h1>
           <div className={styles.dateArea}>
             <div className={styles.publishedAt}>
-              {/* <IconPublish /> */}
-              <img
-                src={
-                  "../img/icon/weekly-calendar-outline-event-interface-symbol_icon-icons.com_73108.svg"
-                }
-              />
+              <IconPublish />
               <time>{datePlasticSurgery(blog.publishedAt)}公開</time>
             </div>
             <div className={styles.revisedAt}>
-              <img src={"../img/icon/refresh_update_icon_142975.svg"} />
+              <IconRevise />
               <time>{datePlasticSurgery(blog.revisedAt)}更新</time>
             </div>
           </div>
