@@ -5,12 +5,12 @@ const Footer = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
-        <Link href={"/"}>Watataku's ブログ</Link>
+        <Link href={"/"}>Watataku's Blog</Link>
         <a href="https://watataku-portfolio.web.app" target="_blank">
           <img
             src="../img/Hight_icon_watataku's_radius.png"
-            width="50"
-            height="50"
+            width="45"
+            height="45"
           />
         </a>
       </div>

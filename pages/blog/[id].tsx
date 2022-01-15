@@ -14,6 +14,9 @@ import Head from "next/head";
 
 import IconPublish from "../../public/img/icon/calendar.svg";
 import IconRevise from "../../public/img/icon/refresh_update_icon.svg";
+import IconTag from "../../public/img/icon/icon_tag_navy.svg";
+
+import { datePlasticSurgery } from "../../functions/function";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -40,12 +43,6 @@ export const getStaticProps = async (
 };
 
 const Detail: NextPage<Props> = ({ blog }) => {
-  const datePlasticSurgery = (date: string): string => {
-    const newDate = date.slice(0, -14);
-    const arrayDate = newDate.split("-");
-    return arrayDate[0] + "年" + arrayDate[1] + "月" + arrayDate[2] + "日";
-  };
-
   return (
     <>
       <Head>
@@ -77,12 +74,17 @@ const Detail: NextPage<Props> = ({ blog }) => {
           </section>
 
           <section className={styles.tagArea}>
-            <h4>Tags</h4>
-            <ul>
+            <h1>Tags</h1>
+            <div className={styles.tagList}>
               {blog.tags.map((tag: Tags) => {
-                return <li key={tag.id}>{tag.tag_name}</li>;
+                return (
+                  <div key={tag.id}>
+                    <IconTag />
+                    {tag.tag_name}
+                  </div>
+                );
               })}
-            </ul>
+            </div>
           </section>
         </div>
       </main>
