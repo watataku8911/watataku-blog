@@ -25,6 +25,7 @@
 }
 
 .headerContainer {
+  margin-top: 20px;
   width: 80%;
   height: 70px;
   margin: auto;
@@ -33,14 +34,18 @@
   align-items: center;
 }
 
-.headerContainer h1 a {
+.headerContainer a {
+  font-size: 18px;
   font-family: "Bad Script", cursive;
 }
 
 .headerContainer img {
+  margin-top: 20px;
+  border-radius: 50%;
   box-shadow: 22px 16px 27px -3px rgba(0, 0, 0, 0.6);
 }
 
 .headerContainer img:hover {
+  border-radius: 50%;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.6);
 }

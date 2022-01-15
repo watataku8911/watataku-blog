@@ -16,54 +16,6 @@
   letter-spacing: 2px;
 }
 
-.dateArea {
-  width: 40%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #333;
-}
-
-.publishedAt {
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.publishedAt img {
-  width: 20px;
-  height: 20px;
-}
-
-.revisedAt {
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.revisedAt img {
-  width: 20px;
-  height: 20px;
-}
-
-.mainContents {
-  width: 80%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-.detailContent {
-  letter-spacing: 1px;
-  width: 65%;
-  background-color: #fff;
-  border-radius: 20px;
-  padding: 1%;
-}
-
 .detailContent h1 {
   border-bottom: solid 1px #aaa;
 }
@@ -71,10 +23,6 @@
 .detailContent h2 {
   border-bottom: solid 1px #aaa;
 }
-
-/* .detailContent h3 {
-  border-bottom: solid 1px #aaa;
-} */
 
 .detailContent pre {
   background-color: #222;
@@ -94,9 +42,167 @@
   color: blue;
 }
 
-.tagArea {
-  width: 20%;
-  background-color: #fff;
-  border-radius: 20px;
-  height: 200px;
+@media screen and (min-width: 1026px) {
+  .mainContents {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .detailContent {
+    letter-spacing: 1px;
+    width: 65%;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 1%;
+  }
+
+  .tagArea {
+    width: 20%;
+    height: 200px;
+    border-radius: 20px;
+    background-color: #fff;
+  }
+
+  .dateArea {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+  }
+
+  .publishedAt {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .revisedAt {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .mainContents {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .detailContent {
+    letter-spacing: 1px;
+    width: 100%;
+    background-color: #fff;
+    padding: 1%;
+    order: 1;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .tagArea {
+    width: 100%;
+    background-color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .tagArea .tagList {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+
+  .dateArea {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+  }
+
+  .publishedAt {
+    font-size: 0.8em;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .revisedAt {
+    font-size: 0.8em;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .mainContents {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .detailContent {
+    letter-spacing: 1px;
+    width: 100%;
+    background-color: #fff;
+    padding: 1%;
+    order: 1;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .tagArea {
+    width: 100%;
+    background-color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .tagArea .tagList {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+
+  .dateArea {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+  }
+
+  .publishedAt {
+    font-size: 0.2em;
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .revisedAt {
+    font-size: 0.2em;
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
