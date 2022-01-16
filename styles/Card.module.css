@@ -22,6 +22,7 @@
   border-top-right-radius: 20px;
   width: 248px;
   height: 200px;
+  border-bottom: solid 1px #000;
 }
 
 .title {
