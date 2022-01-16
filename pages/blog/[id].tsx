@@ -7,13 +7,16 @@ import type {
 } from "next";
 import type { Blog, Tags } from "../../types/blog";
 
+import TwitterShare from "../../components/TwitterShare";
+import FacebookShare from "../../components/FacebookShare";
+
 import styles from "../../styles/Detail.module.css";
 
 import Link from "next/link";
 import Head from "next/head";
 
-import IconPublish from "../../public/img/icon/calendar.svg";
-import IconRevise from "../../public/img/icon/refresh_update_icon.svg";
+import IconPublish from "../../public/img/icon/icon_calendar.svg";
+import IconRevise from "../../public/img/icon/icon_refresh.svg";
 import IconTag from "../../public/img/icon/icon_tag_navy.svg";
 
 import { datePlasticSurgery } from "../../functions/function";
@@ -49,6 +52,17 @@ const Detail: NextPage<Props> = ({ blog }) => {
         <title>{blog.title}</title>
         <meta name="description" content={blog.body} />
         <link rel="icon" href="/favicon.ico" />
+
+        <meta property="og:description" content={blog.body} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://watataku-blog.vercel.app/" />
+        <meta property="og:image" content={blog.thumbnail.url} />
+        <meta property="og:site_name" content={blog.title} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={blog.title} />
+        <meta property="twitter:description" content={blog.body} />
+        <meta name="twitter:image:src" content={blog.thumbnail.url} />
       </Head>
 
       <main className={styles.detail}>
@@ -62,12 +76,29 @@ const Detail: NextPage<Props> = ({ blog }) => {
             </div>
             <div className={styles.revisedAt}>
               <IconRevise />
-              <time>{datePlasticSurgery(blog.revisedAt)}更新</time>
+              <time>{datePlasticSurgery(blog.updatedAt)}更新</time>
             </div>
           </div>
         </section>
 
         <div className={styles.mainContents}>
+          <section className={styles.snsArea}>
+            <TwitterShare
+              url={
+                "https://twitter.com/share?text=" +
+                blog.title +
+                "&url=https://watataku-blog.vercel.app/blog/" +
+                blog.id
+              }
+            />
+            <FacebookShare
+              url={
+                "http://www.facebook.com/share.php?u=https://watataku-blog.vercel.app.blog" +
+                blog.id
+              }
+            />
+          </section>
+
           <section className={styles.detailContent}>
             <div dangerouslySetInnerHTML={{ __html: blog.body }} />
             <Link href="/">一覧へ戻る</Link>
@@ -80,6 +111,7 @@ const Detail: NextPage<Props> = ({ blog }) => {
                 return (
                   <div key={tag.id}>
                     <IconTag />
+                    {/* <Link href={`/search/${tag.tag_name}`}>{tag.tag_name}</Link> */}
                     {tag.tag_name}
                   </div>
                 );
