@@ -9,17 +9,19 @@ import type { Blog, Tags } from "../../types/blog";
 
 import TwitterShare from "../../components/TwitterShare";
 import FacebookShare from "../../components/FacebookShare";
+// import RSSComponent from "../../components/RSSComponent";
 
 import styles from "../../styles/Detail.module.css";
 
 import Link from "next/link";
 import Head from "next/head";
 
-import IconPublish from "../../public/img/icon/icon_calendar.svg";
-import IconRevise from "../../public/img/icon/icon_refresh.svg";
-import IconTag from "../../public/img/icon/icon_tag_navy.svg";
+import IconPublish from "../../public/img/icon_calendar.svg";
+import IconRevise from "../../public/img/icon_refresh.svg";
+import IconTag from "../../public/img/icon_tag_navy.svg";
 
 import { datePlasticSurgery } from "../../functions/function";
+import { SITE_URL } from "../../libs/const";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -87,16 +89,21 @@ const Detail: NextPage<Props> = ({ blog }) => {
               url={
                 "https://twitter.com/share?text=" +
                 blog.title +
-                "&url=https://watataku-blog.vercel.app/blog/" +
+                "&url=" +
+                SITE_URL +
+                "/blog/" +
                 blog.id
               }
             />
             <FacebookShare
               url={
-                "http://www.facebook.com/share.php?u=https://watataku-blog.vercel.app.blog" +
+                "http://www.facebook.com/share.php?u=" +
+                SITE_URL +
+                "/blog/" +
                 blog.id
               }
             />
+            {/* <RSSComponent url={"/feed"} /> */}
           </section>
 
           <section className={styles.detailContent}>
@@ -111,8 +118,7 @@ const Detail: NextPage<Props> = ({ blog }) => {
                 return (
                   <div key={tag.id}>
                     <IconTag />
-                    {/* <Link href={`/search/${tag.tag_name}`}>{tag.tag_name}</Link> */}
-                    {tag.tag_name}
+                    <Link href={`/search/${tag.id}`}>{tag.tag_name}</Link>
                   </div>
                 );
               })}

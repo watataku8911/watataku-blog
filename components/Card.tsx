@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "../styles/Card.module.css";
+import { split } from "../functions/function";
 
 type Props = {
   id: string;
@@ -9,15 +10,6 @@ type Props = {
 };
 
 const Footer = (props: Props) => {
-  const split = (body: string, maxLength: number): string => {
-    let modStr = "・・・";
-
-    if (body.length > maxLength) {
-      modStr = body.substr(0, maxLength) + "...";
-    }
-    return modStr;
-  };
-
   return (
     <>
       <Link href={`/blog/${props.id}`}>
@@ -26,10 +18,10 @@ const Footer = (props: Props) => {
             <img src={props.thumbnail} />
           </div>
           <div className={styles.title}>
-            <h2>{props.title}</h2>
+            <h2>{split(props.title, 20)}</h2>
           </div>
           <div className={styles.body}>
-            <p>{split(props.body, 10)}</p>
+            <p>{split(props.body, 15)}</p>
           </div>
         </div>
       </Link>
