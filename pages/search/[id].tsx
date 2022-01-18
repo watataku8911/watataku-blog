@@ -1,31 +1,31 @@
 import { client } from "../../seacretDirectory/seacret";
 
 import type {
-  InferGetStaticPropsType,
-  GetStaticPropsContext,
+  InferGetServerSidePropsType,
+  GetServerSidePropsContext,
   NextPage,
 } from "next";
-import type { Contents, Blog, Tags } from "../../types/blog";
+import type { BlogContents, Blog, Tags, TagsContents } from "../../types/blog";
 
 import styles from "../../styles/Home.module.css";
 import Head from "next/head";
 import Card from "../../components/Card";
 
-type Props = InferGetStaticPropsType<typeof getStaticProps>;
+type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
-export const getStaticPaths = async () => {
-  const data = await client.get({ endpoint: "tags" });
+export const getServerSidePaths = async () => {
+  const data: TagsContents = await client.get({ endpoint: "tags" });
 
   const paths = data.contents.map((content: Tags) => `/search/${content.id}`);
   return { paths, fallback: false };
 };
 
-export const getStaticProps = async (
-  context: GetStaticPropsContext<{ id: string }>
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext<{ id: string }>
 ) => {
   const id = context.params?.id;
 
-  const data: Contents = await client.get({
+  const data: BlogContents = await client.get({
     endpoint: "blog",
     queries: { filters: "tags[contains]" + id },
   });
@@ -40,7 +40,7 @@ export const getStaticProps = async (
   };
 };
 
-const Home: NextPage<Props> = ({ blogs }) => {
+const Search: NextPage<Props> = ({ blogs }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -48,21 +48,27 @@ const Home: NextPage<Props> = ({ blogs }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        {blogs.data.contents.map((blog: Blog) => {
-          return (
-            <Card
-              id={blog.id}
-              thumbnail={blog.thumbnail.url}
-              title={blog.title}
-              body={blog.body}
-              key={blog.id}
-            />
-          );
-        })}
-      </main>
+      {blogs.data.contents.length == 0 ? (
+        <main className={styles.main}>
+          <h2>このタグが付いている記事はありません。</h2>
+        </main>
+      ) : (
+        <main className={styles.main}>
+          {blogs.data.contents.map((blog: Blog) => {
+            return (
+              <Card
+                id={blog.id}
+                thumbnail={blog.thumbnail.url}
+                title={blog.title}
+                body={blog.body}
+                key={blog.id}
+              />
+            );
+          })}
+        </main>
+      )}
     </div>
   );
 };
 
-export default Home;
+export default Search;

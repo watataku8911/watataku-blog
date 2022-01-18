@@ -1,5 +1,11 @@
-export type Contents = {
+export type BlogContents = {
   contents: Blog[];
+  totalCount: number;
+  offset: number;
+  limit: number;
+};
+export type TagsContents = {
+  contents: Tags[];
   totalCount: number;
   offset: number;
   limit: number;

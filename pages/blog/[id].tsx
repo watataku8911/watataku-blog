@@ -5,7 +5,7 @@ import type {
   GetStaticPropsContext,
   NextPage,
 } from "next";
-import type { Blog, Tags } from "../../types/blog";
+import type { Blog, BlogContents, Tags } from "../../types/blog";
 
 import TwitterShare from "../../components/TwitterShare";
 import FacebookShare from "../../components/FacebookShare";
@@ -26,7 +26,7 @@ import { SITE_URL } from "../../libs/const";
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticPaths = async () => {
-  const data = await client.get({ endpoint: "blog" });
+  const data: BlogContents = await client.get({ endpoint: "blog" });
 
   const paths = data.contents.map((content: Blog) => `/blog/${content.id}`);
   return { paths, fallback: false };
