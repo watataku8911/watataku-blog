@@ -1,5 +1,14 @@
-export type Contents = {
+export type BlogContents = {
   contents: Blog[];
+  totalCount: number;
+  offset: number;
+  limit: number;
+};
+export type TagsContents = {
+  contents: Tags[];
+  totalCount: number;
+  offset: number;
+  limit: number;
 };
 
 export type Blog = {
@@ -11,6 +20,7 @@ export type Blog = {
   tags: Tags[];
   thumbnail: Thumbnail;
   title: string;
+  updatedAt: string;
 };
 
 export type Tags = {

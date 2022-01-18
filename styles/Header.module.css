@@ -34,9 +34,16 @@
   align-items: center;
 }
 
-.headerContainer a {
+.headerContainer h3 {
   font-size: 18px;
   font-family: "Bad Script", cursive;
+}
+
+.navi {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .headerContainer img {
