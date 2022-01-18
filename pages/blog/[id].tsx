@@ -14,6 +14,7 @@ import FacebookShare from "../../components/FacebookShare";
 import styles from "../../styles/Detail.module.css";
 
 import Link from "next/link";
+import Image from "next/image";
 import Head from "next/head";
 
 import IconPublish from "../../public/img/icon_calendar.svg";
@@ -48,6 +49,8 @@ export const getStaticProps = async (
 };
 
 const Detail: NextPage<Props> = ({ blog }) => {
+  console.log(blog.thumbnail.url);
+
   return (
     <>
       <Head>
@@ -69,7 +72,12 @@ const Detail: NextPage<Props> = ({ blog }) => {
 
       <main className={styles.detail}>
         <section className={styles.detailHeader}>
-          <img src={blog.thumbnail.url} width={100} height={80} />
+          <Image
+            src={blog.thumbnail.url}
+            width={100}
+            height={80}
+            alt={"サムネイル"}
+          />
           <h1 className={styles.detailTtl}>{blog.title}</h1>
           <div className={styles.dateArea}>
             <div className={styles.publishedAt}>

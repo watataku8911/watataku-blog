@@ -38,15 +38,20 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.headerContainer}>
         <h3>
-          <Link href={"/"}>Watataku's Blog</Link>
+          <Link href={"/"}>Watataku&apos;s Blog</Link>
         </h3>
         <nav className={styles.navi}>
-          <a href="https://watataku-portfolio.web.app" target="_blank">
+          <a
+            href="https://watataku-portfolio.web.app"
+            target="_blank"
+            rel="noreferrer"
+          >
             ABOUT
           </a>
           <a
             href="https://github.com/watataku8911/watataku-blog"
             target="_blank"
+            rel="noreferrer"
           >
             <IconGithub />
           </a>
