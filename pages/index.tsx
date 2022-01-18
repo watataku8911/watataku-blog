@@ -25,7 +25,7 @@ const Home: NextPage<Props> = ({ blogs }) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Watataku's ブログ</title>
+        <title>Watataku&apos;s ブログ</title>
         <meta name="description" content="Watataku's ブログです。" />
         <link rel="icon" href="/favicon.ico" />
 

@@ -8,7 +8,12 @@ type Props = {
 const RSSComponent = (props: Props) => {
   return (
     <p>
-      <a href={props.url} target="_blank" className={styles.shareLink}>
+      <a
+        href={props.url}
+        target="_blank"
+        rel="noreferrer"
+        className={styles.shareLink}
+      >
         <RSSFeed />
       </a>
     </p>

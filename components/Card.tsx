@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../styles/Card.module.css";
 import { split } from "../functions/function";
 
@@ -12,10 +13,15 @@ type Props = {
 const Footer = (props: Props) => {
   return (
     <>
-      <Link href={`/blog/${props.id}`}>
+      <Link href={`/blog/${props.id}`} passHref>
         <div className={styles.card}>
           <div className={styles.thumbnail}>
-            <img src={props.thumbnail} />
+            <Image
+              src={props.thumbnail}
+              width={248}
+              height={200}
+              alt={"サムネイル"}
+            />
           </div>
           <div className={styles.title}>
             <h2>{split(props.title, 20)}</h2>
