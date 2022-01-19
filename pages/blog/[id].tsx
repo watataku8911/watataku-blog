@@ -49,6 +49,7 @@ export const getStaticProps = async (
 };
 
 const Detail: NextPage<Props> = ({ blog }) => {
+  const blogUrl = "https://watataku-blog.vercel.app/" + blog.id;
   return (
     <>
       <Head>
@@ -58,7 +59,7 @@ const Detail: NextPage<Props> = ({ blog }) => {
 
         <meta property="og:description" content={blog.body} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://watataku-blog.vercel.app/" />
+        <meta property="og:url" content={blogUrl} />
         <meta property="og:image" content={blog.thumbnail.url} />
         <meta property="og:site_name" content={blog.title} />
 
