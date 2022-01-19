@@ -9,6 +9,7 @@ module.exports = {
     return config;
   },
   images: {
+    domains: ["images.microcms-assets.io"],
     disableStaticImages: true,
   },
   // webpack: (config, { isServer }) => {

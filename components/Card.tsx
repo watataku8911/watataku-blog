@@ -26,9 +26,6 @@ const Footer = (props: Props) => {
           <div className={styles.title}>
             <h2>{split(props.title, 20)}</h2>
           </div>
-          <div className={styles.body}>
-            <p>{split(props.body, 15)}</p>
-          </div>
         </div>
       </Link>
     </>

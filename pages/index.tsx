@@ -7,6 +7,8 @@ import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import Card from "../components/Card";
 
+import { SITE_URL, returnTitle, returnDiscription } from "../libs/const";
+
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticProps = async () => {
@@ -23,27 +25,30 @@ const Home: NextPage<Props> = ({ blogs }) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Watataku&apos;s ブログ</title>
-        <meta name="description" content="Watataku's ブログです。" />
+        <title>{returnTitle()}</title>
+        <meta
+          name="description"
+          content={returnDiscription("Watataku's ブログです。")}
+        />
         <link rel="icon" href="/favicon.ico" />
 
-        <meta property="og:description" content="Watataku's ブログです。" />
-        <meta property="og:type" content="website" />
         <meta
-          property="og:url"
-          content="https://watataku-portfolio.vercel.app/"
+          property="og:description"
+          content={returnDiscription("Watataku's ブログです。")}
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={SITE_URL} />
         <meta
           property="og:image"
           content="https://watataku-portfolio.web.app/img/Hight_main.67495da6.jpeg"
         />
-        <meta property="og:site_name" content="Watataku’s ブログ" />
+        <meta property="og:site_name" content={returnTitle()} />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Watataku’s ブログ" />
+        <meta name="twitter:title" content={returnTitle()} />
         <meta
           property="twitter:description"
-          content="Watataku's ブログです。"
+          content={returnDiscription("Watataku's ブログです。")}
         />
         <meta
           name="twitter:image:src"

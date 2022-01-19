@@ -2,12 +2,12 @@ import RSS from "rss";
 
 import { client } from "../seacretDirectory/seacret";
 import { Blog } from "../types/blog";
-import { SITE_URL, returnTitle } from "../libs/const";
+import { SITE_URL, returnTitle, returnDiscription } from "../libs/const";
 
 async function generateFeedXml() {
   const feed = new RSS({
     title: returnTitle(),
-    description: "",
+    description: returnDiscription(),
     site_url: `${SITE_URL}`,
     feed_url: `${SITE_URL}/feed`,
     language: "ja",
@@ -19,7 +19,7 @@ async function generateFeedXml() {
   posts?.forEach((post: Blog) => {
     feed.item({
       title: returnTitle(post.title),
-      description: post.body,
+      description: returnDiscription(post.body),
       date: new Date(post.createdAt),
       url: `${SITE_URL}/blog/${post.id}`,
     });

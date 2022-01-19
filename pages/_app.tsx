@@ -30,10 +30,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   const loadingComponent = <Loading />;
   return (
     <>
-      {pageLoading && loadingComponent}
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      {pageLoading ? (
+        loadingComponent
+      ) : (
+        <>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </>
+      )}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import RSSFeed from "../public/img/icon/icon_rss.svg";
+import RSSFeed from "../public/img/icon_rss.svg";
 import styles from "../styles/Share.module.css";
 
 type Props = {

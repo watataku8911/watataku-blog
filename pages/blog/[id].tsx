@@ -9,7 +9,7 @@ import type { Blog, BlogContents, Tags } from "../../types/blog";
 
 import TwitterShare from "../../components/TwitterShare";
 import FacebookShare from "../../components/FacebookShare";
-// import RSSComponent from "../../components/RSSComponent";
+//import RSSComponent from "../../components/RSSComponent";
 
 import styles from "../../styles/Detail.module.css";
 
@@ -22,7 +22,7 @@ import IconRevise from "../../public/img/icon_refresh.svg";
 import IconTag from "../../public/img/icon_tag_navy.svg";
 
 import { datePlasticSurgery } from "../../functions/function";
-import { SITE_URL } from "../../libs/const";
+import { SITE_URL, returnTitle, returnDiscription } from "../../libs/const";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -49,22 +49,29 @@ export const getStaticProps = async (
 };
 
 const Detail: NextPage<Props> = ({ blog }) => {
+  const blogUrl = SITE_URL + "/" + blog.id;
   return (
     <>
       <Head>
-        <title>{blog.title}</title>
-        <meta name="description" content={blog.body} />
+        <title>{returnTitle(blog.title)}</title>
+        <meta name="description" content={returnDiscription(blog.body)} />
         <link rel="icon" href="/favicon.ico" />
 
-        <meta property="og:description" content={blog.body} />
+        <meta
+          property="og:description"
+          content={returnDiscription(blog.body)}
+        />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://watataku-blog.vercel.app/" />
+        <meta property="og:url" content={blogUrl} />
         <meta property="og:image" content={blog.thumbnail.url} />
         <meta property="og:site_name" content={blog.title} />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blog.title} />
-        <meta property="twitter:description" content={blog.body} />
+        <meta name="twitter:title" content={returnTitle(blog.title)} />
+        <meta
+          property="twitter:description"
+          content={returnDiscription(blog.body)}
+        />
         <meta name="twitter:image:src" content={blog.thumbnail.url} />
       </Head>
 
