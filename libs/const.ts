@@ -8,3 +8,12 @@ export const returnTitle = (pageTitle?: string) => {
     return title;
   }
 };
+
+const description = "";
+export const returnDiscription = (pageDiscription?: string) => {
+  if (pageDiscription !== undefined) {
+    return `${pageDiscription} | ${description}`;
+  } else {
+    return description;
+  }
+};
