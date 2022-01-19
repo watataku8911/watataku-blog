@@ -49,8 +49,6 @@ export const getStaticProps = async (
 };
 
 const Detail: NextPage<Props> = ({ blog }) => {
-  console.log(blog.thumbnail.url);
-
   return (
     <>
       <Head>

@@ -3,8 +3,6 @@ import { client } from "../seacretDirectory/seacret";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import type { BlogContents, Blog } from "../types/blog";
 
-import IconSearch from "../public/img/icon_search.svg";
-
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import Card from "../components/Card";
@@ -52,7 +50,7 @@ const Home: NextPage<Props> = ({ blogs }) => {
           content="https://watataku-portfolio.web.app/img/Hight_main.67495da6.jpeg"
         />
       </Head>
-      <IconSearch />
+
       <main className={styles.main}>
         {blogs.map((blog: Blog) => {
           return (
