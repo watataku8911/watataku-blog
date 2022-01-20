@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [pageLoading, setPageLoading] = useState(false);
 
   useEffect(() => {
-    const handleStart = (url: any) =>
+    const handleStart = (url: string) =>
       url !== router.asPath && setPageLoading(true);
     const handleComplete = () => setPageLoading(false);
 
@@ -26,7 +26,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   });
 
-  // TODO 正式なローディングコンポーネントにする
   const loadingComponent = <Loading />;
   return (
     <>
