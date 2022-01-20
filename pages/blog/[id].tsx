@@ -1,4 +1,4 @@
-import { client } from "../../seacretDirectory/seacret";
+import { client, GA_ID } from "../../seacretDirectory/seacret";
 
 import type {
   InferGetStaticPropsType,
@@ -73,6 +73,24 @@ const Detail: NextPage<Props> = ({ blog }) => {
           content={returnDiscription(blog.body)}
         />
         <meta name="twitter:image:src" content={blog.thumbnail.url} />
+
+        {/* Google Analytics  */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', {
+              page_path: window.location.pathname,
+            });
+        `,
+          }}
+        />
       </Head>
 
       <main className={styles.detail}>
