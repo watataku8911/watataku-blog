@@ -2,7 +2,6 @@ import { client } from "../seacretDirectory/seacret";
 import Link from "next/link";
 import styles from "../styles/Header.module.css";
 import IconSearch from "../public/img/icon_search.svg";
-import IconGithub from "../public/img/icon_github.svg";
 import { useState, useCallback, useEffect } from "react";
 import Modal from "./Modal";
 import { TagsContents, Tags } from "../types/blog";
@@ -41,21 +40,6 @@ const Header = () => {
           <Link href={"/"}>Watataku&apos;s Blog</Link>
         </h3>
         <nav className={styles.navi}>
-          <a
-            href="https://watataku-portfolio.web.app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            ABOUT
-          </a>
-          <a
-            href="https://github.com/watataku8911/watataku-blog"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <IconGithub />
-          </a>
-
           <IconSearch onClick={handleOpen} />
           <Modal
             open={open}
@@ -63,6 +47,14 @@ const Header = () => {
             tags={tags}
             handleClose={handleClose}
           />
+          <a
+            href="https://watataku-portfolio.web.app"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.about}
+          >
+            ABOUT
+          </a>
         </nav>
       </div>
     </header>
