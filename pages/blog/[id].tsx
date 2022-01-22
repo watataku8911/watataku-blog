@@ -139,7 +139,9 @@ const Detail: NextPage<Props> = ({ blog }) => {
 
           <section className={styles.detailContent}>
             <div dangerouslySetInnerHTML={{ __html: blog.body }} />
-            <Link href="/">一覧へ戻る</Link>
+            <p className={styles.center}>
+              <Link href="/">一覧へ戻る</Link>
+            </p>
           </section>
 
           <section className={styles.tagArea}>
@@ -147,7 +149,7 @@ const Detail: NextPage<Props> = ({ blog }) => {
             <div className={styles.tagList}>
               {blog.tags.map((tag: Tags) => {
                 return (
-                  <div key={tag.id}>
+                  <div key={tag.id} className={styles.tag}>
                     <IconTag />
                     <Link href={`/search/${tag.id}`}>{tag.tag_name}</Link>
                   </div>
