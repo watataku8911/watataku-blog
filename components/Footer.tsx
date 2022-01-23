@@ -1,16 +1,6 @@
 import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
-  return (
-    <footer className={styles.footer}>
-      <a
-        href="https://watataku-portfolio.web.app"
-        target="_blank"
-        rel="noreferrer"
-      >
-        &copy;Watataku.
-      </a>
-    </footer>
-  );
+  return <footer className={styles.footer}>&copy;Watataku.</footer>;
 };
 export default Footer;
