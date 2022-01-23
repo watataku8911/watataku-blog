@@ -24,11 +24,18 @@ export const getServerSideProps = async (
   context: GetServerSidePropsContext<{ id: string }>
 ) => {
   const id = context.params?.id;
+  let data: BlogContents;
 
-  const data: BlogContents = await client.get({
-    endpoint: "blog",
-    queries: { filters: "tags[contains]" + id },
-  });
+  if (id === "all") {
+    data = await client.get({
+      endpoint: "blog",
+    });
+  } else {
+    data = await client.get({
+      endpoint: "blog",
+      queries: { filters: "tags[contains]" + id },
+    });
+  }
 
   return {
     props: {

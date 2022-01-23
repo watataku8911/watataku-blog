@@ -1,5 +1,4 @@
 import { client } from "../seacretDirectory/seacret";
-import Link from "next/link";
 import styles from "../styles/Header.module.css";
 import IconSearch from "../public/img/icon_search.svg";
 import { useState, useCallback, useEffect } from "react";
@@ -36,9 +35,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
-        <h3>
-          <Link href={"/"}>Watataku&apos;s Blog</Link>
-        </h3>
+        <h3>Watataku&apos;s Blog</h3>
         <nav className={styles.navi}>
           <IconSearch onClick={handleOpen} />
           <Modal
