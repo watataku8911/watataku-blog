@@ -40,12 +40,15 @@
 }
 
 .detailContent pre code {
+  background-color: transparent;
   font-size: 18px;
   font-style: normal;
   color: #e0efff;
 }
 
 .detailContent code {
+  background-color: #eee;
+  color: rgb(224, 120, 120);
   font-style: italic;
 }
 
@@ -64,6 +67,10 @@
   font-size: 18px;
   letter-spacing: 1px;
   line-height: 4.5vh;
+}
+
+.detailContent img {
+  max-width: 100%;
 }
 
 .center {

@@ -8,11 +8,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/gtag.js": "^0.0.8",
     "date-fns": "^2.28.0",
     "feed": "^4.2.2",
     "fs": "^0.0.1-security",
     "microcms-js-sdk": "^2.0.0",
     "next": "12.0.7",
+    "next-pwa": "^5.4.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "rss": "^1.2.2"
