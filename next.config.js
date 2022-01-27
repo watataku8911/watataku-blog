@@ -1,14 +1,12 @@
-/** @type {import('next').NextConfig} */
 const withPWA = require("next-pwa");
 
 module.exports = withPWA({
   pwa: {
     dest: "public",
-    runtimeCaching: [],
+    buildExcludes: [/middleware-manifest.json$/], // 追加
+    register: true,
+    skipWaiting: true,
   },
-});
-
-module.exports = {
   reactStrictMode: true,
   webpack: (config) => {
     config.module.rules.push({
@@ -21,14 +19,4 @@ module.exports = {
     domains: ["images.microcms-assets.io"],
     disableStaticImages: true,
   },
-  // webpack: (config, { isServer }) => {
-  //   // Fixes npm packages that depend on `fs` module
-  //   if (!isServer) {
-  //     config.node = {
-  //       fs: "empty",
-  //     };
-  //   }
-
-  //   return config;
-  // },
-};
+});
