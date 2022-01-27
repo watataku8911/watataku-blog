@@ -1,4 +1,4 @@
-import { client, GA_ID } from "../seacretDirectory/seacret";
+import { client } from "../seacretDirectory/seacret";
 
 import type { InferGetStaticPropsType, NextPage } from "next";
 import type { BlogContents, Blog } from "../types/blog";
@@ -53,23 +53,6 @@ const Home: NextPage<Props> = ({ blogs }) => {
         <meta
           name="twitter:image:src"
           content="https://watataku-portfolio.web.app/img/Hight_main.67495da6.jpeg"
-        />
-        {/* Google Analytics  */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', {
-              page_path: window.location.pathname,
-            });
-        `,
-          }}
         />
       </Head>
 
