@@ -9,7 +9,7 @@ import type { Blog, BlogContents, Tags } from "../../types/blog";
 
 import TwitterShare from "../../components/TwitterShare";
 import FacebookShare from "../../components/FacebookShare";
-//import RSSComponent from "../../components/RSSComponent";
+// import RSSComponent from "../../components/RSSComponent";
 
 import styles from "../../styles/Detail.module.css";
 
