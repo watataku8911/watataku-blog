@@ -1,0 +1,113 @@
+.errorPage {
+  text-align: center;
+  min-height: calc(95vh - 135px);
+}
+
+@media screen and (min-width: 1026px) {
+  .errorPage span {
+    letter-spacing: 5px;
+    font-size: 4em;
+    color: red;
+  }
+
+  .errorPage h2 {
+    font-size: 2em;
+  }
+
+  .errorPage p {
+    letter-spacing: 1px;
+    font-size: 1.5em;
+  }
+
+  .errorPage ul {
+    margin-bottom: 20px;
+    margin: auto;
+    text-align: left;
+    width: 55%;
+    border: solid 3px #111;
+    padding: 3%;
+  }
+
+  .errorPage a {
+    width: 15%;
+    display: block;
+    color: #00f;
+    margin-left: auto;
+  }
+
+  .errorPage li {
+    letter-spacing: 1px;
+    line-height: 3vh;
+  }
+}
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .errorPage span {
+    letter-spacing: 5px;
+    font-size: 4em;
+    color: red;
+  }
+
+  .errorPage h2 {
+    font-size: 2em;
+  }
+
+  .errorPage p {
+    letter-spacing: 1px;
+    font-size: 1.5em;
+  }
+
+  .errorPage ul {
+    margin-bottom: 20px;
+    margin: auto;
+    text-align: left;
+    width: 65%;
+    border: solid 3px #111;
+    padding: 3%;
+  }
+
+  .errorPage a {
+    width: 15%;
+    display: block;
+    color: #00f;
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .errorPage span {
+    letter-spacing: 5px;
+    font-size: 3em;
+    color: red;
+  }
+
+  .errorPage h2 {
+    font-size: 1.5em;
+  }
+
+  .errorPage p {
+    letter-spacing: 1px;
+    font-size: 1em;
+  }
+
+  .errorPage ul {
+    margin-bottom: 20px;
+    margin: auto;
+    text-align: left;
+    width: 85%;
+    padding: 3%;
+    border: solid 3px #111;
+  }
+
+  .errorPage a {
+    display: block;
+    color: #00f;
+    margin-left: auto;
+  }
+
+  .errorPage li {
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 3vh;
+    list-style: none;
+  }
+}
