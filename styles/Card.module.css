@@ -2,7 +2,7 @@
   .card {
     margin-top: 20px;
     width: 250px;
-    height: 300px;
+    height: 320px;
     border: solid 1px #000;
     box-shadow: 22px 16px 27px -3px rgba(0, 0, 0, 0.6);
     border-radius: 20px;
@@ -20,6 +20,24 @@
     border-top-right-radius: 20px;
     width: 100% !important;
     height: 199px !important;
+  }
+
+  .tags {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    height: 30px;
+  }
+
+  .tag {
+    border: solid 1px #5bbee5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    margin-left: 8px;
+    margin-bottom: 4px;
+    padding: 2px;
   }
 }
 
@@ -36,7 +54,7 @@
   }
 
   .thumbnail {
-    height: 300px;
+    height: 250px;
     border-bottom: solid 1px #000;
   }
 
@@ -44,7 +62,25 @@
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     width: 100% !important;
-    height: 299px !important;
+    height: 249px !important;
+  }
+
+  .tags {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    height: 30px;
+  }
+
+  .tag {
+    border: solid 1px #5bbee5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    margin-left: 8px;
+    margin-bottom: 4px;
+    padding: 2px;
   }
 }
 
@@ -52,7 +88,7 @@
   .card {
     margin-top: 20px;
     width: 250px;
-    height: 300px;
+    height: 350px;
     border: solid 1px #000;
     box-shadow: 22px 16px 27px -3px rgba(0, 0, 0, 0.6);
     border-radius: 20px;
@@ -62,7 +98,7 @@
   }
 
   .thumbnail {
-    height: 200px;
+    height: 220px;
     border-bottom: solid 1px #000;
   }
 
@@ -70,16 +106,30 @@
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     width: 100% !important;
-    height: 199px !important;
+    height: 219px !important;
+  }
+
+  .tags {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    height: 30px;
+  }
+
+  .tag {
+    border: solid 1px #5bbee5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    margin-left: 8px;
+    margin-bottom: 4px;
+    padding: 2px;
   }
 }
 
 .card:hover {
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.6);
-}
-
-.title {
-  height: 50px;
 }
 
 .title h2 {

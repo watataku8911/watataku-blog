@@ -16,3 +16,7 @@ export const split = (text: string, maxLength: number): string => {
   }
   return modStr;
 };
+
+//ページング計算
+export const range = (start: number, end: number) =>
+  [...Array(end - start + 1)].map((_, i) => start + i);
