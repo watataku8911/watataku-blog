@@ -24,7 +24,7 @@ const Header = () => {
     const data: TagsContents = await client.get({
       endpoint: "tags",
       queries: {
-        limit: 12,
+        limit: 15,
       },
     });
     return data.contents;

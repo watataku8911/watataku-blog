@@ -14,3 +14,20 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#listh1 {
+  font-size: 2em;
+  list-style: square;
+}
+
+#listh2 {
+  font-size: 1.3em;
+  margin-left: 15px;
+  list-style: circle;
+}
+
+#listh3 {
+  font-size: 1.15em;
+  list-style: circle;
+  margin-left: 25px;
+}
