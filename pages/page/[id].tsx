@@ -20,7 +20,9 @@ const PER_PAGE = 20;
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticPaths = async () => {
-  const data: BlogContents = await client.get({ endpoint: "blog" });
+  const data: BlogContents = await client.get({
+    endpoint: "blog",
+  });
 
   const paths = range(1, Math.ceil(data.totalCount / PER_PAGE)).map(
     (repo) => `/page/${repo}`
@@ -57,7 +59,7 @@ const Home: NextPage<Props> = ({ blogs, totalCount }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={styles.main} id="main">
         {blogs.map((blog: Blog) => {
           return (
             <Card

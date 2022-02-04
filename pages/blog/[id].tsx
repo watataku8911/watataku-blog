@@ -17,6 +17,10 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 
+import cheerio from "cheerio";
+import hljs from "highlight.js";
+import "highlight.js/styles/hybrid.css";
+
 import IconPublish from "../../public/img/icon_calendar.svg";
 import IconRevise from "../../public/img/icon_refresh.svg";
 import IconTag from "../../public/img/icon_tag_navy.svg";
@@ -41,14 +45,32 @@ export const getStaticProps = async (
     contentId: context.params?.id,
   });
 
+  const $ = cheerio.load(data.body);
+
+  $("pre code").each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text());
+    $(elm).html(result.value);
+    $(elm).addClass("hljs");
+  });
+
+  const headings = $("h1, h2, h3").toArray();
+
+  const toc = headings.map((data: any) => ({
+    text: data.children[0].data,
+    id: data.attribs.id,
+    name: data.name,
+  }));
+
   return {
     props: {
       blog: data,
+      highlightedBody: $.html(),
+      toc,
     },
   };
 };
 
-const Detail: NextPage<Props> = ({ blog }) => {
+const Detail: NextPage<Props> = ({ blog, highlightedBody, toc }) => {
   const blogUrl = SITE_URL + "/" + blog.id;
   return (
     <>
@@ -120,25 +142,44 @@ const Detail: NextPage<Props> = ({ blog }) => {
           </section>
 
           <section className={styles.detailContent}>
-            <div dangerouslySetInnerHTML={{ __html: blog.body }} />
+            <div dangerouslySetInnerHTML={{ __html: highlightedBody }} />
             <p className={styles.center}>
               <Link href="/">一覧へ戻る</Link>
             </p>
           </section>
 
-          <section className={styles.tagArea}>
-            <h1>Tags</h1>
-            <div className={styles.tagList}>
-              {blog.tags.map((tag: Tags) => {
-                return (
-                  <div key={tag.id} className={styles.tag}>
-                    <IconTag />
-                    <Link href={`/search/${tag.id}`}>{tag.tag_name}</Link>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
+          <div className={styles.sideBar}>
+            <section className={styles.tagArea}>
+              <h1>Tags</h1>
+              <div className={styles.tagList}>
+                {blog.tags.map((tag: Tags) => {
+                  return (
+                    <div key={tag.id} className={styles.tag}>
+                      <IconTag />
+                      <Link href={`/search/${tag.id}/page/1`}>
+                        {tag.tag_name}
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            <section className={styles.toc}>
+              <h1>目次</h1>
+              <div className={styles.tocList}>
+                <ul id="lists" className={styles.lists}>
+                  {toc.map((toc, index) => (
+                    <li id={"list" + toc.name} key={index}>
+                      <div className={styles.listContents}>
+                        <a href={"#" + toc.id}>{toc.text}</a>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          </div>
         </div>
       </main>
     </>

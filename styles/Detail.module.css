@@ -60,7 +60,6 @@
 .detailContent p {
   font-size: 18px;
   letter-spacing: 1px;
-  line-height: 3.5vh;
 }
 
 .detailContent li {
@@ -82,9 +81,10 @@
   letter-spacing: 1px;
   color: #222;
 }
+
 @media screen and (min-width: 1026px) {
   .mainContents {
-    width: 80%;
+    width: 85%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -109,10 +109,17 @@
   }
 
   .tagArea {
-    width: 20%;
+    padding: 1%;
     height: 200px;
     border-radius: 20px;
     background-color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .toc {
+    padding: 1%;
+    background-color: #fff;
+    border-radius: 20px;
   }
 
   .dateArea {
@@ -136,6 +143,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .sideBar {
+    width: 300px;
   }
 }
 
@@ -196,6 +207,11 @@
     color: #333;
   }
 
+  .toc {
+    padding: 1%;
+    background-color: #fff;
+  }
+
   .publishedAt {
     font-size: 0.8em;
     width: 30%;
@@ -210,6 +226,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .sideBar {
+    width: 100%;
   }
 }
 
@@ -268,6 +288,11 @@
     padding-bottom: 10px;
   }
 
+  .toc {
+    padding: 1%;
+    background-color: #fff;
+  }
+
   .dateArea {
     width: 90%;
     margin: auto;
@@ -279,7 +304,7 @@
 
   .publishedAt {
     font-size: 0.2em;
-    width: 35%;
+    width: 38%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -287,9 +312,13 @@
 
   .revisedAt {
     font-size: 0.2em;
-    width: 35%;
+    width: 38%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .sideBar {
+    width: 100%;
   }
 }

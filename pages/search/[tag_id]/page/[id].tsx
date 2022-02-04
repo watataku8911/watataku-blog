@@ -22,8 +22,15 @@ const PER_PAGE = 20;
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticPaths = async () => {
-  const data: BlogContents = await client.get({ endpoint: "blog" });
-  const tagData: TagsContents = await client.get({ endpoint: "tags" });
+  const data: BlogContents = await client.get({
+    endpoint: "blog",
+  });
+  const tagData: TagsContents = await client.get({
+    endpoint: "tags",
+    queries: {
+      limit: 15,
+    },
+  });
 
   const pageArray = range(1, Math.ceil(data.totalCount / PER_PAGE)).map(
     (repo) => {
@@ -84,7 +91,7 @@ const Home: NextPage<Props> = ({ tagId, blogs, totalCount }) => {
           <h2>このタグが付いている記事はありません。</h2>
         </main>
       ) : (
-        <main className={styles.main}>
+        <main className={styles.main} id="main">
           {blogs.map((blog: Blog) => {
             return (
               <Card
