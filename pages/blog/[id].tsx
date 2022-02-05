@@ -53,24 +53,24 @@ export const getStaticProps = async (
     $(elm).addClass("hljs");
   });
 
-  // const headings = $("h1, h2, h3").toArray();
+  const headings = $("h1, h2, h3").toArray();
 
-  // const toc = headings.map((data: any) => ({
-  //   text: data.children[0].data,
-  //   id: data.attribs.id,
-  //   name: data.name,
-  // }));
+  const toc = headings.map((data: any) => ({
+    text: data.children[0].data,
+    id: data.attribs.id,
+    name: data.name,
+  }));
 
   return {
     props: {
       blog: data,
       highlightedBody: $.html(),
-      //toc,
+      toc,
     },
   };
 };
 
-const Detail: NextPage<Props> = ({ blog, highlightedBody }) => {
+const Detail: NextPage<Props> = ({ blog, highlightedBody, toc }) => {
   const blogUrl = SITE_URL + "/" + blog.id;
   return (
     <>
@@ -165,7 +165,7 @@ const Detail: NextPage<Props> = ({ blog, highlightedBody }) => {
               </div>
             </section>
 
-            {/* <section className={styles.toc}>
+            <section className={styles.toc}>
               <h1>目次</h1>
               <div className={styles.tocList}>
                 <ul id="lists" className={styles.lists}>
@@ -178,7 +178,7 @@ const Detail: NextPage<Props> = ({ blog, highlightedBody }) => {
                   ))}
                 </ul>
               </div>
-            </section> */}
+            </section>
           </div>
         </div>
       </main>
