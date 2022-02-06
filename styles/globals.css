@@ -16,18 +16,30 @@ a {
 }
 
 #listh1 {
-  font-size: 2em;
+  font-size: 1.2em;
   list-style: square;
 }
 
 #listh2 {
-  font-size: 1.3em;
+  font-size: 1em;
   margin-left: 15px;
   list-style: circle;
 }
 
 #listh3 {
-  font-size: 1.15em;
+  font-size: 0.8em;
   list-style: circle;
   margin-left: 25px;
+}
+
+#listh {
+  font-size: 0.8em;
+  list-style: circle;
+  margin-left: 35px;
+}
+
+#listh5 {
+  font-size: 0.8em;
+  list-style: circle;
+  margin-left: 45px;
 }
