@@ -84,7 +84,7 @@
 
 @media screen and (min-width: 1026px) {
   .mainContents {
-    width: 85%;
+    width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -114,6 +114,10 @@
     border-radius: 20px;
     background-color: #fff;
     margin-bottom: 20px;
+  }
+
+  .tag {
+    margin-left: 20px;
   }
 
   .toc {
@@ -146,7 +150,7 @@
   }
 
   .sideBar {
-    width: 300px;
+    width: 350px;
   }
 }
 

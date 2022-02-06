@@ -53,7 +53,7 @@ export const getStaticProps = async (
     $(elm).addClass("hljs");
   });
 
-  const headings = $("h1, h2, h3").toArray();
+  const headings = $("h1, h2, h3, h4, h5").toArray();
 
   const toc = headings.map((data: any) => ({
     text: data.children[0].data,
