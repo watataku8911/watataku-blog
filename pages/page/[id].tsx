@@ -15,7 +15,7 @@ import Pagination from "../../components/Pagination";
 import { returnTitle } from "../../libs/const";
 import { range } from "../../functions/function";
 
-const PER_PAGE = 20;
+const PER_PAGE = 15;
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 

@@ -15,30 +15,30 @@ a {
   box-sizing: border-box;
 }
 
-#listh1 {
+#list-h1 {
   font-size: 1.2em;
   list-style: square;
 }
 
-#listh2 {
+#list-h2 {
   font-size: 1em;
   margin-left: 15px;
   list-style: circle;
 }
 
-#listh3 {
+#list-h3 {
   font-size: 0.8em;
   list-style: circle;
   margin-left: 25px;
 }
 
-#listh {
+#list-h4 {
   font-size: 0.8em;
   list-style: circle;
   margin-left: 35px;
 }
 
-#listh5 {
+#list-h5 {
   font-size: 0.8em;
   list-style: circle;
   margin-left: 45px;

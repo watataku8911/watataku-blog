@@ -17,7 +17,7 @@ import type {
   Tags,
 } from "../../../../types/blog";
 
-const PER_PAGE = 20;
+const PER_PAGE = 15;
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
