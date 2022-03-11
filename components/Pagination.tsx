@@ -8,7 +8,7 @@ type Props = {
   tag_id?: string;
 };
 const Pagination = (props: Props) => {
-  const PER_PAGE = 20;
+  const PER_PAGE = 15;
 
   return (
     <div className={styles.pagination}>

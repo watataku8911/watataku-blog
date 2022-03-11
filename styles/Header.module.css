@@ -40,7 +40,7 @@
 @media screen and (min-width: 1026px) {
   .headerContainer {
     margin-top: 20px;
-    width: 80%;
+    width: 1000px;
     height: 70px;
     margin: auto;
     display: flex;
@@ -59,7 +59,7 @@
 @media screen and (min-width: 482px) and (max-width: 1025px) {
   .headerContainer {
     margin-top: 20px;
-    width: 80%;
+    width: 600px;
     height: 70px;
     margin: auto;
     display: flex;
