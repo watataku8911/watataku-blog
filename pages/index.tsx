@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
   const data: BlogContents = await client.get({
     endpoint: "blog",
     queries: {
-      limit: 20,
+      limit: 15,
     },
   });
 
@@ -77,7 +77,7 @@ const Home: NextPage<Props> = ({ blogs, totalCount }) => {
           );
         })}
       </main>
-      {totalCount >= 20 && <Pagination totalCount={totalCount} />}
+      {totalCount >= 15 && <Pagination totalCount={totalCount} />}
     </div>
   );
 };

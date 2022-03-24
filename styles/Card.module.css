@@ -42,23 +42,23 @@
 @media screen and (min-width: 482px) and (max-width: 1025px) {
   .card {
     margin-top: 20px;
-    width: 320px;
-    height: 400px;
+    width: 220px;
+    height: 330px;
     border: solid 1px #000;
     box-shadow: 22px 16px 27px -3px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
   }
 
   .thumbnail {
-    height: 250px;
+    height: 180px;
     border-bottom: solid 1px #000;
   }
 
   .thumbnail img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    width: 319px !important;
-    height: 249px !important;
+    width: 219px !important;
+    height: 179px !important;
   }
 
   .tags {
