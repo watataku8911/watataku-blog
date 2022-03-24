@@ -19,7 +19,7 @@
 
 .thumbnail {
   width: 100px;
-  height: 80px;
+  height: 82px;
   border: solid 1px #000;
   margin: 0 auto;
   background-color: #fff;
@@ -100,7 +100,7 @@
 
   .detailContent {
     letter-spacing: 1px;
-    width: 65%;
+    width: 60%;
     background-color: #fff;
     border-radius: 20px;
     padding-top: 1%;
@@ -110,7 +110,7 @@
   }
 
   .snsArea {
-    width: 15px;
+    width: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;

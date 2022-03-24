@@ -104,7 +104,7 @@ const Home: NextPage<Props> = ({ tagId, blogs, totalCount }) => {
               />
             );
           })}
-          {totalCount >= 20 && (
+          {totalCount >= 15 && (
             <div className={styles.paginate}>
               <Pagination totalCount={totalCount} tag_id={tagId} />
             </div>
