@@ -31,14 +31,15 @@ import { SITE_URL, returnTitle, returnDiscription } from "../../libs/const";
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticPaths = async () => {
-  const data: BlogContents = await client.get({
-    endpoint: "blog",
-    queries: {
-      limit: 999,
-    },
-  });
 
-  const paths = data.contents.map((content: Blog) => `/blog/${content.id}`);
+const data: BlogContents = await client.get({ 
+  endpoint: "blog",
+  queries: {
+    limit: 999,
+  },
+});
+
+ const paths = data.contents.map((content: Blog) => `/blog/${content.id}`);
   return { paths, fallback: false };
 };
 
