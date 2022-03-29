@@ -12,11 +12,13 @@ import { SITE_URL, returnTitle, returnDiscription } from "../libs/const";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
+const PER_PAGE = 9;
+
 export const getStaticProps = async () => {
   const data: BlogContents = await client.get({
     endpoint: "blog",
     queries: {
-      limit: 15,
+      limit: PER_PAGE,
     },
   });
 
@@ -77,7 +79,7 @@ const Home: NextPage<Props> = ({ blogs, totalCount }) => {
           );
         })}
       </main>
-      {totalCount >= 15 && <Pagination totalCount={totalCount} />}
+      {totalCount >= PER_PAGE && <Pagination totalCount={totalCount} />}
     </div>
   );
 };

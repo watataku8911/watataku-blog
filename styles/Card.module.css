@@ -42,8 +42,8 @@
 @media screen and (min-width: 482px) and (max-width: 1025px) {
   .card {
     margin-top: 20px;
-    width: 220px;
-    height: 330px;
+    width: 31%;
+    height: 350px;
     border: solid 1px #000;
     box-shadow: 22px 16px 27px -3px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
