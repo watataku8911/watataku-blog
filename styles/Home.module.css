@@ -1,9 +1,9 @@
 @media screen and (min-width: 1026px) {
   .main {
-    min-height: calc(100vh - 140px);
+    min-height: calc(100vh - 160px);
     display: flex;
     flex-wrap: wrap;
-    width: 1000px;
+    width: 950px;
     justify-content: space-between;
     margin: auto;
     text-align: center;
@@ -22,20 +22,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 720px;
+    width: 90%;
     margin: auto;
     text-align: center;
+  }
+  .main::after {
+    display: block;
+    content: "";
+    width: 31%;
   }
 }
 
 @media screen and (max-width: 481px) {
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-  }
-
   .main {
     min-height: calc(100vh - 140px);
     display: flex;

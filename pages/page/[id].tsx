@@ -15,7 +15,7 @@ import Pagination from "../../components/Pagination";
 import { returnTitle } from "../../libs/const";
 import { range } from "../../functions/function";
 
-const PER_PAGE = 15;
+const PER_PAGE = 9;
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -74,7 +74,7 @@ const Home: NextPage<Props> = ({ blogs, totalCount }) => {
         })}
       </main>
 
-      {totalCount >= 15 && <Pagination totalCount={totalCount} />}
+      {totalCount >= PER_PAGE && <Pagination totalCount={totalCount} />}
     </div>
   );
 };

@@ -10,14 +10,9 @@ import type {
   NextPage,
   GetStaticPropsContext,
 } from "next";
-import type {
-  BlogContents,
-  Blog,
-  TagsContents,
-  Tags,
-} from "../../../../types/blog";
+import type { BlogContents, Blog, TagsContents } from "../../../../types/blog";
 
-const PER_PAGE = 15;
+const PER_PAGE = 9;
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -32,17 +27,11 @@ export const getStaticPaths = async () => {
     },
   });
 
-  const pageArray = range(1, Math.ceil(data.totalCount / PER_PAGE)).map(
-    (repo) => {
-      return repo;
-    }
-  );
-
   const paths = tagData.contents.map((tag) => {
     return {
       params: {
         tag_id: tag.id,
-        id: pageArray.toString(),
+        id: "1",
       },
     };
   });
@@ -104,10 +93,8 @@ const Home: NextPage<Props> = ({ tagId, blogs, totalCount }) => {
               />
             );
           })}
-          {totalCount >= 15 && (
-            <div className={styles.paginate}>
-              <Pagination totalCount={totalCount} tag_id={tagId} />
-            </div>
+          {totalCount >= PER_PAGE && (
+            <Pagination totalCount={totalCount} tag_id={tagId} />
           )}
         </main>
       )}

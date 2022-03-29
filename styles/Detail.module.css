@@ -135,7 +135,7 @@
   }
 
   .dateArea {
-    width: 50%;
+    width: 700px;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -144,14 +144,14 @@
   }
 
   .publishedAt {
-    width: 30%;
+    width: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   .revisedAt {
-    width: 30%;
+    width: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -211,7 +211,7 @@
   }
 
   .dateArea {
-    width: 65%;
+    width: 550px;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -225,16 +225,14 @@
   }
 
   .publishedAt {
-    font-size: 0.8em;
-    width: 30%;
+    width: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   .revisedAt {
-    font-size: 0.8em;
-    width: 30%;
+    width: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -306,7 +304,7 @@
   }
 
   .dateArea {
-    width: 90%;
+    width: 100%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -315,18 +313,17 @@
   }
 
   .publishedAt {
-    font-size: 0.2em;
-    width: 38%;
+    font-size: 1em;
+    width: 180px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
 
   .revisedAt {
-    font-size: 0.2em;
-    width: 38%;
+    width: 180px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
 
