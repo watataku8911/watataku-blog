@@ -10,6 +10,7 @@ import type { Blog, BlogContents, Tags } from "../../types/blog";
 import TwitterShare from "../../components/TwitterShare";
 import FacebookShare from "../../components/FacebookShare";
 // import RSSComponent from "../../components/RSSComponent";
+import Card from "../../components/Card";
 
 import styles from "../../styles/Detail.module.css";
 
@@ -67,8 +68,17 @@ export const getStaticProps = async (
     name: data.name,
   }));
 
+  const dataList: BlogContents = await client.get({
+    endpoint: "blog",
+    queries: {
+      orders: "-publishedAt",
+      limit: 6,
+    },
+  });
+
   return {
     props: {
+      blogs: dataList.contents,
       blog: data,
       highlightedBody: $.html(),
       toc,
@@ -76,7 +86,7 @@ export const getStaticProps = async (
   };
 };
 
-const Detail: NextPage<Props> = ({ blog, highlightedBody, toc }) => {
+const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
   const blogUrl = SITE_URL + "/" + blog.id;
   return (
     <>
@@ -151,9 +161,6 @@ const Detail: NextPage<Props> = ({ blog, highlightedBody, toc }) => {
 
           <section className={styles.detailContent}>
             <div dangerouslySetInnerHTML={{ __html: highlightedBody }} />
-            <p className={styles.center}>
-              <Link href="/">一覧へ戻る</Link>
-            </p>
           </section>
 
           <div className={styles.sideBar}>
@@ -188,6 +195,21 @@ const Detail: NextPage<Props> = ({ blog, highlightedBody, toc }) => {
               </div>
             </section>
           </div>
+        </div>
+
+        <div className={styles.main}>
+          {blogs.map((blog: Blog) => {
+            return (
+              <Card
+                id={blog.id}
+                thumbnail={blog.thumbnail.url}
+                title={blog.title}
+                body={blog.body}
+                tags={blog.tags}
+                key={blog.id}
+              />
+            );
+          })}
         </div>
       </main>
     </>

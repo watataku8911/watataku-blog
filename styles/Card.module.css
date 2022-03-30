@@ -1,11 +1,13 @@
 @media screen and (min-width: 1025px) {
   .card {
+    background-color: #fff;
     margin-top: 20px;
     width: 300px;
-    height: 320px;
+    height: 330px;
     border: solid 1px #000;
-    box-shadow: 22px 16px 27px -3px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
+    box-shadow: 0px 8px 16px -2px rgba(10, 10, 10, 0.1),
+      13px 14px 8px 1px rgba(10, 10, 10, 0.02);
+    border-radius: 5px;
   }
 
   .thumbnail {
@@ -14,8 +16,8 @@
   }
 
   .thumbnail img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     width: 399px !important;
     height: 199px !important;
   }
@@ -41,12 +43,14 @@
 
 @media screen and (min-width: 482px) and (max-width: 1025px) {
   .card {
+    background-color: #fff;
     margin-top: 20px;
     width: 31%;
     height: 350px;
     border: solid 1px #000;
-    box-shadow: 22px 16px 27px -3px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
+    box-shadow: 0px 8px 16px -2px rgba(10, 10, 10, 0.1),
+      13px 14px 8px 1px rgba(10, 10, 10, 0.02);
+    border-radius: 5px;
   }
 
   .thumbnail {
@@ -55,9 +59,9 @@
   }
 
   .thumbnail img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    width: 219px !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: cakc(32% - 1px) !important;
     height: 179px !important;
   }
 
@@ -82,11 +86,13 @@
 
 @media screen and (max-width: 481px) {
   .card {
+    background-color: #fff;
     margin-top: 10px;
     width: 350px;
-    height: 380px;
+    height: 350px;
     border: solid 1px #000;
-    box-shadow: 22px 16px 27px -3px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 8px 16px -2px rgba(10, 10, 10, 0.1),
+      13px 14px 8px 1px rgba(10, 10, 10, 0.02);
     border-radius: 5px;
     margin-left: 25px;
     margin-right: 25px;
@@ -125,7 +131,7 @@
 }
 
 .card:hover {
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.6);
+  transform: translate(0, -5.5px);
 }
 
 .title h2 {

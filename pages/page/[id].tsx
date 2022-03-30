@@ -38,6 +38,7 @@ export const getStaticProps = async (
   data = await client.get({
     endpoint: "blog",
     queries: {
+      orders: "-publishedAt",
       offset: (pageNo - 1) * PER_PAGE,
       limit: PER_PAGE,
     },
