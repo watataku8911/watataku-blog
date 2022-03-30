@@ -160,6 +160,16 @@
   .sideBar {
     width: 350px;
   }
+
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 980px;
+    justify-content: space-between;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 
 @media screen and (min-width: 482px) and (max-width: 1025px) {
@@ -240,6 +250,15 @@
 
   .sideBar {
     width: 100%;
+  }
+
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    text-align: center;
   }
 }
 
@@ -329,5 +348,14 @@
 
   .sideBar {
     width: 100%;
+  }
+
+  .main {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    text-align: center;
   }
 }

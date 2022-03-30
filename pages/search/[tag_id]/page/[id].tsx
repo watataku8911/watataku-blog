@@ -52,6 +52,7 @@ export const getStaticProps = async (
   blogData = await client.get({
     endpoint: "blog",
     queries: {
+      orders: "-publishedAt",
       filters: "tags[contains]" + tagId,
       offset: (pageNo - 1) * PER_PAGE,
       limit: PER_PAGE,

@@ -18,6 +18,7 @@ export const getStaticProps = async () => {
   const data: BlogContents = await client.get({
     endpoint: "blog",
     queries: {
+      orders: "-publishedAt",
       limit: PER_PAGE,
     },
   });
