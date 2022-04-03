@@ -21,11 +21,14 @@ const Card = (props: Props) => {
           <div className={styles.thumbnail}>
             <Image
               src={props.thumbnail}
-              width={248}
+              unoptimized={true}
+              width={300}
               height={200}
+              objectFit={"cover"}
               alt={"サムネイル"}
             />
           </div>
+
           <div className={styles.title}>
             <h2>{split(props.title, 20)}</h2>
           </div>
