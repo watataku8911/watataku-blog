@@ -22,8 +22,8 @@ const Card = (props: Props) => {
             <Image
               src={props.thumbnail}
               unoptimized={true}
-              width={300}
-              height={200}
+              width={350}
+              height={220}
               objectFit={"cover"}
               alt={"サムネイル"}
             />
