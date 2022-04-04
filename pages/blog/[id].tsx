@@ -120,6 +120,7 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
               src={blog.thumbnail.url}
               width={100}
               height={80}
+              objectFit={"cover"}
               alt={"サムネイル"}
             />
           </p>
