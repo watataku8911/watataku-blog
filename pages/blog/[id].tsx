@@ -128,11 +128,11 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
           <div className={styles.dateArea}>
             <div className={styles.publishedAt}>
               <IconPublish />
-              <time>{datePlasticSurgery(blog.publishedAt)}公開</time>
+              <time>{datePlasticSurgery(blog.publishedAt)}に公開</time>
             </div>
             <div className={styles.revisedAt}>
               <IconRevise />
-              <time>{datePlasticSurgery(blog.updatedAt)}更新</time>
+              <time>{datePlasticSurgery(blog.updatedAt)}に更新</time>
             </div>
           </div>
         </section>
@@ -207,6 +207,7 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
                 title={blog.title}
                 body={blog.body}
                 tags={blog.tags}
+                publishedAt={blog.publishedAt}
                 key={blog.id}
               />
             );

@@ -90,6 +90,7 @@ const Home: NextPage<Props> = ({ tagId, blogs, totalCount }) => {
                 title={blog.title}
                 body={blog.body}
                 tags={blog.tags}
+                publishedAt={blog.publishedAt}
                 key={blog.id}
               />
             );

@@ -1,24 +1,41 @@
+.publishedAt {
+  text-align: right;
+  margin-right: 5px;
+}
+
+.card:hover {
+  transform: translate(0, -5.5px);
+}
+
+.title h2 {
+  font-size: 17px;
+  text-align: left;
+}
+
+
 @media screen and (min-width: 1025px) {
   .card {
     background-color: #fff;
     margin-top: 20px;
     width: 350px;
-    height: 350px;
+    height: 380px;
     border: solid 1px #000;
-    box-shadow: 0px 8px 16px -2px rgba(10, 10, 10, 0.1),
-      13px 14px 8px 1px rgba(10, 10, 10, 0.02);
-    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
   }
 
   .thumbnail {
-    height: 220px;
+    height: 250px;
     border-bottom: solid 2px #000;
   }
 
   .thumbnail img {
-    border-radius: 5px 5px 0 0;
+    border-radius: 8px 8px 0 0;
   }
 
+  .title {
+    height: 35px;
+  }
   .tags {
     display: flex;
     align-items: flex-end;
@@ -42,12 +59,11 @@
   .card {
     background-color: #fff;
     margin-top: 20px;
-    width: 32%;
-    height: 350px;
+    width: 30vw;
+    height: 355px;
     border: solid 1px #000;
-    box-shadow: 0px 8px 16px -2px rgba(10, 10, 10, 0.1),
-      13px 14px 8px 1px rgba(10, 10, 10, 0.02);
-    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
   }
 
   .thumbnail {
@@ -56,15 +72,20 @@
   }
 
   .thumbnail img {
-    border-radius: 5px 5px 0 0;
+    border-radius: 8px 8px 0 0;
     height: 199px !important;
+    width: 30vw !important;
+  }
+
+  .title {
+    height: 50px;
   }
 
   .tags {
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
-    height: 30px;
+    height: 40px;
   }
 
   .tag {
@@ -84,28 +105,31 @@
     background-color: #fff;
     margin-top: 10px;
     width: 350px;
-    height: 350px;
+    height: 400px;
     border: solid 1px #000;
-    box-shadow: 0px 8px 16px -2px rgba(10, 10, 10, 0.1),
-      13px 14px 8px 1px rgba(10, 10, 10, 0.02);
-    border-radius: 5px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
     margin-bottom: 10px;
   }
 
   .thumbnail {
-    height: 220px;
+    height: 250px;
     border-bottom: solid 1px #000;
   }
 
   .thumbnail img {
-    border-radius: 5px 5px 0 0;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .title {
+    height: 40px;
   }
 
   .tags {
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
-    height: 30px;
+    height: 40px;
   }
 
   .tag {
@@ -118,13 +142,4 @@
     margin-bottom: 4px;
     padding: 2px;
   }
-}
-
-.card:hover {
-  transform: translate(0, -5.5px);
-}
-
-.title h2 {
-  font-size: 17px;
-  text-align: left;
 }
