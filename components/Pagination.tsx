@@ -15,12 +15,12 @@ const Pagination = (props: Props) => {
       {range(1, Math.ceil(props.totalCount / PER_PAGE)).map((number, index) => (
         <p key={index}>
           {props.tag_id ? (
-            <Link href={`/search/${props.tag_id}/page/${number}/#main`}>
+            <Link href={`/search/${props.tag_id}/page/${number}`}>
               <a>{number}</a>
             </Link>
           ) : (
             <>
-              <Link href={`/page/${number}/#main`}>
+              <Link href={`/page/${number}`}>
                 <a>{number}</a>
               </Link>
             </>

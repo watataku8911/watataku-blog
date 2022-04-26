@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Card.module.css";
-import { split } from "../functions/function";
+import { datePlasticSurgery, split } from "../functions/function";
 import type { Tags } from "../types/blog";
 import IconTag from "../public/img/icon_tag_navy.svg";
 
@@ -11,6 +11,7 @@ type Props = {
   title: string;
   body: string;
   tags: Tags[];
+  publishedAt: string;
 };
 
 const Card = (props: Props) => {
@@ -21,13 +22,16 @@ const Card = (props: Props) => {
           <div className={styles.thumbnail}>
             <Image
               src={props.thumbnail}
-              width={248}
-              height={200}
+              unoptimized={true}
+              width={350}
+              height={250}
+              objectFit={"cover"}
               alt={"サムネイル"}
             />
           </div>
+
           <div className={styles.title}>
-            <h2>{split(props.title, 20)}</h2>
+            <h2>{split(props.title, 15)}</h2>
           </div>
           <div className={styles.tags}>
             {props.tags.map((tag: Tags) => {
@@ -39,6 +43,9 @@ const Card = (props: Props) => {
               );
             })}
           </div>
+          <p className={styles.publishedAt}>
+            {datePlasticSurgery(props.publishedAt)}
+          </p>
         </div>
       </Link>
     </>
