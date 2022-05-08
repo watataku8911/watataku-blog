@@ -45,21 +45,18 @@ const Header = () => {
           <Link href="/">Watataku&apos;s Blog</Link>
         </h3>
         <nav className={styles.navi}>
-          <IconSearch onClick={handleOpen} />
+          <a className={styles.search}>
+            <IconSearch onClick={handleOpen} />
+          </a>
           <Modal
             open={open}
             title={"タグ検索"}
             tags={tags}
             handleClose={handleClose}
           />
-          <a
-            href="https://watataku-portfolio.web.app"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.about}
-          >
-            ABOUT
-          </a>
+          <Link href="/about">
+            <p className={styles.about}>ABOUT</p>
+          </Link>
         </nav>
       </div>
     </header>
