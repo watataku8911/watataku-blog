@@ -68,6 +68,8 @@ export const getStaticProps = async (
     name: data.name,
   }));
 
+  console.log(toc);
+
   const dataList: BlogContents = await client.get({
     endpoint: "blog",
     queries: {
