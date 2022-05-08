@@ -1,0 +1,43 @@
+.thumbnail {
+  background-color: #eee;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: solid 1px black;
+}
+
+.link {
+  color: #5bbee4;
+  font-weight: bold;
+}
+
+.link:hover {
+  border: solid 1px #000;
+}
+
+@media screen and (min-width: 1025px) {
+  .mainContents {
+    min-height: calc(100vh - 170px);
+    text-align: center;
+
+    font-size: 1.5em;
+  }
+}
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .mainContents {
+    min-height: calc(100vh - 210px);
+    text-align: center;
+
+    font-size: 1.3em;
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 481px) {
+  .mainContents {
+    min-height: calc(100vh - 160px);
+    text-align: center;
+
+    font-size: 0.8em;
+  }
+}
