@@ -1,33 +1,31 @@
-import { client } from "../../seacretDirectory/seacret";
-
+import Link from "next/link";
+import Image from "next/image";
+import Head from "next/head";
 import type {
   InferGetStaticPropsType,
   GetStaticPropsContext,
   NextPage,
 } from "next";
+
+import { client } from "../../seacretDirectory/seacret";
+import { datePlasticSurgery } from "../../functions/function";
+import { SITE_URL, returnTitle, returnDiscription } from "../../libs/const";
+
 import type { Blog, BlogContents, Tags } from "../../types/blog";
 
 import TwitterShare from "../../components/TwitterShare";
 import FacebookShare from "../../components/FacebookShare";
 // import RSSComponent from "../../components/RSSComponent";
 import Card from "../../components/Card";
-
-import styles from "../../styles/Detail.module.css";
-
-import Link from "next/link";
-import Image from "next/image";
-import Head from "next/head";
-
-import cheerio from "cheerio";
-import hljs from "highlight.js";
-import "highlight.js/styles/hybrid.css";
-
 import IconPublish from "../../public/img/icon_calendar.svg";
 import IconRevise from "../../public/img/icon_refresh.svg";
 import IconTag from "../../public/img/icon_tag_navy.svg";
 
-import { datePlasticSurgery } from "../../functions/function";
-import { SITE_URL, returnTitle, returnDiscription } from "../../libs/const";
+import styles from "../../styles/Detail.module.css";
+
+import cheerio from "cheerio";
+import hljs from "highlight.js";
+import "highlight.js/styles/hybrid.css";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -121,6 +119,7 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
               src={blog.thumbnail.url}
               width={100}
               height={80}
+              layout={"responsive"}
               objectFit={"cover"}
               alt={"サムネイル"}
             />
@@ -129,11 +128,15 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
           <div className={styles.dateArea}>
             <div className={styles.publishedAt}>
               <IconPublish />
-              <time>{datePlasticSurgery(blog.publishedAt)}に公開</time>
+              <time datatype={blog.publishedAt}>
+                {datePlasticSurgery(blog.publishedAt)}に公開
+              </time>
             </div>
             <div className={styles.revisedAt}>
               <IconRevise />
-              <time>{datePlasticSurgery(blog.updatedAt)}に更新</time>
+              <time datatype={blog.updatedAt}>
+                {datePlasticSurgery(blog.updatedAt)}に更新
+              </time>
             </div>
           </div>
         </section>
@@ -168,18 +171,16 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
           <div className={styles.sideBar}>
             <section className={styles.tagArea}>
               <h1>Tags</h1>
-              <div className={styles.tagList}>
-                {blog.tags.map((tag: Tags) => {
-                  return (
-                    <div key={tag.id} className={styles.tag}>
-                      <IconTag />
-                      <Link href={`/search/${tag.id}/page/1`}>
-                        {tag.tag_name}
-                      </Link>
-                    </div>
-                  );
-                })}
-              </div>
+              {blog.tags.map((tag: Tags) => {
+                return (
+                  <div key={tag.id} className={styles.tag}>
+                    <IconTag />
+                    <Link href={`/search/${tag.id}/page/1`}>
+                      {tag.tag_name}
+                    </Link>
+                  </div>
+                );
+              })}
             </section>
 
             <section className={styles.toc}>
