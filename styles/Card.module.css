@@ -9,23 +9,25 @@
 
 @media screen and (min-width: 1025px) {
   .card {
-    margin-top: 20px;
+    margin: 20px 0 0 0;
     width: 350px;
+    height: 330px;
   }
 }
 
 @media screen and (min-width: 482px) and (max-width: 1025px) {
   .card {
-    margin-top: 20px;
+    margin: 20px 0 0 0;
     width: 30vw;
+    height: 280px;
   }
 }
 
 @media screen and (max-width: 481px) {
   .card {
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
     width: 350px;
-    margin-bottom: 10px;
+    height: 330px;
   }
 }
 
@@ -77,9 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 4px;
-  margin-left: 8px;
-  margin-bottom: 4px;
+  margin: 0 4px 4px 8px;
   padding: 2px;
 }
 
