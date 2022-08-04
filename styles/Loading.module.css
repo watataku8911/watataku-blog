@@ -14,7 +14,6 @@
   left: 0;
   margin: auto;
   border: 3px solid #333;
-  /* border: 3px solid #42b883; */
   border-top-color: transparent;
   border-radius: 50%;
   animation: spin 1s infinite linear;

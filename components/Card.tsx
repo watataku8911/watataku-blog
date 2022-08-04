@@ -18,13 +18,14 @@ const Card = (props: Props) => {
   return (
     <>
       <Link href={`/blog/${props.id}`} passHref>
-        <div className={styles.card}>
+        <article className={styles.card}>
           <div className={styles.thumbnail}>
             <Image
               src={props.thumbnail}
               unoptimized={true}
               width={350}
               height={200}
+              layout={"responsive"}
               objectFit={"cover"}
               alt={"サムネイル"}
             />
@@ -43,10 +44,10 @@ const Card = (props: Props) => {
               );
             })}
           </div>
-          <p className={styles.publishedAt}>
+          <time datatype={props.publishedAt} className={styles.publishedAt}>
             {datePlasticSurgery(props.publishedAt)}
-          </p>
-        </div>
+          </time>
+        </article>
       </Link>
     </>
   );
