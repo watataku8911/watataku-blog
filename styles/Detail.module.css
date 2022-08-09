@@ -174,15 +174,25 @@
 }
 
 /* サイドバー */
+@media screen and (min-width: 1026px) {
+  .sideBar {
+    width: 380px;
+  }
+}
+
 .tagArea {
-  padding: 1% 1% 5% 1%;
   background-color: #fff;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
 }
 
 @media screen and (min-width: 1026px) {
   .tagArea {
+    flex-direction: column;
     border-radius: 20px;
     margin-bottom: 20px;
+    padding: 1% 1% 5% 1%;
   }
 
   .tag {
@@ -192,14 +202,10 @@
 
 @media screen and (min-width: 482px) and (max-width: 1025px) {
   .tagArea {
-    width: 100%;
-    border-radius: 10px 10px 0 0;
-    order: 1;
-    padding: 5% 0 0 0;
-    display: flex;
     justify-content: space-around;
-    flex-flow: row;
-    flex-wrap: wrap;
+    order: 1;
+    border-radius: 10px 10px 0 0;
+    padding: 5% 0 0 0;
   }
 
   .tagArea h1 {
@@ -209,14 +215,10 @@
 
 @media screen and (max-width: 481px) {
   .tagArea {
-    padding: 5% 0 0 0;
-    width: 100%;
-    border-radius: 10px 10px 0 0;
-    order: 1;
-    display: flex;
     justify-content: space-around;
-    flex-flow: row;
-    flex-wrap: wrap;
+    order: 1;
+    border-radius: 10px 10px 0 0;
+    padding: 5% 0 0 0;
   }
 
   .tagArea h1 {
