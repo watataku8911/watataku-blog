@@ -35,13 +35,12 @@
 
 .header {
   background: linear-gradient(to right, #5bbee4 20%, #52eac1 80%);
-  height: 70px;
-  border-bottom: 1px solid #000;
+  height: 75px;
 }
 
 .headerContainer {
   margin-top: 20px;
-  height: 70px;
+  height: 75px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -86,7 +85,7 @@
 
 @media screen and (min-width: 482px) and (max-width: 1025px) {
   .navi {
-    width: 30%;
+    width: 25%;
   }
 }
 
@@ -98,6 +97,9 @@
 
 .search {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .search:hover {

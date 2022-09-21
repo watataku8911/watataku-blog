@@ -169,8 +169,8 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
             <div dangerouslySetInnerHTML={{ __html: highlightedBody }} />
           </section>
 
-          <div className={styles.sideBar}>
-            <section className={styles.tagArea}>
+          <section className={styles.sideBar}>
+            <div className={styles.tagArea}>
               <h1>Tags</h1>
               {blog.tags.map((tag: Tags) => {
                 return (
@@ -182,9 +182,9 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
                   </div>
                 );
               })}
-            </section>
+            </div>
 
-            <section className={styles.toc}>
+            <div className={styles.toc}>
               <h1>目次</h1>
               <div className={styles.tocList}>
                 <ul id="lists" className={styles.lists}>
@@ -197,8 +197,8 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
                   ))}
                 </ul>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
         </div>
 
         <div className={styles.main}>

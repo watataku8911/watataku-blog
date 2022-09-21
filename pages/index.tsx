@@ -73,7 +73,6 @@ const Home: NextPage<Props> = ({ blogs, totalCount }) => {
               id={blog.id}
               thumbnail={blog.thumbnail.url}
               title={blog.title}
-              body={blog.body}
               tags={blog.tags}
               publishedAt={blog.publishedAt}
               key={blog.id}

@@ -1,17 +1,15 @@
 .card {
   position: relative;
-  border: solid 1px #000;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
   cursor: pointer;
   background-color: #fff;
 }
 
 @media screen and (min-width: 1025px) {
   .card {
-    margin: 20px 0 0 0;
+    margin: 20px 0 10px 0;
     width: 350px;
-    height: 330px;
+    height: 380px;
   }
 }
 
@@ -19,37 +17,34 @@
   .card {
     margin: 20px 0 0 0;
     width: 30vw;
-    height: 280px;
+    height: 310px;
   }
 }
 
 @media screen and (max-width: 481px) {
   .card {
-    margin: 10px 0 10px 0;
+    margin: 10px 0 20px 0;
     width: 350px;
-    height: 330px;
+    height: 360px;
   }
 }
 
 .card:hover {
-  box-shadow: 0 0 0 white;
   transform: translate(0, -5.5px);
 }
 
 .thumbnail {
-  border-bottom: solid 1px #000;
-}
-
-.thumbnail img {
-  border-radius: 8px 8px 0 0;
+  border: solid 1px #000;
 }
 
 .title h2 {
   font-size: 17px;
   text-align: left;
+  padding-left: 8px;
 }
 
 .tags {
+  margin-left: -40px;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
