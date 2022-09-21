@@ -208,7 +208,6 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
                 id={blog.id}
                 thumbnail={blog.thumbnail.url}
                 title={blog.title}
-                body={blog.body}
                 tags={blog.tags}
                 publishedAt={blog.publishedAt}
                 key={blog.id}
