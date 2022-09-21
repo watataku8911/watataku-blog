@@ -2,7 +2,7 @@ import { parseISO, format } from "date-fns";
 // 日付整形関数
 export const datePlasticSurgery = (dateString: string): string => {
   const date = parseISO(dateString);
-  return format(date, "yyyy年M月d月に");
+  return format(date, "yyyy年M月d日");
 };
 
 // 文字を丸める関数
@@ -16,3 +16,7 @@ export const split = (text: string, maxLength: number): string => {
   }
   return modStr;
 };
+
+//ページング計算
+export const range = (start: number, end: number) =>
+  [...Array(end - start + 1)].map((_, i) => start + i);

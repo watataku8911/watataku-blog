@@ -19,15 +19,13 @@ const Modal = (props: Props) => {
             <h2>{props.title}</h2>
 
             <div className={styles.modalContents}>
-              <div className={styles.tag}>
-                <IconTag />
-                <Link href={`/search/all`}>全て</Link>
-              </div>
               {props.tags.map((tag) => {
                 return (
                   <div key={tag.id} className={styles.tag}>
                     <IconTag />
-                    <Link href={`/search/${tag.id}`}>{tag.tag_name}</Link>
+                    <Link href={`/search/${tag.id}/page/1`}>
+                      {tag.tag_name}
+                    </Link>
                   </div>
                 );
               })}

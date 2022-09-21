@@ -4,6 +4,7 @@ import IconSearch from "../public/img/icon_search.svg";
 import { useState, useCallback, useEffect } from "react";
 import Modal from "./Modal";
 import { TagsContents, Tags } from "../types/blog";
+import Link from "next/link";
 
 const Header = () => {
   const [tags, setTags] = useState<Tags[]>([]);
@@ -20,7 +21,12 @@ const Header = () => {
   }, [setTags]);
 
   const fetchGetTags = async (): Promise<Tags[]> => {
-    const data: TagsContents = await client.get({ endpoint: "tags" });
+    const data: TagsContents = await client.get({
+      endpoint: "tags",
+      queries: {
+        limit: 15,
+      },
+    });
     return data.contents;
   };
 
@@ -35,9 +41,13 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
-        <h3>Watataku&apos;s Blog</h3>
+        <h3>
+          <Link href="/">Watataku&apos;s Blog</Link>
+        </h3>
         <nav className={styles.navi}>
-          <IconSearch onClick={handleOpen} />
+          <a className={styles.search}>
+            <IconSearch onClick={handleOpen} />
+          </a>
           <Modal
             open={open}
             title={"タグ検索"}
@@ -48,9 +58,8 @@ const Header = () => {
             href="https://watataku-portfolio.web.app"
             target="_blank"
             rel="noreferrer"
-            className={styles.about}
           >
-            ABOUT
+            <p className={styles.about}>ABOUT</p>
           </a>
         </nav>
       </div>

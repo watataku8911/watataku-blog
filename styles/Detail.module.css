@@ -2,8 +2,12 @@
   word-break: break-all;
   padding-top: 5%;
   padding-bottom: 3%;
-  background: #e0efff;
+  background-color: #e0efff;
 }
+
+/* 
+ヘッダー 
+*/
 
 .detailHeader {
   font-family: -apple-system, "BlinkMacSystemFont", "Hiragino Kaku Gothic ProN",
@@ -17,12 +21,259 @@
   letter-spacing: 2px;
 }
 
-.tagArea .tagList a {
-  color: blue;
-  border-bottom: solid 1px blue;
-  line-height: 20px;
+.thumbnail {
+  width: 100px;
+  height: 80.5px;
+  border: solid 1px #000;
+  margin: 0 auto;
+  background-color: #fff;
 }
 
+.dateArea {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+}
+
+.publishedAt {
+  display: flex;
+  align-items: center;
+}
+
+.revisedAt {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 1026px) {
+  .dateArea {
+    width: 700px;
+  }
+
+  .publishedAt {
+    gap: 10px;
+  }
+
+  .revisedAt {
+    gap: 10px;
+  }
+}
+
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .dateArea {
+    width: 550px;
+  }
+
+  .publishedAt {
+    gap: 15px;
+  }
+
+  .revisedAt {
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .dateArea {
+    width: 98%;
+  }
+
+  .publishedAt {
+    gap: 3px;
+  }
+
+  .revisedAt {
+    gap: 3px;
+  }
+}
+
+/* SNSエリア */
+.snsArea {
+  display: flex;
+}
+@media screen and (min-width: 1026px) {
+  .snsArea {
+    width: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .snsArea {
+    margin-left: auto;
+    order: 3;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .snsArea {
+    margin-left: auto;
+    order: 3;
+  }
+}
+
+/* メイン */
+.mainContents {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 1026px) {
+  .mainContents {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .mainContents {
+    width: 90%;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .mainContents {
+    width: 95%;
+    flex-direction: column;
+  }
+}
+
+.detailContent {
+  letter-spacing: 1px;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 1026px) {
+  .detailContent {
+    width: 60%;
+    border-radius: 20px;
+    padding: 1%;
+  }
+}
+
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .detailContent {
+    width: 100%;
+    padding: 3% 1% 5% 1%;
+    order: 2;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .detailContent {
+    width: 100%;
+    padding: 1% 1% 5% 1%;
+    order: 2;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+/* サイドバー */
+@media screen and (min-width: 1026px) {
+  .sideBar {
+    width: 380px;
+  }
+}
+
+.tagArea {
+  background-color: #fff;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1026px) {
+  .tagArea {
+    flex-direction: column;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 1% 1% 5% 1%;
+  }
+
+  .tag {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .tagArea {
+    justify-content: space-around;
+    order: 1;
+    border-radius: 10px 10px 0 0;
+    padding: 5% 0 0 0;
+  }
+
+  .tagArea h1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .tagArea {
+    justify-content: space-around;
+    order: 1;
+    border-radius: 10px 10px 0 0;
+    padding: 5% 0 0 0;
+  }
+
+  .tagArea h1 {
+    display: none;
+  }
+}
+
+.tag a {
+  color: blue;
+  line-height: 23px;
+}
+
+.tag a:hover {
+  border-bottom: solid 1px blue;
+}
+
+.toc {
+  padding: 1%;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 1026px) {
+  .toc {
+    border-radius: 20px;
+  }
+}
+
+/* カード一覧エリア */
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  margin: auto;
+}
+
+@media screen and (min-width: 1026px) {
+  .main {
+    width: 1100px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .main {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .main {
+    width: 100%;
+  }
+}
+/* マークダウン */
 .detailContent h1 {
   font-size: 30px;
   border-bottom: solid 1px #aaa;
@@ -60,7 +311,6 @@
 .detailContent p {
   font-size: 18px;
   letter-spacing: 1px;
-  line-height: 3.5vh;
 }
 
 .detailContent li {
@@ -71,225 +321,4 @@
 
 .detailContent img {
   max-width: 100%;
-}
-
-.center {
-  text-align: center;
-}
-
-.tagArea h1 {
-  font-size: 28px;
-  letter-spacing: 1px;
-  color: #222;
-}
-@media screen and (min-width: 1026px) {
-  .mainContents {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .detailContent {
-    letter-spacing: 1px;
-    width: 65%;
-    background-color: #fff;
-    border-radius: 20px;
-    padding-top: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
-    padding-bottom: 1%;
-  }
-
-  .snsArea {
-    width: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tagArea {
-    width: 20%;
-    height: 200px;
-    border-radius: 20px;
-    background-color: #fff;
-  }
-
-  .dateArea {
-    width: 50%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #333;
-  }
-
-  .publishedAt {
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .revisedAt {
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
-@media screen and (min-width: 482px) and (max-width: 1025px) {
-  .mainContents {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-
-  .detailContent {
-    letter-spacing: 1px;
-    width: 100%;
-    background-color: #fff;
-    padding-top: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
-    padding-bottom: 5%;
-    order: 2;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-
-  .tagArea {
-    width: 100%;
-    background-color: #fff;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    order: 1;
-    padding-top: 5%;
-  }
-
-  .tagArea h1 {
-    display: none;
-  }
-
-  .snsArea {
-    margin-left: auto;
-    display: flex;
-    order: 3;
-  }
-
-  .tagArea .tagList {
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row;
-    flex-wrap: wrap;
-  }
-
-  .dateArea {
-    width: 65%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #333;
-  }
-
-  .publishedAt {
-    font-size: 0.8em;
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .revisedAt {
-    font-size: 0.8em;
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 481px) {
-  .mainContents {
-    width: 95%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-
-  .detailContent {
-    letter-spacing: 1px;
-    width: 100%;
-    background-color: #fff;
-    padding-top: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
-    padding-bottom: 5%;
-    order: 2;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
-
-  .tagArea {
-    padding-top: 5%;
-    text-align: center;
-    width: 100%;
-    background-color: #fff;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    order: 1;
-  }
-
-  .tagArea h1 {
-    display: none;
-  }
-
-  .snsArea {
-    margin-left: auto;
-    display: flex;
-    order: 3;
-  }
-
-  .tagArea .tagList {
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    width: 33%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  .dateArea {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #333;
-  }
-
-  .publishedAt {
-    font-size: 0.2em;
-    width: 35%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .revisedAt {
-    font-size: 0.2em;
-    width: 35%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 }

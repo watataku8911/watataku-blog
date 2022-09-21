@@ -12,45 +12,33 @@
   animation-name: open;
   animation-duration: 1s;
 }
+
+.panel {
+  border-radius: 10px;
+  text-align: center;
+  background: #fff;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @media screen and (min-width: 1026px) {
   .panel {
-    border-radius: 10px;
     width: 45%;
-    text-align: center;
-    background: #fff;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }
 
 @media screen and (min-width: 482px) and (max-width: 1025px) {
   .panel {
-    border-radius: 10px;
     width: 65%;
-    text-align: center;
-    background: #fff;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }
 
 @media screen and (max-width: 481px) {
   .panel {
-    border-radius: 10px;
     width: 95%;
-    text-align: center;
-    background: #fff;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }
 
