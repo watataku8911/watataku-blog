@@ -6,22 +6,32 @@ import type { BlogContents, Blog } from "../types/blog";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import Card from "../components/Card";
+import Pagination from "../components/Pagination";
 
 import { SITE_URL, returnTitle, returnDiscription } from "../libs/const";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
+const PER_PAGE = 9;
+
 export const getStaticProps = async () => {
-  const data: BlogContents = await client.get({ endpoint: "blog" });
+  const data: BlogContents = await client.get({
+    endpoint: "blog",
+    queries: {
+      orders: "-publishedAt",
+      limit: PER_PAGE,
+    },
+  });
 
   return {
     props: {
       blogs: data.contents,
+      totalCount: data.totalCount,
     },
   };
 };
 
-const Home: NextPage<Props> = ({ blogs }) => {
+const Home: NextPage<Props> = ({ blogs, totalCount }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -63,12 +73,14 @@ const Home: NextPage<Props> = ({ blogs }) => {
               id={blog.id}
               thumbnail={blog.thumbnail.url}
               title={blog.title}
-              body={blog.body}
+              tags={blog.tags}
+              publishedAt={blog.publishedAt}
               key={blog.id}
             />
           );
         })}
       </main>
+      {totalCount >= PER_PAGE && <Pagination totalCount={totalCount} />}
     </div>
   );
 };

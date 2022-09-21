@@ -1,33 +1,41 @@
-import { client } from "../../seacretDirectory/seacret";
-
+import Link from "next/link";
+import Image from "next/image";
+import Head from "next/head";
 import type {
   InferGetStaticPropsType,
   GetStaticPropsContext,
   NextPage,
 } from "next";
+
+import { client } from "../../seacretDirectory/seacret";
+import { datePlasticSurgery } from "../../functions/function";
+import { SITE_URL, returnTitle, returnDiscription } from "../../libs/const";
+
 import type { Blog, BlogContents, Tags } from "../../types/blog";
 
 import TwitterShare from "../../components/TwitterShare";
 import FacebookShare from "../../components/FacebookShare";
 // import RSSComponent from "../../components/RSSComponent";
-
-import styles from "../../styles/Detail.module.css";
-
-import Link from "next/link";
-import Image from "next/image";
-import Head from "next/head";
-
+import Card from "../../components/Card";
 import IconPublish from "../../public/img/icon_calendar.svg";
 import IconRevise from "../../public/img/icon_refresh.svg";
 import IconTag from "../../public/img/icon_tag_navy.svg";
 
-import { datePlasticSurgery } from "../../functions/function";
-import { SITE_URL, returnTitle, returnDiscription } from "../../libs/const";
+import styles from "../../styles/Detail.module.css";
+
+import cheerio from "cheerio";
+import hljs from "highlight.js";
+import "highlight.js/styles/hybrid.css";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticPaths = async () => {
-  const data: BlogContents = await client.get({ endpoint: "blog" });
+  const data: BlogContents = await client.get({
+    endpoint: "blog",
+    queries: {
+      limit: 999,
+    },
+  });
 
   const paths = data.contents.map((content: Blog) => `/blog/${content.id}`);
   return { paths, fallback: false };
@@ -41,14 +49,43 @@ export const getStaticProps = async (
     contentId: context.params?.id,
   });
 
+  const $ = cheerio.load(data.body);
+
+  $("pre code").each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text());
+    $(elm).html(result.value);
+    $(elm).addClass("hljs");
+  });
+
+  const headings = $("h1, h2, h3, h4, H5").toArray();
+
+  const toc = headings.map((data: any) => ({
+    text: data.children[0].data,
+    id: data.attribs.id,
+    name: data.name,
+  }));
+
+  console.log(toc);
+
+  const dataList: BlogContents = await client.get({
+    endpoint: "blog",
+    queries: {
+      orders: "-publishedAt",
+      limit: 6,
+    },
+  });
+
   return {
     props: {
+      blogs: dataList.contents,
       blog: data,
+      highlightedBody: $.html(),
+      toc,
     },
   };
 };
 
-const Detail: NextPage<Props> = ({ blog }) => {
+const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
   const blogUrl = SITE_URL + "/" + blog.id;
   return (
     <>
@@ -77,21 +114,29 @@ const Detail: NextPage<Props> = ({ blog }) => {
 
       <main className={styles.detail}>
         <section className={styles.detailHeader}>
-          <Image
-            src={blog.thumbnail.url}
-            width={100}
-            height={80}
-            alt={"サムネイル"}
-          />
+          <p className={styles.thumbnail}>
+            <Image
+              src={blog.thumbnail.url}
+              width={100}
+              height={80}
+              layout={"responsive"}
+              objectFit={"cover"}
+              alt={"サムネイル"}
+            />
+          </p>
           <h1 className={styles.detailTtl}>{blog.title}</h1>
           <div className={styles.dateArea}>
             <div className={styles.publishedAt}>
               <IconPublish />
-              <time>{datePlasticSurgery(blog.publishedAt)}公開</time>
+              <time datatype={blog.publishedAt}>
+                {datePlasticSurgery(blog.publishedAt)}に公開
+              </time>
             </div>
             <div className={styles.revisedAt}>
               <IconRevise />
-              <time>{datePlasticSurgery(blog.updatedAt)}更新</time>
+              <time datatype={blog.updatedAt}>
+                {datePlasticSurgery(blog.updatedAt)}に更新
+              </time>
             </div>
           </div>
         </section>
@@ -120,25 +165,54 @@ const Detail: NextPage<Props> = ({ blog }) => {
           </section>
 
           <section className={styles.detailContent}>
-            <div dangerouslySetInnerHTML={{ __html: blog.body }} />
-            <p className={styles.center}>
-              <Link href="/">一覧へ戻る</Link>
-            </p>
+            <div dangerouslySetInnerHTML={{ __html: highlightedBody }} />
           </section>
 
-          <section className={styles.tagArea}>
-            <h1>Tags</h1>
-            <div className={styles.tagList}>
+          <section className={styles.sideBar}>
+            <div className={styles.tagArea}>
+              <h1>Tags</h1>
               {blog.tags.map((tag: Tags) => {
                 return (
                   <div key={tag.id} className={styles.tag}>
                     <IconTag />
-                    <Link href={`/search/${tag.id}`}>{tag.tag_name}</Link>
+                    <Link href={`/search/${tag.id}/page/1`}>
+                      {tag.tag_name}
+                    </Link>
                   </div>
                 );
               })}
             </div>
+
+            <div className={styles.toc}>
+              <h1>目次</h1>
+              <div className={styles.tocList}>
+                <ul id="lists" className={styles.lists}>
+                  {toc.map((toc, index) => (
+                    <li id={"list-" + toc.name} key={index}>
+                      <div className={styles.listContents}>
+                        <a href={"#" + toc.id}>{toc.text}</a>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </section>
+        </div>
+
+        <div className={styles.main}>
+          {blogs.map((blog: Blog) => {
+            return (
+              <Card
+                id={blog.id}
+                thumbnail={blog.thumbnail.url}
+                title={blog.title}
+                tags={blog.tags}
+                publishedAt={blog.publishedAt}
+                key={blog.id}
+              />
+            );
+          })}
         </div>
       </main>
     </>
