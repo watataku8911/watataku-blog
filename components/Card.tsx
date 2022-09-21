@@ -9,7 +9,6 @@ type Props = {
   id: string;
   thumbnail: string;
   title: string;
-  body: string;
   tags: Tags[];
   publishedAt: string;
 };
@@ -32,18 +31,20 @@ const Card = (props: Props) => {
           </div>
 
           <div className={styles.title}>
-            <h2>{split(props.title, 15)}</h2>
+            <h2>{split(props.title, 40)}</h2>
           </div>
-          <div className={styles.tags}>
+
+          <ul className={styles.tags}>
             {props.tags.map((tag: Tags) => {
               return (
-                <div key={tag.id} className={styles.tag}>
+                <li key={tag.id} className={styles.tag}>
                   <IconTag />
-                  <span>{tag.tag_name}</span>
-                </div>
+                  {tag.tag_name}
+                </li>
               );
             })}
-          </div>
+          </ul>
+
           <time datatype={props.publishedAt} className={styles.publishedAt}>
             {datePlasticSurgery(props.publishedAt)}
           </time>

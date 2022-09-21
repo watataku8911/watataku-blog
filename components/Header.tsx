@@ -54,9 +54,13 @@ const Header = () => {
             tags={tags}
             handleClose={handleClose}
           />
-          <Link href="/about">
+          <a
+            href="https://watataku-portfolio.web.app"
+            target="_blank"
+            rel="noreferrer"
+          >
             <p className={styles.about}>ABOUT</p>
-          </Link>
+          </a>
         </nav>
       </div>
     </header>

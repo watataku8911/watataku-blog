@@ -39,13 +39,11 @@
 
 .publishedAt {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .revisedAt {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -55,15 +53,11 @@
   }
 
   .publishedAt {
-    width: 200px;
+    gap: 10px;
   }
 
   .revisedAt {
-    width: 200px;
-  }
-
-  .sideBar {
-    width: 350px;
+    gap: 10px;
   }
 }
 
@@ -73,34 +67,25 @@
   }
 
   .publishedAt {
-    width: 200px;
+    gap: 15px;
   }
 
   .revisedAt {
-    width: 200px;
-  }
-
-  .sideBar {
-    width: 100%;
+    gap: 15px;
   }
 }
 
 @media screen and (max-width: 481px) {
   .dateArea {
-    width: 100%;
+    width: 98%;
   }
 
   .publishedAt {
-    font-size: 1em;
-    width: 180px;
+    gap: 3px;
   }
 
   .revisedAt {
-    width: 180px;
-  }
-
-  .sideBar {
-    width: 100%;
+    gap: 3px;
   }
 }
 
@@ -189,15 +174,25 @@
 }
 
 /* サイドバー */
+@media screen and (min-width: 1026px) {
+  .sideBar {
+    width: 380px;
+  }
+}
+
 .tagArea {
-  padding: 1% 1% 5% 1%;
   background-color: #fff;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
 }
 
 @media screen and (min-width: 1026px) {
   .tagArea {
+    flex-direction: column;
     border-radius: 20px;
     margin-bottom: 20px;
+    padding: 1% 1% 5% 1%;
   }
 
   .tag {
@@ -207,14 +202,10 @@
 
 @media screen and (min-width: 482px) and (max-width: 1025px) {
   .tagArea {
-    width: 100%;
-    border-radius: 10px 10px 0 0;
-    order: 1;
-    padding: 5% 0 0 0;
-    display: flex;
     justify-content: space-around;
-    flex-flow: row;
-    flex-wrap: wrap;
+    order: 1;
+    border-radius: 10px 10px 0 0;
+    padding: 5% 0 0 0;
   }
 
   .tagArea h1 {
@@ -224,14 +215,10 @@
 
 @media screen and (max-width: 481px) {
   .tagArea {
-    padding: 5% 0 0 0;
-    width: 100%;
-    border-radius: 10px 10px 0 0;
-    order: 1;
-    display: flex;
     justify-content: space-around;
-    flex-flow: row;
-    flex-wrap: wrap;
+    order: 1;
+    border-radius: 10px 10px 0 0;
+    padding: 5% 0 0 0;
   }
 
   .tagArea h1 {

@@ -25,6 +25,7 @@
 
 @media screen and (max-width: 481px) {
   .main {
+    flex-direction: row;
     min-height: calc(100vh - 140px);
     justify-content: center;
     width: 100%;
