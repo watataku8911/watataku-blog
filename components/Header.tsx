@@ -40,12 +40,12 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.headerContainer}>
+      <div className={`${styles.headerContainer} ${styles.gred}`}>
         <h3>
           <Link href="/">Watataku&apos;s Blog</Link>
         </h3>
-        <nav className={styles.navi}>
-          <a className={styles.search}>
+        <nav className={`${styles.navi} ${styles.gred}`}>
+          <a className={`${styles.search} ${styles.gred}`}>
             <IconSearch onClick={handleOpen} />
           </a>
           <Modal

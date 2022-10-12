@@ -59,23 +59,23 @@ const Home: NextPage<Props> = ({ blogs, totalCount }) => {
         <title>{returnTitle()}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main} id="main">
-        {blogs.map((blog: Blog) => {
-          return (
-            <Card
-              id={blog.id}
-              thumbnail={blog.thumbnail.url}
-              title={blog.title}
-              tags={blog.tags}
-              publishedAt={blog.publishedAt}
-              key={blog.id}
-            />
-          );
-        })}
-      </main>
-
-      {totalCount >= PER_PAGE && <Pagination totalCount={totalCount} />}
+      <div className={styles.wrapper}>
+        <main className={styles.main}>
+          {blogs.map((blog: Blog) => {
+            return (
+              <Card
+                id={blog.id}
+                thumbnail={blog.thumbnail.url}
+                title={blog.title}
+                tags={blog.tags}
+                publishedAt={blog.publishedAt}
+                key={blog.id}
+              />
+            );
+          })}
+        </main>
+        {totalCount >= PER_PAGE && <Pagination totalCount={totalCount} />}
+      </div>
     </div>
   );
 };
