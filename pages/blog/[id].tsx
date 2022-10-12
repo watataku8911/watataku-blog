@@ -30,15 +30,14 @@ import "highlight.js/styles/hybrid.css";
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticPaths = async () => {
+  const data: BlogContents = await client.get({
+    endpoint: "blog",
+    queries: {
+      limit: 999,
+    },
+  });
 
-const data: BlogContents = await client.get({ 
-  endpoint: "blog",
-  queries: {
-    limit: 999,
-  },
-});
-
- const paths = data.contents.map((content: Blog) => `/blog/${content.id}`);
+  const paths = data.contents.map((content: Blog) => `/blog/${content.id}`);
   return { paths, fallback: false };
 };
 

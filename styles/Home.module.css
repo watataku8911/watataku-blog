@@ -1,3 +1,7 @@
+.wrapper {
+  background-color: #ebf7fc;
+}
+
 .main {
   display: flex;
   flex-wrap: wrap;

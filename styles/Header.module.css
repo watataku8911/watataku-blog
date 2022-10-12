@@ -37,12 +37,14 @@
   background: linear-gradient(to right, #5bbee4 20%, #52eac1 80%);
   height: 75px;
 }
+.gred {
+  display: flex;
+}
 
 .headerContainer {
   margin-top: 20px;
   height: 75px;
   margin: auto;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -72,7 +74,6 @@
 }
 
 .navi {
-  display: flex;
   align-items: center;
   justify-content: space-around;
 }
@@ -97,7 +98,6 @@
 
 .search {
   cursor: pointer;
-  display: flex;
   align-items: center;
   justify-content: center;
 }

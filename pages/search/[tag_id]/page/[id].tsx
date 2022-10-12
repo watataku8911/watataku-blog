@@ -81,23 +81,25 @@ const Home: NextPage<Props> = ({ tagId, blogs, totalCount }) => {
           <h2>このタグが付いている記事はありません。</h2>
         </main>
       ) : (
-        <main className={styles.main} id="main">
-          {blogs.map((blog: Blog) => {
-            return (
-              <Card
-                id={blog.id}
-                thumbnail={blog.thumbnail.url}
-                title={blog.title}
-                tags={blog.tags}
-                publishedAt={blog.publishedAt}
-                key={blog.id}
-              />
-            );
-          })}
-          {totalCount >= PER_PAGE && (
-            <Pagination totalCount={totalCount} tag_id={tagId} />
-          )}
-        </main>
+        <div className={styles.wrapper}>
+          <main className={styles.main}>
+            {blogs.map((blog: Blog) => {
+              return (
+                <Card
+                  id={blog.id}
+                  thumbnail={blog.thumbnail.url}
+                  title={blog.title}
+                  tags={blog.tags}
+                  publishedAt={blog.publishedAt}
+                  key={blog.id}
+                />
+              );
+            })}
+            {totalCount >= PER_PAGE && (
+              <Pagination totalCount={totalCount} tag_id={tagId} />
+            )}
+          </main>
+        </div>
       )}
     </div>
   );
