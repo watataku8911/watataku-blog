@@ -11,15 +11,16 @@ import { client } from "../../seacretDirectory/seacret";
 import { datePlasticSurgery } from "../../functions/function";
 import { SITE_URL, returnTitle, returnDiscription } from "../../libs/const";
 
-import type { Blog, BlogContents, Tags } from "../../types/blog";
+import type { Blog, BlogContents, Toc } from "../../types/blog";
 
 import TwitterShare from "../../components/TwitterShare";
 import FacebookShare from "../../components/FacebookShare";
 // import RSSComponent from "../../components/RSSComponent";
 import Card from "../../components/Card";
+import TagList from "../../components/TagList";
+import TableOfContents from "../../components/TableOfContents";
 import IconPublish from "../../public/img/icon_calendar.svg";
 import IconRevise from "../../public/img/icon_refresh.svg";
-import IconTag from "../../public/img/icon_tag_navy.svg";
 
 import styles from "../../styles/Detail.module.css";
 
@@ -59,7 +60,7 @@ export const getStaticProps = async (
 
   const headings = $("h1, h2, h3, h4, H5").toArray();
 
-  const toc = headings.map((data: any) => ({
+  const toc: Toc[] = headings.map((data: any) => ({
     text: data.children[0].data,
     id: data.attribs.id,
     name: data.name,
@@ -170,32 +171,13 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
 
           <section className={styles.sideBar}>
             <div className={styles.tagArea}>
-              <h1>Tags</h1>
-              {blog.tags.map((tag: Tags) => {
-                return (
-                  <div key={tag.id} className={styles.tag}>
-                    <IconTag />
-                    <Link href={`/search/${tag.id}/page/1`}>
-                      {tag.tag_name}
-                    </Link>
-                  </div>
-                );
-              })}
+              <h1>タグ</h1>
+              <TagList blog={blog} />
             </div>
 
             <div className={styles.toc}>
               <h1>目次</h1>
-              <div className={styles.tocList}>
-                <ul id="lists" className={styles.lists}>
-                  {toc.map((toc, index) => (
-                    <li id={"list-" + toc.name} key={index}>
-                      <div className={styles.listContents}>
-                        <a href={"#" + toc.id}>{toc.text}</a>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <TableOfContents toc={toc} />
             </div>
           </section>
         </div>
