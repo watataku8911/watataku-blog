@@ -1,6 +1,6 @@
 # Watatalu's Blog
 
-- URL -> [https://watataku-blog.vercel.app](https://watataku-blog.vercel.app)
+- [URL ->]()
 ## Next.jsをTypeScriptで始めるコマンド
 
 ```

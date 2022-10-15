@@ -11,36 +11,14 @@ a {
   text-decoration: none;
 }
 
+ul {
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
 * {
   box-sizing: border-box;
-}
-
-/* 目次 */
-#list-h1 {
-  font-size: 1.2em;
-  list-style: square;
-}
-
-#list-h2 {
-  font-size: 1em;
-  margin-left: 15px;
-  list-style: circle;
-}
-
-#list-h3 {
-  font-size: 0.8em;
-  list-style: circle;
-  margin-left: 25px;
-}
-
-#list-h4 {
-  font-size: 0.8em;
-  list-style: circle;
-  margin-left: 35px;
-}
-
-#list-h5 {
-  font-size: 0.8em;
-  list-style: circle;
-  margin-left: 45px;
 }

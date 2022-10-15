@@ -23,6 +23,12 @@ export type Blog = {
   updatedAt: string;
 };
 
+type Thumbnail = {
+  url: string;
+  height: number;
+  width: number;
+};
+
 export type Tags = {
   createdAt: string;
   id: string;
@@ -32,8 +38,8 @@ export type Tags = {
   updatedAt: string;
 };
 
-type Thumbnail = {
-  url: string;
-  height: number;
-  width: number;
+export type Toc = {
+  text: string;
+  id: number;
+  name: string;
 };

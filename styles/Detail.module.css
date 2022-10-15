@@ -176,33 +176,29 @@
 /* サイドバー */
 @media screen and (min-width: 1026px) {
   .sideBar {
-    width: 380px;
+    width: 350px;
+    height: 470px;
+    position: sticky;
+    top: 0;
   }
 }
 
 .tagArea {
   background-color: #fff;
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
 }
 
 @media screen and (min-width: 1026px) {
   .tagArea {
-    flex-direction: column;
+    height: 150px;
+    overflow: auto;
     border-radius: 20px;
     margin-bottom: 20px;
     padding: 1% 1% 5% 1%;
-  }
-
-  .tag {
-    margin-left: 20px;
   }
 }
 
 @media screen and (min-width: 482px) and (max-width: 1025px) {
   .tagArea {
-    justify-content: space-around;
     order: 1;
     border-radius: 10px 10px 0 0;
     padding: 5% 0 0 0;
@@ -226,15 +222,6 @@
   }
 }
 
-.tag a {
-  color: blue;
-  line-height: 23px;
-}
-
-.tag a:hover {
-  border-bottom: solid 1px blue;
-}
-
 .toc {
   padding: 1%;
   background-color: #fff;
@@ -242,6 +229,8 @@
 
 @media screen and (min-width: 1026px) {
   .toc {
+    height: 300px;
+    overflow: auto;
     border-radius: 20px;
   }
 }
