@@ -82,10 +82,12 @@
 
   .publishedAt {
     gap: 3px;
+    font-size: 14px;
   }
 
   .revisedAt {
     gap: 3px;
+    font-size: 14px;
   }
 }
 
