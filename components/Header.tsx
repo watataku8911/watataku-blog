@@ -55,7 +55,7 @@ const Header = () => {
             handleClose={handleClose}
           />
           <a
-            href="https://watataku-portfolio.web.app"
+            href="https://watataku-portfolio.vercel.app/about"
             target="_blank"
             rel="noreferrer"
           >
