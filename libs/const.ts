@@ -1,4 +1,4 @@
-export const SITE_URL = "https://watataku-blog.vercel.app";
+export const SITE_URL = "http://localhost:3000";
 
 const title = "Watataku's ブログ";
 export const returnTitle = (pageTitle?: string) => {

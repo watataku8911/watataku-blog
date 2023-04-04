@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import type {
@@ -15,14 +14,11 @@ import type { Blog, BlogContents, Toc } from "../../types/blog";
 
 import TwitterShare from "../../components/TwitterShare";
 import FacebookShare from "../../components/FacebookShare";
-// import RSSComponent from "../../components/RSSComponent";
 import Card from "../../components/Card";
 import TagList from "../../components/TagList";
 import TableOfContents from "../../components/TableOfContents";
 import IconPublish from "../../public/img/icon_calendar.svg";
 import IconRevise from "../../public/img/icon_refresh.svg";
-
-import styles from "../../styles/Detail.module.css";
 
 import cheerio from "cheerio";
 import hljs from "highlight.js";
@@ -113,9 +109,9 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
         <meta name="twitter:image:src" content={blog.thumbnail.url} />
       </Head>
 
-      <main className={styles.detail}>
-        <section className={styles.detailHeader}>
-          <p className={styles.thumbnail}>
+      <main className="pt-14 pb-5">
+        <section className="mb-5 text-center">
+          <p className="w-[100px] h-[80.6px] border border-black m-auto">
             <Image
               src={blog.thumbnail.url}
               width={100}
@@ -125,15 +121,17 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
               alt={"サムネイル"}
             />
           </p>
-          <h1 className={styles.detailTtl}>{blog.title}</h1>
-          <div className={styles.dateArea}>
-            <div className={styles.publishedAt}>
+          <h1 className="my-4 font-bold text-4xl maxsp:text-xl">
+            {blog.title}
+          </h1>
+          <div className="m-auto flex justify-between items-center text-gray-600 w-[700px] tbpc:w-[550px] maxsp:w-[98%]">
+            <div className="flex items-center gap-2.5 tbpc:gap-4 maxsp:gap-0.5 maxsp:text-xs">
               <IconPublish />
               <time datatype={blog.publishedAt}>
                 {datePlasticSurgery(blog.publishedAt)}に公開
               </time>
             </div>
-            <div className={styles.revisedAt}>
+            <div className="flex items-center gap-2.5 tbpc:gap-4 maxsp:gap-0.5 maxsp:text-xs">
               <IconRevise />
               <time datatype={blog.updatedAt}>
                 {datePlasticSurgery(blog.updatedAt)}に更新
@@ -142,8 +140,8 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
           </div>
         </section>
 
-        <div className={styles.mainContents}>
-          <section className={styles.snsArea}>
+        <div className="flex justify-between m-auto w-[90%] maxpc:w-[95% maxpc:flex-col">
+          <section className="flex flex-col items-center w-2.5 h-24 sticky top-0 gap-5 maxpc:flex-row maxpc:order-3">
             <TwitterShare
               url={
                 "https://twitter.com/share?text=" +
@@ -162,27 +160,25 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
                 blog.id
               }
             />
-            {/* <RSSComponent url={"/feed"} /> */}
           </section>
 
-          <section className={styles.detailContent}>
+          <section className="markdown rounded-3xl bg-white w-[60%] p-[1%] maxpc:w-full maxpc:order-2 maxpc:rounded-t-none">
             <div dangerouslySetInnerHTML={{ __html: highlightedBody }} />
           </section>
 
-          <section className={styles.sideBar}>
-            <div className={styles.tagArea}>
-              <h1>タグ</h1>
+          <section className="pc:w-80 pc:h-96 pc:sticky pc:top-0">
+            <div className="bg-white overflow-auto p-4 h-24 maxpc:h-auto pc:mb-5 rounded-3xl maxpc:order-1 maxpc:rounded-b-none">
               <TagList blog={blog} />
             </div>
 
-            <div className={styles.toc}>
-              <h1>目次</h1>
+            <div className="bg-white overflow-auto p-4 rounded-3xl h-64 maxpc:h-auto maxpc:order-1 maxpc:rounded-none">
+              <h2 className="text-2xl font-bold mb-4 ">目次</h2>
               <TableOfContents toc={toc} />
             </div>
           </section>
         </div>
 
-        <div className={styles.main}>
+        <div className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] m-auto flex flex-wrap justify-between maxsp:justify-center">
           {blogs.map((blog: Blog) => {
             return (
               <Card
