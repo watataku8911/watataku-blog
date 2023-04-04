@@ -83,7 +83,7 @@ export const getStaticProps = async (
 };
 
 const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
-  const blogUrl = SITE_URL + "/" + blog.id;
+  const blogUrl = SITE_URL + "/blog/" + blog.id;
   return (
     <>
       <Head>
@@ -146,18 +146,12 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
               url={
                 "https://twitter.com/share?text=" +
                 blog.title +
-                "&url=" +
-                SITE_URL +
-                "/blog/" +
-                blog.id
+                "&url=" + blogUrl
               }
             />
             <FacebookShare
               url={
-                "http://www.facebook.com/share.php?u=" +
-                SITE_URL +
-                "/blog/" +
-                blog.id
+                "http://www.facebook.com/share.php?u=" + blogUrl
               }
             />
           </section>
