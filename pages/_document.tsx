@@ -59,7 +59,7 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <body>
+        <body className="bg-blue-100">
           <Main />
           <NextScript />
         </body>

@@ -3,7 +3,6 @@ import { client } from "../seacretDirectory/seacret";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import type { BlogContents, Blog } from "../types/blog";
 
-import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
@@ -33,7 +32,7 @@ export const getStaticProps = async () => {
 
 const Home: NextPage<Props> = ({ blogs, totalCount }) => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>{returnTitle()}</title>
         <meta
@@ -66,24 +65,22 @@ const Home: NextPage<Props> = ({ blogs, totalCount }) => {
         />
       </Head>
 
-      <div className={styles.wrapper}>
-        <main className={styles.main}>
-          {blogs.map((blog: Blog) => {
-            return (
-              <Card
-                id={blog.id}
-                thumbnail={blog.thumbnail.url}
-                title={blog.title}
-                tags={blog.tags}
-                publishedAt={blog.publishedAt}
-                key={blog.id}
-              />
-            );
-          })}
-        </main>
-        {totalCount >= PER_PAGE && <Pagination totalCount={totalCount} />}
-      </div>
-    </div>
+      <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-between maxsp:justify-center">
+        {blogs.map((blog: Blog) => {
+          return (
+            <Card
+              id={blog.id}
+              thumbnail={blog.thumbnail.url}
+              title={blog.title}
+              tags={blog.tags}
+              publishedAt={blog.publishedAt}
+              key={blog.id}
+            />
+          );
+        })}
+      </main>
+      {totalCount >= PER_PAGE && <Pagination totalCount={totalCount} />}
+    </>
   );
 };
 
