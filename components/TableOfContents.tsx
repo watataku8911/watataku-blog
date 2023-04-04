@@ -6,7 +6,7 @@ type Props = {
 const TableOfContants = (props: Props) => {
   return (
     <>
-      <ul>
+      <ul className="pl-[8%]">
         {props.toc.map((toc, index) => (
           <li className={toc.name} key={index}>
             <a href={"#" + toc.id}>{toc.text}</a>

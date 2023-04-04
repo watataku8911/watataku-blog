@@ -1,10 +1,9 @@
 import Head from "next/head";
 import { client } from "../../../../seacretDirectory/seacret";
-import styles from "../../../../styles/Home.module.css";
 import Card from "../../../../components/Card";
 import Pagination from "../../../../components/Pagination";
 import { returnTitle } from "../../../../libs/const";
-import { range } from "../../../../functions/function";
+
 import type {
   InferGetStaticPropsType,
   NextPage,
@@ -70,38 +69,36 @@ export const getStaticProps = async (
 
 const Home: NextPage<Props> = ({ tagId, blogs, totalCount }) => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>{returnTitle(tagId)}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {blogs.length == 0 ? (
-        <main className={styles.main}>
-          <h2>このタグが付いている記事はありません。</h2>
+        <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-center items-center">
+          <h2 className="text-4xl">このタグが付いている記事はありません。</h2>
         </main>
       ) : (
-        <div className={styles.wrapper}>
-          <main className={styles.main}>
-            {blogs.map((blog: Blog) => {
-              return (
-                <Card
-                  id={blog.id}
-                  thumbnail={blog.thumbnail.url}
-                  title={blog.title}
-                  tags={blog.tags}
-                  publishedAt={blog.publishedAt}
-                  key={blog.id}
-                />
-              );
-            })}
-            {totalCount >= PER_PAGE && (
-              <Pagination totalCount={totalCount} tag_id={tagId} />
-            )}
-          </main>
-        </div>
+        <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-between maxsp:justify-center">
+          {blogs.map((blog: Blog) => {
+            return (
+              <Card
+                id={blog.id}
+                thumbnail={blog.thumbnail.url}
+                title={blog.title}
+                tags={blog.tags}
+                publishedAt={blog.publishedAt}
+                key={blog.id}
+              />
+            );
+          })}
+          {totalCount >= PER_PAGE && (
+            <Pagination totalCount={totalCount} tag_id={tagId} />
+          )}
+        </main>
       )}
-    </div>
+    </>
   );
 };
 

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../styles/Card.module.css";
-import { datePlasticSurgery, split } from "../functions/function";
+import { datePlasticSurgery } from "../functions/function";
 import type { Tags } from "../types/blog";
 import IconTag from "../public/img/icon_tag_navy.svg";
 
@@ -17,8 +16,8 @@ const Card = (props: Props) => {
   return (
     <>
       <Link href={`/blog/${props.id}`} passHref>
-        <article className={styles.card}>
-          <div className={styles.thumbnail}>
+        <article className="relative w-[350px] h-[380px] mb-2.5 mt-3.5 bg-white cursor-pointer shadow-xl tbpc:w-[30vw] tbpc:h-[310px] hover:translate-x-0 hover:translate-y-1.5">
+          <div className="border-solid border-[#ccc] border-8">
             <Image
               src={props.thumbnail}
               unoptimized={true}
@@ -30,14 +29,17 @@ const Card = (props: Props) => {
             />
           </div>
 
-          <div className={styles.title}>
-            <h2>{split(props.title, 40)}</h2>
-          </div>
+          <h2 className="pt-3 pr-3 pl-3 text-lg font-medium overflow-hidden webkit-line-clamp">
+            {props.title}
+          </h2>
 
-          <ul className={styles.tags}>
+          <ul className="flex flex-start flex-wrap mt-1">
             {props.tags.map((tag: Tags) => {
               return (
-                <li key={tag.id} className={styles.tag}>
+                <li
+                  key={tag.id}
+                  className="flex justify-center items-center p-0.5 border-solid border-[#5bbee5] border-2 ml-2 mb-2"
+                >
                   <IconTag />
                   {tag.tag_name}
                 </li>
@@ -45,7 +47,10 @@ const Card = (props: Props) => {
             })}
           </ul>
 
-          <time datatype={props.publishedAt} className={styles.publishedAt}>
+          <time
+            datatype={props.publishedAt}
+            className="absolute bottom-[5px] right-[5px]"
+          >
             {datePlasticSurgery(props.publishedAt)}
           </time>
         </article>

@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
+import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -33,8 +34,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         loadingComponent
       ) : (
         <>
+          <Head>
+            <meta
+              name="viewport"
+              content="minimum-scale=1, initial-scale=1, width=device-width"
+            />
+          </Head>
+
           <Header />
-          <Component {...pageProps} />
+          <main>
+            <Component {...pageProps} />
+          </main>
           <Footer />
         </>
       )}

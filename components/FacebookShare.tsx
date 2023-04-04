@@ -1,5 +1,4 @@
 import FacebookSvg from "../public/img/icon_facebook.svg";
-import styles from "../styles/Share.module.css";
 
 type Props = {
   url: string;
@@ -12,7 +11,7 @@ const TwitterShare = (props: Props) => {
         href={props.url}
         target="_blank"
         rel="noreferrer"
-        className={styles.shareLink}
+        className="block hover:scale-125"
       >
         <FacebookSvg />
       </a>

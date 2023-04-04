@@ -12,7 +12,7 @@ const RSSComponent = (props: Props) => {
         href={props.url}
         target="_blank"
         rel="noreferrer"
-        className={styles.shareLink}
+        className="block hover:scale-125"
       >
         <RSSFeed />
       </a>

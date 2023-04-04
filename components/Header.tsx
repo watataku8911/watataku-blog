@@ -1,10 +1,10 @@
 import { client } from "../seacretDirectory/seacret";
-import styles from "../styles/Header.module.css";
 import IconSearch from "../public/img/icon_search.svg";
 import { useState, useCallback, useEffect } from "react";
 import Modal from "./Modal";
 import { TagsContents, Tags } from "../types/blog";
 import Link from "next/link";
+import RSSComponent from "./RSSComponent";
 
 const Header = () => {
   const [tags, setTags] = useState<Tags[]>([]);
@@ -39,30 +39,31 @@ const Header = () => {
   }, [setOpen]);
 
   return (
-    <header className={styles.header}>
-      <div className={`${styles.headerContainer} ${styles.gred}`}>
-        <h3>
-          <Link href="/">Watataku&apos;s Blog</Link>
-        </h3>
-        <nav className={`${styles.navi} ${styles.gred}`}>
-          <a className={`${styles.search} ${styles.gred}`}>
-            <IconSearch onClick={handleOpen} />
-          </a>
-          <Modal
-            open={open}
-            title={"タグ検索"}
-            tags={tags}
-            handleClose={handleClose}
-          />
-          <a
-            href="https://watataku-portfolio.web.app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <p className={styles.about}>ABOUT</p>
-          </a>
-        </nav>
-      </div>
+    <header className="h-[75px] bg-[linear-gradient(to_right,_#5bbee4_20%,_#52eac1_80%)] flex justify-around items-center">
+      <h1 className="text-white text-2xl font-badScript">
+        <Link href="/">Watataku&apos;s Blog</Link>
+      </h1>
+      <nav className="w-[20%] maxsp:w-[40%] flex justify-around items-center">
+        <a className="flex justify-center items-center cursor-pointer hover:scale-150">
+          <IconSearch onClick={handleOpen} />
+        </a>
+        <Modal
+          open={open}
+          title={"タグ検索"}
+          tags={tags}
+          handleClose={handleClose}
+        />
+        {/* <RSSComponent url={"/feed"} /> */}
+        <a
+          href="https://watataku-portfolio.web.app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <p className="block p-2.5 bg-white text-[#5bbee5] rounded shadow-xl hover:translate-y-0.5">
+            ABOUT
+          </p>
+        </a>
+      </nav>
     </header>
   );
 };
