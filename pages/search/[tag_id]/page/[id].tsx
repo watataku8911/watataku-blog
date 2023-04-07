@@ -3,6 +3,7 @@ import { client } from "../../../../seacretDirectory/seacret";
 import Card from "../../../../components/Card";
 import Pagination from "../../../../components/Pagination";
 import { returnTitle } from "../../../../libs/const";
+import { range } from "../../../../functions/function";
 
 import type {
   InferGetStaticPropsType,
@@ -16,9 +17,6 @@ const PER_PAGE = 9;
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticPaths = async () => {
-  const data: BlogContents = await client.get({
-    endpoint: "blog",
-  });
   const tagData: TagsContents = await client.get({
     endpoint: "tags",
     queries: {
@@ -26,17 +24,21 @@ export const getStaticPaths = async () => {
     },
   });
 
-  const paths = tagData.contents.map((tag) => {
-    return {
-      params: {
-        tag_id: tag.id,
-        id: "1",
-      },
-    };
+  const data: BlogContents = await client.get({
+    endpoint: "blog",
   });
 
+  const categoryParams = tagData.contents.flatMap((tag) =>
+    range(1, Math.ceil(data.totalCount / PER_PAGE)).map((number) => ({
+      params: {
+        tag_id: tag.id,
+        id: number.toString(),
+      },
+    }))
+  );
+
   return {
-    paths,
+    paths: categoryParams,
     fallback: false,
   };
 };
@@ -80,7 +82,7 @@ const Home: NextPage<Props> = ({ tagId, blogs, totalCount }) => {
           <h2 className="text-4xl">このタグが付いている記事はありません。</h2>
         </main>
       ) : (
-        <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-between maxsp:justify-center">
+        <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-between maxsp:justify-center after:block after:content-[''] after:w-[350px] after:tbpc:w-[30vw]">
           {blogs.map((blog: Blog) => {
             return (
               <Card
