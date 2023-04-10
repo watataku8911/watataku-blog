@@ -55,7 +55,7 @@ const Header = () => {
         />
         {/* <RSSComponent url={"/feed"} /> */}
         <a
-          href="https://watataku-portfolio.web.app"
+          href="https://watataku-portfolio."
           target="_blank"
           rel="noreferrer"
         >
