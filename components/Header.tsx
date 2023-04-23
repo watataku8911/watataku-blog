@@ -55,7 +55,7 @@ const Header = () => {
         />
         {/* <RSSComponent url={"/feed"} /> */}
         <a
-          href="https://watataku-portfolio."
+          href="https://watataku-portfolio.vercel.app/about"
           target="_blank"
           rel="noreferrer"
         >
