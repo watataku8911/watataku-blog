@@ -13,7 +13,7 @@ const TwitterShare = (props: Props) => {
         rel="noreferrer"
         className="block hover:scale-125"
       >
-        <TwitterSvg />
+        <TwitterSvg className="dark:fill-white" />
       </a>
     </p>
   );

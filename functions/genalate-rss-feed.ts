@@ -1,36 +1,36 @@
-import { Feed } from "feed";
-
 import { client } from "../seacretDirectory/seacret";
-import { Blog } from "../types/blog";
+import { BlogContents, Blog } from "../types/blog";
 import { SITE_URL, returnTitle, returnDiscription } from "../libs/const";
+import RSS from "rss";
 
-export const generateFeed = async () => {
-  const feed = new Feed({
+const generateFeed = async (): Promise<string> => {
+  const feed = new RSS({
     title: returnTitle(),
     description: returnDiscription(),
-    id: SITE_URL,
-    link: SITE_URL,
+    site_url: SITE_URL,
+    feed_url: "/feed",
     language: "ja",
-    copyright: `© 2020 deg84`,
-    author: {
-      name: "deg84",
-    },
-    feed: `${SITE_URL}/feed`,
   });
 
   // 例としてpostsを含めるイメージ
   // このあたりの書き方はライブラリのドキュメントを参考にしてください
-  const { posts } = await client.get({ endpoint: "blog" });
-  posts?.forEach((post: Blog) => {
-    feed.addItem({
+  const data: BlogContents = await client.get({
+    endpoint: "blog",
+    queries: {
+      limit: 999,
+    },
+  });
+  data.contents.forEach((post: Blog) => {
+    feed.item({
       title: returnTitle(post.title),
       description: returnDiscription(post.body),
       date: new Date(post.createdAt),
-      id: `${SITE_URL}/blog/${post.id}`,
-      link: `${SITE_URL}/blog/${post.id}`,
+      url: `${SITE_URL}/blog/${post.id}`,
     });
   });
 
   // XML形式の文字列にする
-  return feed.rss2();
+  return feed.xml();
 };
+
+export default generateFeed;
