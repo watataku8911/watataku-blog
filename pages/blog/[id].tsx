@@ -157,7 +157,9 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
               }
             />
             <FacebookShare
-              url={"http://www.facebook.com/share.php?u=" + blogUrl}
+              url={
+                "http://www.facebook.com/share.php?u=" + blogUrl
+              }
             />
           </section>
 
