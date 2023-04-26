@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bad+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -28,110 +28,58 @@
 
 /* マークダウン */
 .markdown h1 {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  border-bottom: solid 1px #aaa;
-  font-weight: bold;
-  margin-bottom: 20px;
-  margin-top: 15px;
+  @apply text-3xl mb-5 mt-4 font-bold border-b dark:text-white dark:border-gray-200;
 }
 
 .markdown h2 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  border-bottom: solid 1px #aaa;
-  font-weight: bold;
-  margin-bottom: 20px;
-  margin-top: 15px;
+  @apply text-2xl mb-5 mt-4 font-bold border-b dark:text-white dark:border-gray-200;
 }
 
 .markdown h3 {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: bold;
-  margin-top: 15px;
-  margin-bottom: 20px;
+  @apply text-xl mb-5 mt-4 font-bold border-b dark:text-white;
 }
 
 .markdown h4 {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: bold;
-  margin-bottom: 18px;
-  margin-top: 13px;
+  @apply text-lg mb-4 mt-3 font-bold border-b dark:text-white;
 }
 
 .markdown h5 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 14px;
-  margin-top: 9px;
+  @apply text-base mb-3 mt-2 font-bold border-b dark:text-white;
 }
 
-.markdown pre {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  background-color: #222;
-  padding: 1.5%;
-  overflow: auto;
-}
-
+/* ソースコード */
 .markdown pre code {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  background-color: transparent;
-  font-style: normal;
-  color: #e0efff;
+  @apply text-base text-gray-300 bg-gray-900 not-italic overflow-auto p-3 my-3;
 }
 
+/* 強調コード */
 .markdown code {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  background-color: #eee;
-  color: rgb(224, 120, 120);
-  font-style: italic;
+  @apply inline-block text-base italic p-0.5 m-0.5 rounded-md bg-gray-200 text-pink-600;
 }
 
 .markdown a {
-  display: inline-block;
-  word-break: break-all;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-bottom: 10px;
-  color: blue;
-  border-bottom: solid 1px blue;
+  @apply inline-block text-base break-all mb-3 h-6 leading-relaxed tracking-wider text-blue-600 border-b-blue-600 dark:border-[#ff36ab] dark:text-[#ff36ab] hover:border-b;
 }
-
 .markdown p {
-  word-break: break-all;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  letter-spacing: 1px;
+  @apply text-base break-all tracking-wider leading-relaxed dark:text-white;
 }
 
 .markdown ul {
-  padding-left: 5%;
+  @apply pl-[5%];
 }
 
 .markdown li {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  letter-spacing: 1px;
-  list-style-type: disc;
+  @apply text-base list-disc tracking-wider leading-relaxed dark:text-white;
 }
 
 .markdown img {
-  max-width: 100%;
+  @apply max-w-full;
 }
 
 .markdown blockquote {
-  border-left: 5px solid #999;
-  padding-left: 20px;
-  font-style: italic;
-  color: #888;
+  @apply border-l-4 italic pl-5 text-gray-500 border-gray-500 dark:border-gray-50 dark:text-gray-50;
 }
 
 .markdown iframe {
-  width: 100%;
+  @apply w-full;
 }

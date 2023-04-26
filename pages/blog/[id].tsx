@@ -62,7 +62,7 @@ export const getStaticProps = async (
     name: data.name,
   }));
 
-  console.log(toc);
+  // console.log(toc);
 
   const dataList: BlogContents = await client.get({
     endpoint: "blog",
@@ -111,7 +111,7 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
 
       <main className="pt-14 pb-5">
         <section className="mb-5 text-center">
-          <p className="w-[100px] h-[80.6px] border border-black m-auto">
+          <p className="w-[100px] h-[80.6px] border border-black dark:border-white m-auto">
             <Image
               src={blog.thumbnail.url}
               width={100}
@@ -121,19 +121,25 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
               alt={"サムネイル"}
             />
           </p>
-          <h1 className="my-4 font-bold text-4xl maxsp:text-xl">
+          <h1 className="my-4 font-bold text-4xl maxsp:text-xl dark:text-white">
             {blog.title}
           </h1>
-          <div className="m-auto flex justify-between items-center text-gray-600 w-[700px] tbpc:w-[550px] maxsp:w-[98%]">
+          <div className="m-auto flex justify-between items-center  w-[700px] tbpc:w-[550px] maxsp:w-[98%]">
             <div className="flex items-center gap-2.5 tbpc:gap-4 maxsp:gap-0.5 maxsp:text-xs">
-              <IconPublish />
-              <time datatype={blog.publishedAt}>
+              <IconPublish className="dark:fill-white" />
+              <time
+                className="text-gray-600 dark:text-gray-100"
+                datatype={blog.publishedAt}
+              >
                 {datePlasticSurgery(blog.publishedAt)}に公開
               </time>
             </div>
             <div className="flex items-center gap-2.5 tbpc:gap-4 maxsp:gap-0.5 maxsp:text-xs">
-              <IconRevise />
-              <time datatype={blog.updatedAt}>
+              <IconRevise className="dark:fill-white" />
+              <time
+                className="text-gray-600 dark:text-gray-100"
+                datatype={blog.updatedAt}
+              >
                 {datePlasticSurgery(blog.updatedAt)}に更新
               </time>
             </div>
@@ -146,7 +152,8 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
               url={
                 "https://twitter.com/share?text=" +
                 blog.title +
-                "&url=" + blogUrl
+                "&url=" +
+                blogUrl
               }
             />
             <FacebookShare
@@ -156,17 +163,17 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
             />
           </section>
 
-          <section className="markdown rounded-3xl bg-white w-[60%] p-[1%] maxpc:w-full maxpc:order-2 maxpc:rounded-t-none">
+          <section className="markdown rounded-3xl bg-white dark:bg-black w-[60%] p-[1%] maxpc:w-full maxpc:order-2 maxpc:rounded-t-none">
             <div dangerouslySetInnerHTML={{ __html: highlightedBody }} />
           </section>
 
           <section className="pc:w-80 pc:h-96 pc:sticky pc:top-0">
-            <div className="bg-white overflow-auto p-4 h-24 maxpc:h-auto pc:mb-5 rounded-3xl maxpc:order-1 maxpc:rounded-b-none">
+            <div className="bg-white dark:bg-black overflow-auto p-4 h-24 maxpc:h-auto pc:mb-5 rounded-3xl maxpc:order-1 maxpc:rounded-b-none">
               <TagList blog={blog} />
             </div>
 
-            <div className="bg-white overflow-auto p-4 rounded-3xl h-64 maxpc:h-auto maxpc:order-1 maxpc:rounded-none">
-              <h2 className="text-2xl font-bold mb-4 ">目次</h2>
+            <div className="bg-white dark:bg-black overflow-auto p-4 rounded-3xl h-64 maxpc:h-auto maxpc:order-1 maxpc:rounded-none">
+              <h2 className="text-2xl font-bold mb-4 dark:text-white">目次</h2>
               <TableOfContents toc={toc} />
             </div>
           </section>

@@ -1,10 +1,14 @@
 import { client } from "../seacretDirectory/seacret";
-import IconSearch from "../public/img/icon_search.svg";
+import IconSearch from "../public/img/search.svg";
+import IconSearchWhite from "../public/img/search_white.svg";
+import IconUser from "../public/img/user.svg";
+import IconUserWhite from "../public/img/user_white.svg";
 import { useState, useCallback, useEffect } from "react";
 import Modal from "./Modal";
 import { TagsContents, Tags } from "../types/blog";
 import Link from "next/link";
 import RSSComponent from "./RSSComponent";
+import Switch from "./Switch";
 
 const Header = () => {
   const [tags, setTags] = useState<Tags[]>([]);
@@ -39,31 +43,40 @@ const Header = () => {
   }, [setOpen]);
 
   return (
-    <header className="h-[75px] bg-[linear-gradient(to_right,_#5bbee4_20%,_#52eac1_80%)] flex justify-around items-center">
-      <h1 className="text-white text-2xl font-badScript">
-        <Link href="/">Watataku&apos;s Blog</Link>
-      </h1>
-      <nav className="w-[20%] maxsp:w-[40%] flex justify-around items-center">
-        <a className="flex justify-center items-center cursor-pointer hover:scale-150">
-          <IconSearch onClick={handleOpen} />
-        </a>
-        <Modal
-          open={open}
-          title={"タグ検索"}
-          tags={tags}
-          handleClose={handleClose}
-        />
-        {/* <RSSComponent url={"/feed"} /> */}
-        <a
-          href="https://watataku-portfolio.vercel.app/about"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <p className="block p-2.5 bg-white text-[#5bbee5] rounded shadow-xl hover:translate-y-0.5">
-            ABOUT
-          </p>
-        </a>
-      </nav>
+    <header className="bg-[linear-gradient(to_right,_#ADDFF2_20%,_#5bbee5_80%)] dark:bg-[linear-gradient(to_right,_#7388c0_20%,_#3A4461_80%)]">
+      <div className="h-[75px] m-auto flex items-center justify-between w-[90%]">
+        <h1 className="dark:text-white text-5xl maxsp:text-4xl font-GreatVibes">
+          <Link href="/">
+            <a>T.W</a>
+          </Link>
+        </h1>
+        <nav className="w-[20%] tbpc:w-[30%] maxsp:w-[50%] flex justify-around items-center">
+          <a className="flex justify-center items-center cursor-pointer hover:scale-125 dark:text-white">
+            <IconSearch className="block dark:hidden" onClick={handleOpen} />
+            <IconSearchWhite
+              className="hidden dark:block"
+              onClick={handleOpen}
+            />
+          </a>
+          <Modal
+            open={open}
+            title={"タグ検索"}
+            tags={tags}
+            handleClose={handleClose}
+          />
+          <RSSComponent url={"/feed"} />
+          <a
+            className="hover:scale-125"
+            href="https://watataku-portfolio.vercel.app/about"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <IconUser className="block dark:hidden" />
+            <IconUserWhite className="hidden dark:block" />
+          </a>
+          <Switch />
+        </nav>
+      </div>
     </header>
   );
 };

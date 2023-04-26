@@ -1,14 +1,15 @@
+import React from "react";
 import { GetServerSidePropsContext } from "next";
-import { generateFeed } from "../functions/genalate-rss-feed";
+import generateFeed from "../functions/genalate-rss-feed";
 
 export const getServerSideProps = async ({
   res,
 }: GetServerSidePropsContext) => {
   const xml = await generateFeed(); // フィードのXMLを生成する（後述）
-
   res.statusCode = 200;
-  res.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate"); // 24時間キャッシュする
+  res.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate"); // 24時間のキャッシュ
   res.setHeader("Content-Type", "text/xml");
+
   res.end(xml);
 
   return {
@@ -16,5 +17,5 @@ export const getServerSideProps = async ({
   };
 };
 
-const Page = () => null;
-export default Page;
+const feed = () => null;
+export default feed;

@@ -1,5 +1,4 @@
 import RSSFeed from "../public/img/icon_rss.svg";
-import styles from "../styles/Share.module.css";
 
 type Props = {
   url: string;
@@ -14,7 +13,7 @@ const RSSComponent = (props: Props) => {
         rel="noreferrer"
         className="block hover:scale-125"
       >
-        <RSSFeed />
+        <RSSFeed className="dark:fill-white" />
       </a>
     </p>
   );

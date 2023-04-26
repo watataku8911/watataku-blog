@@ -16,8 +16,8 @@ const Card = (props: Props) => {
   return (
     <>
       <Link href={`/blog/${props.id}`} passHref>
-        <article className="relative w-[350px] h-[380px] mb-2.5 mt-3.5 bg-white cursor-pointer shadow-xl tbpc:w-[30vw] tbpc:h-[310px] hover:translate-x-0 hover:translate-y-1.5">
-          <div className="border-solid border-[#ccc] border-8">
+        <article className="relative w-[350px] h-[380px] mb-2.5 mt-3.5 cursor-pointer shadow-xl dark:shadow-outline tbpc:w-[30vw] tbpc:h-[310px] hover:translate-x-0 hover:translate-y-1.5 bg-white dark:bg-black ">
+          <div className="border-solid border-8 border-[#ccc] dark:border-[#333]">
             <Image
               src={props.thumbnail}
               unoptimized={true}
@@ -29,7 +29,7 @@ const Card = (props: Props) => {
             />
           </div>
 
-          <h2 className="pt-3 pr-3 pl-3 text-lg font-medium overflow-hidden webkit-line-clamp">
+          <h2 className="pt-3 pr-3 pl-3 text-lg font-medium overflow-hidden webkit-line-clamp dark:text-white">
             {props.title}
           </h2>
 
@@ -38,9 +38,9 @@ const Card = (props: Props) => {
               return (
                 <li
                   key={tag.id}
-                  className="flex justify-center items-center p-0.5 border-solid border-[#5bbee5] border-2 ml-2 mb-2"
+                  className="flex justify-center items-center p-0.5 border-solid border-2 ml-2 mb-2 border-[#5bbee5] dark:border-[#7388c0] dark:text-white"
                 >
-                  <IconTag />
+                  <IconTag className="dark:fill-[#fff]" />
                   {tag.tag_name}
                 </li>
               );
@@ -49,7 +49,7 @@ const Card = (props: Props) => {
 
           <time
             datatype={props.publishedAt}
-            className="absolute bottom-[5px] right-[5px]"
+            className="absolute bottom-[5px] right-[5px] dark:text-white"
           >
             {datePlasticSurgery(props.publishedAt)}
           </time>

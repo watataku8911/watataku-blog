@@ -29,9 +29,10 @@ module.exports = {
     extend: {
       // フォントを追加
       fontFamily: {
-        badScript: ["Bad Script", "cursive"],
+        GreatVibes: ["Great Vibes", "cursive"],
       },
     },
   },
   plugins: [],
+  darkMode: "class",
 };

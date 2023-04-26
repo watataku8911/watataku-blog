@@ -8,38 +8,38 @@ const TableOfContants = (props: Props) => {
     <>
       <ul className="pl-[8%]">
         {props.toc.map((toc, index) => (
-          <li className={toc.name} key={index}>
+          <li id={toc.name} className="dark:text-white" key={index}>
             <a href={"#" + toc.id}>{toc.text}</a>
           </li>
         ))}
       </ul>
       <style jsx>{`
-        .h1 {
+        #h1 {
           font-size: 1.2em;
           list-style: square;
         }
 
-        .h2 {
+        #h2 {
           font-size: 1em;
           margin-left: 15px;
-          list-style: circle;
+          list-style: square;
         }
 
-        .h3 {
+        #h3 {
           font-size: 0.8em;
-          list-style: circle;
+          list-style: square;
           margin-left: 25px;
         }
 
-        .h4 {
+        #h4 {
           font-size: 0.8em;
-          list-style: circle;
+          list-style: square;
           margin-left: 35px;
         }
 
-        .h5 {
+        #h5 {
           font-size: 0.8em;
-          list-style: circle;
+          list-style: square;
           margin-left: 45px;
         }
       `}</style>
