@@ -51,13 +51,14 @@ const Header = () => {
           </Link>
         </h1>
         <nav className="w-[20%] tbpc:w-[30%] maxsp:w-[50%] flex justify-around items-center">
-          <a className="flex justify-center items-center cursor-pointer hover:scale-125 dark:text-white">
-            <IconSearch className="block dark:hidden" onClick={handleOpen} />
-            <IconSearchWhite
-              className="hidden dark:block"
-              onClick={handleOpen}
-            />
-          </a>
+          <IconSearch
+            className="block cursor-pointer hover:scale-125 dark:hidden"
+            onClick={handleOpen}
+          />
+          <IconSearchWhite
+            className="hidden cursor-pointer hover:scale-125 dark:block"
+            onClick={handleOpen}
+          />
           <Modal
             open={open}
             title={"タグ検索"}
@@ -70,6 +71,7 @@ const Header = () => {
             href="https://watataku-portfolio.vercel.app/about"
             target="_blank"
             rel="noreferrer"
+            aria-label="プロフィール"
           >
             <IconUser className="block dark:hidden" />
             <IconUserWhite className="hidden dark:block" />
