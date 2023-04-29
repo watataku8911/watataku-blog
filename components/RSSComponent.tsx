@@ -12,6 +12,7 @@ const RSSComponent = (props: Props) => {
         target="_blank"
         rel="noreferrer"
         className="block hover:scale-125"
+        aria-label="RSSフィード"
       >
         <RSSFeed className="dark:fill-white" />
       </a>
