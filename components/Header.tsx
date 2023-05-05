@@ -1,14 +1,14 @@
-import { client } from "../seacretDirectory/seacret";
+import Link from "next/link";
+import { useState, useCallback, useEffect } from "react";
 import IconSearch from "../public/img/search.svg";
 import IconSearchWhite from "../public/img/search_white.svg";
 import IconUser from "../public/img/user.svg";
 import IconUserWhite from "../public/img/user_white.svg";
-import { useState, useCallback, useEffect } from "react";
-import Modal from "./Modal";
 import { TagsContents, Tags } from "../types/blog";
-import Link from "next/link";
+import Modal from "./Modal";
 import RSSComponent from "./RSSComponent";
 import Switch from "./Switch";
+import { getMicroCMSTag } from "../functions/function";
 
 const Header = () => {
   const [tags, setTags] = useState<Tags[]>([]);
@@ -25,13 +25,8 @@ const Header = () => {
   }, [setTags]);
 
   const fetchGetTags = async (): Promise<Tags[]> => {
-    const data: TagsContents = await client.get({
-      endpoint: "tags",
-      queries: {
-        limit: 15,
-      },
-    });
-    return data.contents;
+    const tags: TagsContents = await getMicroCMSTag();
+    return tags.contents;
   };
 
   const handleOpen = useCallback(() => {

@@ -1,4 +1,3 @@
-import React from "react";
 import { GetServerSidePropsContext } from "next";
 import generateFeed from "../functions/genalate-rss-feed";
 

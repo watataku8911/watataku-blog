@@ -1,35 +1,34 @@
-import Head from "next/head";
-import { client } from "../../../../seacretDirectory/seacret";
-import Card from "../../../../components/Card";
-import Pagination from "../../../../components/Pagination";
-import { returnTitle } from "../../../../libs/const";
-import { range } from "../../../../functions/function";
-
+import {
+  returnTitle,
+  returnDiscription,
+  SITE_URL,
+} from "../../../../libs/const";
+import {
+  getMicroCMSBlogs,
+  getMicroCMSTag,
+  range,
+} from "../../../../functions/function";
 import type {
   InferGetStaticPropsType,
   NextPage,
   GetStaticPropsContext,
 } from "next";
-import type { BlogContents, Blog, TagsContents } from "../../../../types/blog";
+import type { BlogContents, TagsContents } from "../../../../types/blog";
+import BlogList from "../../../../components/BlogList";
+import MyNextSEO from "../../../../components/MyNextSEO";
+import Pagination from "../../../../components/Pagination";
 
 const PER_PAGE = 9;
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticPaths = async () => {
-  const tagData: TagsContents = await client.get({
-    endpoint: "tags",
-    queries: {
-      limit: 15,
-    },
-  });
+  const tags: TagsContents = await getMicroCMSTag();
 
-  const data: BlogContents = await client.get({
-    endpoint: "blog",
-  });
+  const blog: BlogContents = await getMicroCMSBlogs();
 
-  const categoryParams = tagData.contents.flatMap((tag) =>
-    range(1, Math.ceil(data.totalCount / PER_PAGE)).map((number) => ({
+  const categoryParams = tags.contents.flatMap((tag) =>
+    range(1, Math.ceil(blog.totalCount / PER_PAGE)).map((number) => ({
       params: {
         tag_id: tag.id,
         id: number.toString(),
@@ -49,22 +48,18 @@ export const getStaticProps = async (
   const tagId = context.params?.tag_id;
   const pageNo = Number(context.params?.id);
 
-  let blogData: BlogContents;
-  blogData = await client.get({
-    endpoint: "blog",
-    queries: {
-      orders: "-publishedAt",
-      filters: "tags[contains]" + tagId,
-      offset: (pageNo - 1) * PER_PAGE,
-      limit: PER_PAGE,
-    },
-  });
+  let blog: BlogContents;
+  blog = await getMicroCMSBlogs(
+    PER_PAGE,
+    (pageNo - 1) * PER_PAGE,
+    "tags[contains]" + tagId
+  );
 
   return {
     props: {
       tagId,
-      blogs: blogData.contents,
-      totalCount: blogData.totalCount,
+      blogs: blog.contents,
+      totalCount: blog.totalCount,
     },
   };
 };
@@ -72,33 +67,34 @@ export const getStaticProps = async (
 const Home: NextPage<Props> = ({ tagId, blogs, totalCount }) => {
   return (
     <>
-      <Head>
-        <title>{returnTitle(tagId)}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MyNextSEO
+        title={returnTitle()}
+        description={returnDiscription("Watatakuのブログです。")}
+        ogTitle={returnTitle()}
+        ogDescription={returnDiscription("Watatakuのブログです。")}
+        ogType="blog"
+        ogUrl={SITE_URL}
+        ogImage={`${SITE_URL}/ogp.jpg`}
+        ogSiteName={returnTitle()}
+        twCard="summary_large_image"
+        twTitle={returnTitle()}
+        twDescription={returnDiscription("Watatakuのブログです。")}
+        twImage={`${SITE_URL}/ogp.jpg`}
+      />
 
       {blogs.length == 0 ? (
         <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-center items-center">
-          <h2 className="text-4xl">このタグが付いている記事はありません。</h2>
+          <h2 className="text-4xl dark:text-white">
+            このタグが付いている記事はありません。
+          </h2>
         </main>
       ) : (
-        <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-between maxsp:justify-center after:block after:content-[''] after:w-[350px] after:tbpc:w-[30vw]">
-          {blogs.map((blog: Blog) => {
-            return (
-              <Card
-                id={blog.id}
-                thumbnail={blog.thumbnail.url}
-                title={blog.title}
-                tags={blog.tags}
-                publishedAt={blog.publishedAt}
-                key={blog.id}
-              />
-            );
-          })}
+        <>
+          <BlogList blogs={blogs} />
           {totalCount >= PER_PAGE && (
             <Pagination totalCount={totalCount} tag_id={tagId} />
           )}
-        </main>
+        </>
       )}
     </>
   );

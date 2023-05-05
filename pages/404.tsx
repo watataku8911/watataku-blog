@@ -1,12 +1,25 @@
 import Link from "next/link";
-import Head from "next/head";
+import { returnTitle, returnDiscription, SITE_URL } from "../libs/const";
+import MyNextSEO from "../components/MyNextSEO";
 
 const NotFound = () => {
   return (
     <>
-      <Head>
-        <title>Not Found</title>
-      </Head>
+      <MyNextSEO
+        title={returnTitle("404")}
+        description={returnDiscription("Watatakuのブログ404ページです。")}
+        ogTitle={returnTitle("404")}
+        ogDescription={returnDiscription("Watatakuのブログ404ページです。")}
+        ogType="blog"
+        ogUrl={SITE_URL}
+        ogImage={`${SITE_URL}/ogp.jpg`}
+        ogSiteName={returnTitle()}
+        twCard="summary_large_image"
+        twTitle={returnTitle("404")}
+        twDescription={returnDiscription("Watatakuのブログの404ページです。")}
+        twImage={`${SITE_URL}/ogp.jpg`}
+      />
+
       <section className="text-center min-h-[calc(100vh_-_170px)]">
         <h2 className="text-3xl font-bold mb-6 dark:text-white">
           <span className="text-red-700 tracking-[5px] text-9xl maxsp:text-8xl mb-4">
