@@ -10,7 +10,7 @@ type Props = {
   handleClose: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 };
 
-const Modal = React.memo((props: Props) => {
+const Modal = (props: Props) => {
   if (!props.open) {
     return null;
   }
@@ -44,6 +44,6 @@ const Modal = React.memo((props: Props) => {
       </div>
     </div>
   );
-});
+};
 
 export default Modal;
