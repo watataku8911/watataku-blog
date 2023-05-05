@@ -1,6 +1,6 @@
 export const SITE_URL = "https://watataku-blog.vercel.app";
 
-const title = "Watataku's ブログ";
+const title = "Watatakuのブログ";
 export const returnTitle = (pageTitle?: string) => {
   if (pageTitle !== undefined) {
     return `${pageTitle} | ${title}`;
@@ -9,10 +9,10 @@ export const returnTitle = (pageTitle?: string) => {
   }
 };
 
-const description = "";
+const description = "Watatakuのブログです";
 export const returnDiscription = (pageDiscription?: string) => {
   if (pageDiscription !== undefined) {
-    return `${pageDiscription} | ${description}`;
+    return pageDiscription;
   } else {
     return description;
   }

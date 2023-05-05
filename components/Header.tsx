@@ -1,14 +1,14 @@
-import { client } from "../seacretDirectory/seacret";
+import Link from "next/link";
+import { useState, useCallback, useEffect } from "react";
 import IconSearch from "../public/img/search.svg";
 import IconSearchWhite from "../public/img/search_white.svg";
 import IconUser from "../public/img/user.svg";
 import IconUserWhite from "../public/img/user_white.svg";
-import { useState, useCallback, useEffect } from "react";
-import Modal from "./Modal";
 import { TagsContents, Tags } from "../types/blog";
-import Link from "next/link";
+import Modal from "./Modal";
 import RSSComponent from "./RSSComponent";
 import Switch from "./Switch";
+import { getMicroCMSTag } from "../functions/function";
 
 const Header = () => {
   const [tags, setTags] = useState<Tags[]>([]);
@@ -25,13 +25,8 @@ const Header = () => {
   }, [setTags]);
 
   const fetchGetTags = async (): Promise<Tags[]> => {
-    const data: TagsContents = await client.get({
-      endpoint: "tags",
-      queries: {
-        limit: 15,
-      },
-    });
-    return data.contents;
+    const tags: TagsContents = await getMicroCMSTag();
+    return tags.contents;
   };
 
   const handleOpen = useCallback(() => {
@@ -51,13 +46,14 @@ const Header = () => {
           </Link>
         </h1>
         <nav className="w-[20%] tbpc:w-[30%] maxsp:w-[50%] flex justify-around items-center">
-          <a className="flex justify-center items-center cursor-pointer hover:scale-125 dark:text-white">
-            <IconSearch className="block dark:hidden" onClick={handleOpen} />
-            <IconSearchWhite
-              className="hidden dark:block"
-              onClick={handleOpen}
-            />
-          </a>
+          <IconSearch
+            className="block cursor-pointer hover:scale-125 dark:hidden"
+            onClick={handleOpen}
+          />
+          <IconSearchWhite
+            className="hidden cursor-pointer hover:scale-125 dark:block"
+            onClick={handleOpen}
+          />
           <Modal
             open={open}
             title={"タグ検索"}
@@ -70,6 +66,7 @@ const Header = () => {
             href="https://watataku-portfolio.vercel.app/about"
             target="_blank"
             rel="noreferrer"
+            aria-label="プロフィール"
           >
             <IconUser className="block dark:hidden" />
             <IconUserWhite className="hidden dark:block" />

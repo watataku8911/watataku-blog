@@ -1,30 +1,23 @@
-import { client } from "../../seacretDirectory/seacret";
-
 import type {
   InferGetStaticPropsType,
   NextPage,
   GetStaticPropsContext,
 } from "next";
-
-import type { BlogContents, Blog } from "../../types/blog";
-
-import Head from "next/head";
-import Card from "../../components/Card";
+import type { BlogContents } from "../../types/blog";
 import Pagination from "../../components/Pagination";
-
-import { returnTitle } from "../../libs/const";
-import { range } from "../../functions/function";
+import { returnTitle, returnDiscription, SITE_URL } from "../../libs/const";
+import { getMicroCMSBlogs, range } from "../../functions/function";
+import BlogList from "../../components/BlogList";
+import MyNextSEO from "../../components/MyNextSEO";
 
 const PER_PAGE = 9;
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticPaths = async () => {
-  const data: BlogContents = await client.get({
-    endpoint: "blog",
-  });
+  const blog: BlogContents = await getMicroCMSBlogs();
 
-  const paths = range(1, Math.ceil(data.totalCount / PER_PAGE)).map(
+  const paths = range(1, Math.ceil(blog.totalCount / PER_PAGE)).map(
     (repo) => `/page/${repo}`
   );
   return { paths, fallback: false };
@@ -34,20 +27,13 @@ export const getStaticProps = async (
   context: GetStaticPropsContext<{ id: string }>
 ) => {
   const pageNo = Number(context.params?.id);
-  let data: BlogContents;
-  data = await client.get({
-    endpoint: "blog",
-    queries: {
-      orders: "-publishedAt",
-      offset: (pageNo - 1) * PER_PAGE,
-      limit: PER_PAGE,
-    },
-  });
+  let blog: BlogContents;
+  blog = await getMicroCMSBlogs(PER_PAGE, (pageNo - 1) * PER_PAGE);
 
   return {
     props: {
-      blogs: data.contents,
-      totalCount: data.totalCount,
+      blogs: blog.contents,
+      totalCount: blog.totalCount,
     },
   };
 };
@@ -55,24 +41,22 @@ export const getStaticProps = async (
 const Home: NextPage<Props> = ({ blogs, totalCount }) => {
   return (
     <>
-      <Head>
-        <title>{returnTitle()}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_220px)] m-auto flex flex-wrap justify-between maxsp:justify-center after:block after:content-[''] after:w-[350px] after:tbpc:w-[30vw]">
-        {blogs.map((blog: Blog) => {
-          return (
-            <Card
-              id={blog.id}
-              thumbnail={blog.thumbnail.url}
-              title={blog.title}
-              tags={blog.tags}
-              publishedAt={blog.publishedAt}
-              key={blog.id}
-            />
-          );
-        })}
-      </main>
+      <MyNextSEO
+        title={returnTitle()}
+        description={returnDiscription("Watatakuのブログです。")}
+        ogTitle={returnTitle()}
+        ogDescription={returnDiscription("Watatakuのブログです。")}
+        ogType="blog"
+        ogUrl={SITE_URL}
+        ogImage={`${SITE_URL}/ogp.jpg`}
+        ogSiteName={returnTitle()}
+        twCard="summary_large_image"
+        twTitle={returnTitle()}
+        twDescription={returnDiscription("Watatakuのブログです。")}
+        twImage={`${SITE_URL}/ogp.jpg`}
+      />
+
+      <BlogList blogs={blogs} />
       {totalCount >= PER_PAGE && <Pagination totalCount={totalCount} />}
     </>
   );

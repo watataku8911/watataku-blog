@@ -1,31 +1,22 @@
-import { client } from "../seacretDirectory/seacret";
-
 import type { InferGetStaticPropsType, NextPage } from "next";
-import type { BlogContents, Blog } from "../types/blog";
-
-import Head from "next/head";
-import Card from "../components/Card";
-import Pagination from "../components/Pagination";
-
+import type { BlogContents } from "../types/blog";
 import { SITE_URL, returnTitle, returnDiscription } from "../libs/const";
+import BlogList from "../components/BlogList";
+import MyNextSEO from "../components/MyNextSEO";
+import Pagination from "../components/Pagination";
+import { getMicroCMSBlogs } from "../functions/function";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const PER_PAGE = 9;
 
 export const getStaticProps = async () => {
-  const data: BlogContents = await client.get({
-    endpoint: "blog",
-    queries: {
-      orders: "-publishedAt",
-      limit: PER_PAGE,
-    },
-  });
+  const blog: BlogContents = await getMicroCMSBlogs(PER_PAGE);
 
   return {
     props: {
-      blogs: data.contents,
-      totalCount: data.totalCount,
+      blogs: blog.contents,
+      totalCount: blog.totalCount,
     },
   };
 };
@@ -33,52 +24,23 @@ export const getStaticProps = async () => {
 const Home: NextPage<Props> = ({ blogs, totalCount }) => {
   return (
     <>
-      <Head>
-        <title>{returnTitle()}</title>
-        <meta
-          name="description"
-          content={returnDiscription("Watataku's ブログです。")}
-        />
-        <link rel="icon" href="/favicon.ico" />
+      <MyNextSEO
+        title={returnTitle()}
+        description={returnDiscription("Watatakuのブログです。")}
+        ogTitle={returnTitle()}
+        ogDescription={returnDiscription("Watatakuのブログです。")}
+        ogType="blog"
+        ogUrl={SITE_URL}
+        ogImage={`${SITE_URL}/ogp.jpg`}
+        ogSiteName={returnTitle()}
+        twCard="summary_large_image"
+        twTitle={returnTitle()}
+        twDescription={returnDiscription("Watatakuのブログです。")}
+        twImage={`${SITE_URL}/ogp.jpg`}
+      />
 
-        <meta
-          property="og:description"
-          content={returnDiscription("Watataku's ブログです。")}
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={SITE_URL} />
-        <meta
-          property="og:image"
-          content="https://watataku-portfolio.web.app/img/Hight_main.67495da6.jpeg"
-        />
-        <meta property="og:site_name" content={returnTitle()} />
+      <BlogList blogs={blogs} />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={returnTitle()} />
-        <meta
-          property="twitter:description"
-          content={returnDiscription("Watataku's ブログです。")}
-        />
-        <meta
-          name="twitter:image:src"
-          content="https://watataku-portfolio.web.app/img/Hight_main.67495da6.jpeg"
-        />
-      </Head>
-
-      <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-between maxsp:justify-center">
-        {blogs.map((blog: Blog) => {
-          return (
-            <Card
-              id={blog.id}
-              thumbnail={blog.thumbnail.url}
-              title={blog.title}
-              tags={blog.tags}
-              publishedAt={blog.publishedAt}
-              key={blog.id}
-            />
-          );
-        })}
-      </main>
       {totalCount >= PER_PAGE && <Pagination totalCount={totalCount} />}
     </>
   );
