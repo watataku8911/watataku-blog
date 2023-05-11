@@ -65,11 +65,19 @@
 }
 
 .markdown ul {
-  @apply pl-[5%];
+  @apply pl-[5%] py-3;
 }
 
-.markdown li {
+.markdown ul li {
   @apply text-base list-disc tracking-wider leading-relaxed dark:text-white;
+}
+
+.markdown ol {
+  @apply pl-[5%] py-3;
+}
+
+.markdown ol li {
+  @apply text-base list-decimal tracking-wider leading-relaxed dark:text-white;
 }
 
 .markdown img {
