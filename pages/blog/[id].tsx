@@ -79,7 +79,7 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
       <div className="pt-14 pb-5">
         <HeadLine blog={blog} />
 
-        <div className="flex justify-between m-auto w-[90%] maxpc:w-[95% maxpc:flex-col">
+        <div className="flex justify-between m-auto w-[90%] maxpc:w-[96%] maxpc:flex-col">
           <SNSShare blogTitle={blog.title} blogUrl={blogUrl} />
           <ArticleBody highlightedBody={highlightedBody} />
           <SideBar blog={blog} toc={toc} />
