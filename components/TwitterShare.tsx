@@ -11,9 +11,9 @@ const TwitterShare = (props: Props) => {
         href={props.url}
         target="_blank"
         rel="noreferrer"
-        className="block hover:scale-125"
+        className="inline-block bg-[#1da1f2] p-2 rounded-lg hover:scale-125"
       >
-        <TwitterSvg className="dark:fill-white" />
+        <TwitterSvg />
       </a>
     </p>
   );

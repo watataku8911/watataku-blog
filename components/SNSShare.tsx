@@ -9,7 +9,7 @@ type Props = {
 
 const SNSShare = (props: Props) => {
   return (
-    <section className="flex flex-col items-center w-2.5 h-24 sticky top-0 gap-5 maxpc:flex-row maxpc:order-3">
+    <section className="flex flex-col gap-y-8  maxpc:gap-x-5 maxpc:justify-center maxpc:flex-row maxpc:mb-4 pc:sticky pc:top-10 pc:h-32 ">
       <TwitterShare
         url={
           "https://twitter.com/share?text=" +
