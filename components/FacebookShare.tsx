@@ -4,18 +4,18 @@ type Props = {
   url: string;
 };
 
-const TwitterShare = (props: Props) => {
+const FacebookShare = (props: Props) => {
   return (
     <p>
       <a
         href={props.url}
         target="_blank"
         rel="noreferrer"
-        className="block hover:scale-125"
+        className="inline-block bg-[#32529f] rounded-lg hover:scale-125"
       >
-        <FacebookSvg className="dark:fill-white" />
+        <FacebookSvg />
       </a>
     </p>
   );
 };
-export default TwitterShare;
+export default FacebookShare;
