@@ -42,9 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </Head>
 
           <Header />
-          <main>
-            <Component {...pageProps} />
-          </main>
+          <Component {...pageProps} />
           <Footer />
         </>
       )}
