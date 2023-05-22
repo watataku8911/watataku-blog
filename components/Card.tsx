@@ -15,7 +15,7 @@ type Props = {
 const Card = (props: Props) => {
   return (
     <Link href={`/blog/${props.id}`} passHref>
-      <article className="relative w-[350px] h-[380px] mb-2.5 mt-3.5 cursor-pointer shadow-xl dark:shadow-outline tbpc:w-[30vw] tbpc:h-[310px] hover:translate-x-0 hover:translate-y-1.5 bg-white dark:bg-black ">
+      <article className="relative w-[350px] h-[380px] mb-2.5 mt-3.5 cursor-pointer shadow-xl dark:shadow-outline tbpc:w-[30vw] tbpc:h-[310px] maxsp:w-[95%] hover:translate-x-0 hover:translate-y-1.5 bg-white dark:bg-black ">
         <div className="border-solid border-8 border-[#ccc] dark:border-[#333]">
           <Image
             src={props.thumbnail}
