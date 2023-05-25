@@ -41,7 +41,7 @@ const Home: NextPage<Props> = ({ blogs, totalCount }) => {
 
       <BlogList blogs={blogs} />
 
-      {totalCount >= PER_PAGE && <Pagination totalCount={totalCount} />}
+      {totalCount >　PER_PAGE && <Pagination totalCount={totalCount} />}
     </>
   );
 };
