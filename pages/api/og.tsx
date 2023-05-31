@@ -15,14 +15,9 @@ const handler: NextApiHandler = async (req) => {
   const { searchParams } = new URL(req.url);
   const fontNoto = await notoSansJP;
 
-  const hasTitle = searchParams.has("title");
-  const title = hasTitle
-    ? searchParams.get("title")?.slice(0, 60)
-    : "Watatakuのブログだよ〜ん。";
-  const hasPostDate = searchParams.has("postDate");
-  const postDate = hasPostDate
-    ? searchParams.get("postDate")
-    : "〇〇〇〇年〇〇月〇〇日投稿";
+  const title = searchParams.get("title");
+
+  const postDate = searchParams.get("postDate");
   return new ImageResponse(
     (
       <div
