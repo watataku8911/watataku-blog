@@ -66,23 +66,19 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
   const blogUrl = SITE_URL + "/blog/" + blog.id;
   return (
     <>
-      <MyNextSEO
+       <MyNextSEO
         title={returnTitle(blog.title)}
         description={returnDiscription(blog.body)}
         ogTitle={returnTitle(blog.title)}
         ogDescription={returnDiscription(blog.body)}
         ogType="article"
         ogUrl={blogUrl}
-        ogImage={`${SITE_URL}/api/og?title=${
-          blog.title
-        }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}
+        ogImage={blog.thumbnail.url}
         ogSiteName={returnTitle(blog.title)}
         twCard="summary_large_image"
         twTitle={returnTitle(blog.title)}
         twDescription={returnDiscription(blog.body)}
-        twImage={`${SITE_URL}/api/og?title=${
-          blog.title
-        }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}
+        twImage={blog.thumbnail.url}
       />
       <div className="pt-14 pb-5">
         <HeadLine blog={blog} />
