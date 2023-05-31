@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { NextApiHandler } from "next";
 import { ImageResponse } from "@vercel/og";
 
 export const config = {
@@ -6,13 +6,18 @@ export const config = {
 };
 
 const notoSansJP = fetch(
-  new URL("../../public/font/NotoSansJP-Bold.otf", import.meta.url)
+  new URL("../../public/font/NotoSansJP-Bold.otf", import.meta.url).toString()
 ).then((res) => res.arrayBuffer());
 const greatVibes = fetch(
-  new URL("../../public/font/GreatVibes-Regular.ttf", import.meta.url)
+  new URL(
+    "../../public/font/GreatVibes-Regular.ttf",
+    import.meta.url
+  ).toString()
 ).then((res) => res.arrayBuffer());
 
-export default async function ogp(req: NextRequest) {
+const handler: NextApiHandler = async (req) => {
+  if (!req.url) throw Error("not supported.");
+
   const { searchParams } = new URL(req.url);
   const fontNoto = await notoSansJP;
   const fontGreat = await greatVibes;
@@ -111,4 +116,6 @@ export default async function ogp(req: NextRequest) {
       ],
     }
   );
-}
+};
+
+export default handler;
