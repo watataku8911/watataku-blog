@@ -8,19 +8,12 @@ export const config = {
 const notoSansJP = fetch(
   new URL("../../public/font/NotoSansJP-Bold.otf", import.meta.url).toString()
 ).then((res) => res.arrayBuffer());
-const greatVibes = fetch(
-  new URL(
-    "../../public/font/GreatVibes-Regular.ttf",
-    import.meta.url
-  ).toString()
-).then((res) => res.arrayBuffer());
 
 const handler: NextApiHandler = async (req) => {
   if (!req.url) throw Error("not supported.");
 
   const { searchParams } = new URL(req.url);
   const fontNoto = await notoSansJP;
-  const fontGreat = await greatVibes;
 
   const hasTitle = searchParams.has("title");
   const title = hasTitle
@@ -44,7 +37,6 @@ const handler: NextApiHandler = async (req) => {
           alignItems: "center",
           justifyContent: "center",
           color: "black",
-          fontFamily: '"NotoSansJP"',
           position: "relative",
         }}
       >
@@ -77,26 +69,6 @@ const handler: NextApiHandler = async (req) => {
             {postDate}
           </h2>
         </div>
-        <div
-          style={{
-            display: "flex",
-            position: "absolute",
-            width: "100%",
-            top: 0,
-            paddingLeft: 32,
-            justifyContent: "flex-start",
-          }}
-        >
-          <h2
-            style={{
-              color: "black",
-              fontSize: 56,
-              fontFamily: "Great Vibes",
-            }}
-          >
-            T.W
-          </h2>
-        </div>
       </div>
     ),
     {
@@ -106,11 +78,6 @@ const handler: NextApiHandler = async (req) => {
         {
           name: "NotoSansJP",
           data: fontNoto,
-          style: "normal",
-        },
-        {
-          name: "Great Vibes",
-          data: fontGreat,
           style: "normal",
         },
       ],
