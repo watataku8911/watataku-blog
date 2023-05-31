@@ -6,7 +6,7 @@ export const config = {
 };
 
 const notoSansJP = fetch(
-  new URL("../../public/font/NotoSansJP-Bold.otf", import.meta.url).toString()
+  new URL("../../public/font/NotoSansJP-Bold.woff", import.meta.url).toString()
 ).then((res) => res.arrayBuffer());
 
 const handler: NextApiHandler = async (req) => {
