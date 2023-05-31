@@ -14,7 +14,11 @@ import HeadLine from "../../components/HeadLine";
 import SideBar from "../../components/SideBar";
 import SNSShare from "../../components/SNSShare";
 import ArticleBody from "../../components/ArticleBody";
-import { getMicroCMSBlog, getMicroCMSBlogs } from "../../functions/function";
+import {
+  datePlasticSurgery,
+  getMicroCMSBlog,
+  getMicroCMSBlogs,
+} from "../../functions/function";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -69,17 +73,21 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
         ogDescription={returnDiscription(blog.body)}
         ogType="article"
         ogUrl={blogUrl}
-        ogImage={blog.thumbnail.url}
+        ogImage={`${SITE_URL}/api/og?title=${
+          blog.title
+        }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}
         ogSiteName={returnTitle(blog.title)}
         twCard="summary_large_image"
         twTitle={returnTitle(blog.title)}
         twDescription={returnDiscription(blog.body)}
-        twImage={blog.thumbnail.url}
+        twImage={`${SITE_URL}/api/og?title=${
+          blog.title
+        }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}
       />
       <div className="pt-14 pb-5">
         <HeadLine blog={blog} />
 
-        <div className="flex justify-between m-auto w-[90%] maxpc:w-[96%] maxpc:flex-col">
+        <div className="flex justify-between m-auto w-[90%] maxsp:w-[96%] maxpc:flex-col">
           <SNSShare blogTitle={blog.title} blogUrl={blogUrl} />
           <ArticleBody highlightedBody={highlightedBody} />
           <SideBar blog={blog} toc={toc} />
