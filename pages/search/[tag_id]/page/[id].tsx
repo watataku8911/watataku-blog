@@ -89,12 +89,12 @@ const Home: NextPage<Props> = ({ tagId, blogs, totalCount }) => {
           </h2>
         </main>
       ) : (
-        <>
+        <main className="min-h-[calc(100vh_-_170px)]">
           <BlogList blogs={blogs} />
           {totalCount > PER_PAGE && (
             <Pagination totalCount={totalCount} tag_id={tagId} />
           )}
-        </>
+        </main>
       )}
     </>
   );

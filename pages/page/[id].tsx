@@ -55,9 +55,10 @@ const Home: NextPage<Props> = ({ blogs, totalCount }) => {
         twDescription={returnDiscription("Watatakuのブログです。")}
         twImage={`${SITE_URL}/ogp.jpg`}
       />
-
-      <BlogList blogs={blogs} />
-      {totalCount > PER_PAGE && <Pagination totalCount={totalCount} />}
+      <main className="min-h-[calc(100vh_-_170px)]">
+        <BlogList blogs={blogs} />
+        {totalCount > PER_PAGE && <Pagination totalCount={totalCount} />}
+      </main>
     </>
   );
 };
