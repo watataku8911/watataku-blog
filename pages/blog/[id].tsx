@@ -73,26 +73,15 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
         ogDescription={returnDiscription(blog.body)}
         ogType="article"
         ogUrl={blogUrl}
-        ogImage={`${SITE_URL}/api/og?title=${
-          blog.title
-        }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}
+        ogImage={blog.thumbnail.url}
         ogSiteName={returnTitle(blog.title)}
         twCard="summary_large_image"
         twTitle={returnTitle(blog.title)}
         twDescription={returnDiscription(blog.body)}
-        twImage={`${SITE_URL}/api/og?title=${
-          blog.title
-        }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}
+        twImage={blog.thumbnail.url}
       />
       <div className="pt-14 pb-5">
         <HeadLine blog={blog} />
-
-        <img
-          src={`http://localhost:3000/api/og?title=${
-            blog.title
-          }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}
-          alt=""
-        />
 
         <div className="flex justify-between m-auto w-[90%] maxsp:w-[96%] maxpc:flex-col">
           <SNSShare blogTitle={blog.title} blogUrl={blogUrl} />
