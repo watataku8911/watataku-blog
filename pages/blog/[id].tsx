@@ -66,7 +66,7 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
   const blogUrl = SITE_URL + "/blog/" + blog.id;
   return (
     <>
-      <MyNextSEO
+       <MyNextSEO
         title={returnTitle(blog.title)}
         description={returnDiscription(blog.body)}
         ogTitle={returnTitle(blog.title)}
