@@ -7,7 +7,7 @@ type Props = {
 };
 const BlogList = (props: Props) => {
   return (
-    <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-between maxsp:justify-center">
+    <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-between maxsp:justify-center after:block after:w-[350px] tbpc:after:w-[30vw]">
       {props.blogs.map((blog: Blog) => {
         return (
           <Card
