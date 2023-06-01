@@ -14,7 +14,7 @@ type Props = {
 
 const Card = (props: Props) => {
   return (
-    <article className="relative mb-2.5 mt-3.5 shadow-xl bg-white w-[350px] h-[380px] tbpc:w-[30vw] tbpc:h-[310px] maxsp:w-[95%] dark:shadow-outline  dark:bg-black hover:translate-x-0 hover:translate-y-1.5">
+    <li className="relative mb-2.5 mt-3.5 shadow-xl bg-white w-[350px] h-[380px] tbpc:w-[30vw] tbpc:h-[310px] maxsp:w-[95%] dark:shadow-outline dark:bg-black hover:translate-x-0 hover:translate-y-1.5">
       <Link href={`/blog/${props.id}`} passHref>
         <a>
           <div className="border-solid border-8 border-[#ccc] dark:border-[#333]">
@@ -55,7 +55,7 @@ const Card = (props: Props) => {
           </time>
         </a>
       </Link>
-    </article>
+    </li>
   );
 };
 export default Card;
