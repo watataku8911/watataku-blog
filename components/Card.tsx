@@ -38,7 +38,7 @@ const Card = (props: Props) => {
               return (
                 <li
                   key={tag.id}
-                  className="flex justify-center items-center p-0.5 border-solid border-2 ml-2 mb-2 border-[#5bbee5] dark:border-[#7388c0] dark:text-white"
+                  className="tbpc:text-sm flex justify-center items-center p-0.5 border-solid border-2 ml-2 tbpc:ml-1 mb-2 tbpc:mb-1 border-[#5bbee5] dark:border-[#7388c0] dark:text-white"
                 >
                   <IconTag className="dark:fill-[#fff]" />
                   {tag.tag_name}
