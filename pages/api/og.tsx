@@ -26,13 +26,12 @@ const handler: NextApiHandler = async (req) => {
           textAlign: "center",
           alignItems: "center",
           justifyContent: "center",
-          color: "black",
           position: "relative",
         }}
       >
         <h2
           style={{
-            width: "100%",
+            width: "%",
             color: "black",
             fontSize: 64,
           }}
