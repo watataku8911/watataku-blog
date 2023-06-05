@@ -73,12 +73,16 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
         ogDescription={returnDiscription(blog.body)}
         ogType="article"
         ogUrl={blogUrl}
-        ogImage={blog.thumbnail.url}
+        ogImage={`${SITE_URL}/api/og?title=${
+          blog.title
+        }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}
         ogSiteName={returnTitle(blog.title)}
         twCard="summary_large_image"
         twTitle={returnTitle(blog.title)}
         twDescription={returnDiscription(blog.body)}
-        twImage={blog.thumbnail.url}
+        twImage={`${SITE_URL}/api/og?title=${
+          blog.title
+        }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}
       />
       <div className="pt-14 pb-5">
         <HeadLine blog={blog} />
