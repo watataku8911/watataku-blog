@@ -87,13 +87,6 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
       <div className="pt-14 pb-5">
         <HeadLine blog={blog} />
 
-        <img
-          src={`http://localhost:3000/api/og?title=${
-            blog.title
-          }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}
-          alt=""
-        />
-
         <div className="flex justify-between m-auto w-[90%] maxsp:w-[96%] maxpc:flex-col">
           <SNSShare blogTitle={blog.title} blogUrl={blogUrl} />
           <ArticleBody highlightedBody={highlightedBody} />
