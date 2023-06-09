@@ -64,6 +64,10 @@
   @apply text-base break-all tracking-wider leading-relaxed dark:text-white;
 }
 
+.markdown u {
+  @apply no-underline bg-[linear-gradient(transparent_60%,_rgba(255,_255,_255,_0)_60%,_#ffff00_85%)] dark:bg-[linear-gradient(transparent_60%,_rgba(255,_255,_255,_0)_60%,_#f55872_85%)];
+}
+
 .markdown ul {
   @apply pl-8 py-3;
 }
