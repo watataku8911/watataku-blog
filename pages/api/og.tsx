@@ -17,9 +17,7 @@ const handler: NextApiHandler = async (req) => {
       <div
         lang="ja-JP"
         style={{
-          borderWidth: "36px",
-          borderColor: "#5bbee5",
-          backgroundColor: "white",
+          backgroundColor: "#5bbee5",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -32,7 +30,8 @@ const handler: NextApiHandler = async (req) => {
       >
         <h2
           style={{
-            color: "black",
+            width: "90%",
+            color: "white",
             fontSize: 64,
           }}
         >
@@ -42,7 +41,7 @@ const handler: NextApiHandler = async (req) => {
           style={{
             display: "flex",
             position: "absolute",
-            width: "100%",
+            width: "90%",
             bottom: 0,
             paddingRight: 32,
             justifyContent: "flex-end",
@@ -50,7 +49,7 @@ const handler: NextApiHandler = async (req) => {
         >
           <h2
             style={{
-              color: "black",
+              color: "white",
               fontSize: 40,
             }}
           >
