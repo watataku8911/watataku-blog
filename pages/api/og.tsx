@@ -30,7 +30,7 @@ const handler: NextApiHandler = async (req) => {
       >
         <h2
           style={{
-            width: "90%",
+            width: "100%",
             color: "white",
             fontSize: 64,
           }}
@@ -41,7 +41,7 @@ const handler: NextApiHandler = async (req) => {
           style={{
             display: "flex",
             position: "absolute",
-            width: "90%",
+            width: "100%",
             bottom: 0,
             paddingRight: 32,
             justifyContent: "flex-end",
