@@ -16,6 +16,7 @@ import SNSShare from "../../components/SNSShare";
 import ArticleBody from "../../components/ArticleBody";
 import {
   datePlasticSurgery,
+  roundTheLetters,
   getMicroCMSBlog,
   getMicroCMSBlogs,
 } from "../../functions/function";
@@ -66,11 +67,11 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
   const blogUrl = SITE_URL + "/blog/" + blog.id;
   return (
     <>
-       <MyNextSEO
+      <MyNextSEO
         title={returnTitle(blog.title)}
-        description={returnDiscription(blog.body)}
+        description={returnDiscription(roundTheLetters(blog.body, 80))}
         ogTitle={returnTitle(blog.title)}
-        ogDescription={returnDiscription(blog.body)}
+        ogDescription={returnDiscription(roundTheLetters(blog.body, 80))}
         ogType="article"
         ogUrl={blogUrl}
         ogImage={`${SITE_URL}/api/og?title=${
@@ -79,7 +80,7 @@ const Detail: NextPage<Props> = ({ blogs, blog, highlightedBody, toc }) => {
         ogSiteName={returnTitle(blog.title)}
         twCard="summary_large_image"
         twTitle={returnTitle(blog.title)}
-        twDescription={returnDiscription(blog.body)}
+        twDescription={returnDiscription(roundTheLetters(blog.body, 80))}
         twImage={`${SITE_URL}/api/og?title=${
           blog.title
         }&postDate=${datePlasticSurgery(blog.publishedAt)}投稿`}

@@ -41,9 +41,7 @@ const Header = () => {
     <header className="bg-[linear-gradient(to_right,_#ADDFF2_20%,_#5bbee5_80%)] dark:bg-[linear-gradient(to_right,_#7388c0_20%,_#3A4461_80%)]">
       <div className="h-[75px] m-auto flex items-center justify-between w-[90%]">
         <h1 className="dark:text-white text-5xl maxsp:text-4xl font-GreatVibes">
-          <Link href="/">
-            <a>T.W</a>
-          </Link>
+          <Link href="/">T.W</Link>
         </h1>
         <nav className="w-[20%] tbpc:w-[30%] maxsp:w-[50%] flex justify-around items-center">
           <IconSearch
