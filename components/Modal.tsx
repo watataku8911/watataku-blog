@@ -32,10 +32,11 @@ const Modal = (props: Props) => {
                 className="w-[30%] h-6 flex items-center justify-center"
               >
                 <IconTag className="fill-white" />
-                <Link href={`/search/${tag.id}/page/1`}>
-                  <a className="text-blue-800 border-blue-800 dark:border-[#ff36ab] dark:text-[#ff36ab] hover:border-b">
-                    {tag.tag_name}
-                  </a>
+                <Link
+                  className="text-blue-800 border-blue-800 dark:border-[#ff36ab] dark:text-[#ff36ab] hover:border-b"
+                  href={`/search/${tag.id}/page/1`}
+                >
+                  {tag.tag_name}
                 </Link>
               </div>
             );

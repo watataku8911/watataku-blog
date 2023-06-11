@@ -8,6 +8,18 @@ export const datePlasticSurgery = (dateString: string): string => {
   return format(date, "yyyy年MM月dd日");
 };
 
+export const roundTheLetters = (str: string, cut: number): string => {
+  let modStr: string;
+
+  if (str.length > cut) {
+    modStr = str.substring(0, cut) + "...";
+  } else {
+    modStr = str;
+  }
+
+  return modStr;
+};
+
 // ページング計算
 export const range = (start: number, end: number) =>
   [...Array(end - start + 1)].map((_, i) => start + i);

@@ -13,10 +13,11 @@ const TagList = (props: Props) => {
       {props.blog.tags.map((tag: Tags) => (
         <li className="flex items-center justify-center" key={tag.id}>
           <IconTag className="dark:fill-white" />
-          <Link href={`/search/${tag.id}/page/1`}>
-            <a className="text-blue-800 leading-6 dark:border-[#ff36ab] dark:text-[#ff36ab] hover:border-b">
-              {tag.tag_name}
-            </a>
+          <Link
+            className="text-blue-800 leading-6 dark:border-[#ff36ab] dark:text-[#ff36ab] hover:border-b"
+            href={`/search/${tag.id}/page/1`}
+          >
+            {tag.tag_name}
           </Link>
         </li>
       ))}

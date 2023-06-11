@@ -1,21 +1,21 @@
+import { ImageResponse } from "next/server";
 import { NextApiHandler } from "next";
-import { ImageResponse } from "@vercel/og";
 
 export const config = {
-  runtime: "experimental-edge",
+  runtime: "edge",
 };
 
 const handler: NextApiHandler = async (req) => {
   if (!req.url) throw Error("not supported.");
-
   const { searchParams } = new URL(req.url);
 
   const title = searchParams.get("title");
-
   const postDate = searchParams.get("postDate");
+
   return new ImageResponse(
     (
       <div
+        lang="ja-JP"
         style={{
           borderWidth: "36px",
           borderColor: "#5bbee5",
@@ -26,12 +26,12 @@ const handler: NextApiHandler = async (req) => {
           textAlign: "center",
           alignItems: "center",
           justifyContent: "center",
+          color: "black",
           position: "relative",
         }}
       >
         <h2
           style={{
-            width: "%",
             color: "black",
             fontSize: 64,
           }}

@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import IconPublish from "../public/img/icon_calendar.svg";
 import IconRevise from "../public/img/icon_refresh.svg";
 import { datePlasticSurgery } from "../functions/function";

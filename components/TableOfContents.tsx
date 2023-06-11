@@ -1,5 +1,6 @@
 import React from "react";
 import type { Toc } from "../types/blog";
+import Link from "next/link";
 type Props = {
   toc: Toc[];
 };
@@ -9,7 +10,12 @@ const TableOfContants = (props: Props) => {
       <ul className="pl-[8%]">
         {props.toc.map((toc, index) => (
           <li id={toc.name} className="dark:text-white" key={index}>
-            <a href={"#" + toc.id}>{toc.text}</a>
+            <Link
+              className="hover:border-b hover:border-black hover:dark:border-white"
+              href={"#" + toc.id}
+            >
+              {toc.text}
+            </Link>
           </li>
         ))}
       </ul>
