@@ -1,6 +1,6 @@
 import { parseISO, format } from "date-fns";
 import { client } from "../seacretDirectory/seacret";
-import { Blog, BlogContents, TagsContents } from "../types/blog";
+import { Blog, BlogContents, Tags, TagsContents } from "../types/blog";
 
 // 日付整形関数
 export const datePlasticSurgery = (dateString: string): string => {
