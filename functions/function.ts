@@ -63,3 +63,13 @@ export const getMicroCMSTag = async (): Promise<TagsContents> => {
   });
   return tag;
 };
+
+export const genalateTitleTag = async (
+  tagId: string | undefined
+): Promise<string> => {
+  const tag: Tags = await client.get({
+    endpoint: "tags",
+    contentId: tagId,
+  });
+  return tag.tag_name;
+};
