@@ -4,6 +4,7 @@ import {
   SITE_URL,
 } from "../../../../libs/const";
 import {
+  genalateTitleTag,
   getMicroCMSBlogs,
   getMicroCMSTag,
   range,
@@ -55,8 +56,11 @@ export const getStaticProps = async (
     "tags[contains]" + tagId
   );
 
+  const tagName = await genalateTitleTag(tagId);
+
   return {
     props: {
+      tagName,
       tagId,
       blogs: blog.contents,
       totalCount: blog.totalCount,
@@ -64,20 +68,20 @@ export const getStaticProps = async (
   };
 };
 
-const Home: NextPage<Props> = ({ tagId, blogs, totalCount }) => {
+const Home: NextPage<Props> = ({ tagName, tagId, blogs, totalCount }) => {
   return (
     <>
       <MyNextSEO
-        title={returnTitle()}
+        title={returnTitle(tagName)}
         description={returnDiscription("Watatakuのブログです。")}
-        ogTitle={returnTitle()}
+        ogTitle={returnTitle(tagName)}
         ogDescription={returnDiscription("Watatakuのブログです。")}
         ogType="blog"
         ogUrl={SITE_URL}
         ogImage={`${SITE_URL}/ogp.jpg`}
-        ogSiteName={returnTitle()}
+        ogSiteName={returnTitle(tagName)}
         twCard="summary_large_image"
-        twTitle={returnTitle()}
+        twTitle={returnTitle(tagName)}
         twDescription={returnDiscription("Watatakuのブログです。")}
         twImage={`${SITE_URL}/ogp.jpg`}
       />
