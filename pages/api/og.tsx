@@ -42,7 +42,7 @@ const handler: NextApiHandler = async (req) => {
           style={{
             display: "flex",
             position: "absolute",
-            width: "100%",
+            width: "90%",
             bottom: 0,
             paddingRight: 40,
             justifyContent: "flex-end",
