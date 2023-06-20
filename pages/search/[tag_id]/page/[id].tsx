@@ -72,16 +72,16 @@ const Home: NextPage<Props> = ({ tagName, tagId, blogs, totalCount }) => {
   return (
     <>
       <MyNextSEO
-        title={returnTitle(tagName)}
+        title={returnTitle(`${tagName}の記事一覧`)}
         description={returnDiscription("Watatakuのブログです。")}
-        ogTitle={returnTitle(tagName)}
+        ogTitle={returnTitle(`${tagName}の記事一覧`)}
         ogDescription={returnDiscription("Watatakuのブログです。")}
         ogType="blog"
         ogUrl={SITE_URL}
         ogImage={`${SITE_URL}/ogp.jpg`}
-        ogSiteName={returnTitle(tagName)}
+        ogSiteName={returnTitle(`${tagName}の記事一覧`)}
         twCard="summary_large_image"
-        twTitle={returnTitle(tagName)}
+        twTitle={returnTitle(`${tagName}の記事一覧`)}
         twDescription={returnDiscription("Watatakuのブログです。")}
         twImage={`${SITE_URL}/ogp.jpg`}
       />
