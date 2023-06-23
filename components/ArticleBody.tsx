@@ -5,7 +5,7 @@ type Props = {
 };
 const ArticleBody = (props: Props) => {
   return (
-    <section className="markdown rounded-3xl bg-white dark:bg-black w-[67%] p-[1%] maxpc:w-full maxpc:order-2 maxpc:rounded-t-none">
+    <section className="markdown rounded-3xl bg-white dark:bg-black w-[64%] p-[1%] maxpc:w-full maxpc:order-2 maxpc:rounded-t-none">
       <div dangerouslySetInnerHTML={{ __html: props.highlightedBody }} />
     </section>
   );
