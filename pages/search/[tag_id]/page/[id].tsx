@@ -88,8 +88,8 @@ const Home: NextPage<Props> = ({ tagName, tagId, blogs, totalCount }) => {
 
       {blogs.length == 0 ? (
         <main className="w-[1100px] tbpc:w-[95%] maxsp:w-[100%] min-h-[calc(100vh_-_170px)] m-auto flex flex-wrap justify-center items-center">
-          <h2 className="text-4xl dark:text-white">
-            このタグが付いている記事はありません。
+          <h2 className="text-4xl dark:text-white maxsp:text-lg">
+            "{tagName}" に関する記事はまだありません。
           </h2>
         </main>
       ) : (
