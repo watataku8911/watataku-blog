@@ -22,6 +22,7 @@ const handler: NextApiHandler = async (req) => {
           height: "100%",
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
           position: "relative",
         }}
       >
@@ -30,7 +31,7 @@ const handler: NextApiHandler = async (req) => {
             width: "100%",
             color: "white",
             fontSize: 64,
-            paddingTop: 96,
+            paddingBottom: 112,
             paddingLeft: 40,
             paddingRight: 88,
           }}
@@ -41,7 +42,7 @@ const handler: NextApiHandler = async (req) => {
           style={{
             display: "flex",
             position: "absolute",
-            width: "100%",
+            width: "90%",
             bottom: 0,
             paddingRight: 40,
             justifyContent: "flex-end",
