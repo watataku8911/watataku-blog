@@ -11,7 +11,7 @@ const FacebookShare = (props: Props) => {
         href={props.url}
         target="_blank"
         rel="noreferrer"
-        className="inline-block bg-[#32529f] rounded-lg hover:bg-[#162d65]"
+        className="inline-block bg-[#32529f] rounded-lg hover:bg-[#5676c6]"
       >
         <FacebookSvg />
       </a>
