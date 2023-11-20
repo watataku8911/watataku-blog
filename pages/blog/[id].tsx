@@ -7,7 +7,7 @@ import { SITE_URL, returnTitle, returnDiscription } from "../../libs/const";
 import type { Blog, BlogContents, Toc } from "../../types/blog";
 import cheerio from "cheerio";
 import hljs from "highlight.js";
-import "highlight.js/styles/hybrid.css";
+import "highlight.js/styles/github-dark.css";
 import BlogList from "../../components/BlogList";
 import MyNextSEO from "../../components/MyNextSEO";
 import HeadLine from "../../components/HeadLine";
