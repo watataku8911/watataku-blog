@@ -7,7 +7,7 @@ import { SITE_URL, returnTitle, returnDiscription } from "../../libs/const";
 import type { Blog, BlogContents, Toc } from "../../types/blog";
 import cheerio from "cheerio";
 import hljs from "highlight.js";
-import "highlight.js/styles/hybrid.css";
+import "highlight.js/styles/github-dark.css"; //これ
 import BlogList from "../../components/BlogList";
 import MyNextSEO from "../../components/MyNextSEO";
 import HeadLine from "../../components/HeadLine";
@@ -51,8 +51,16 @@ export const getStaticProps = async (
     name: data.name,
   }));
 
-  const blog: BlogContents = await getMicroCMSBlogs(6);
-
+  const tags = data.tags;
+  let blog: BlogContents = {
+    contents: [],
+    totalCount: 0,
+    offset: 0,
+    limit: 10,
+  };
+  for (const tag of tags) {
+    blog = await getMicroCMSBlogs(3, 0, "tags[contains]" + tag.id);
+  }
   return {
     props: {
       blogs: blog.contents,

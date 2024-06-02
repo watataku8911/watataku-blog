@@ -59,16 +59,14 @@ const Header = () => {
             handleClose={handleClose}
           />
           <RSSComponent url={"/feed"} />
-          <a
+          <Link
             className="hover:scale-125"
-            href="https://watataku-portfolio.vercel.app/about"
-            target="_blank"
-            rel="noreferrer"
+            href="/about"
             aria-label="プロフィール"
           >
             <IconUser className="block dark:hidden" />
             <IconUserWhite className="hidden dark:block" />
-          </a>
+          </Link>
           <Switch />
         </nav>
       </div>

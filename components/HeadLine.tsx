@@ -19,6 +19,7 @@ const HeadLine = (props: Props) => {
           layout={"responsive"}
           objectFit={"cover"}
           alt={"サムネイル"}
+          priority
         />
       </p>
 
