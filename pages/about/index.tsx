@@ -9,17 +9,17 @@ const About: NextPage = () => {
   return (
     <>
       <MyNextSEO
-        title={returnTitle()}
-        description={returnDiscription("Watatakuのブログです。")}
+        title={returnTitle("ABOUTページ")}
+        description={returnDiscription("ABOUTページです。")}
         ogTitle={returnTitle()}
-        ogDescription={returnDiscription("Watatakuのブログです。")}
+        ogDescription={returnDiscription("ABOUTページです。")}
         ogType="blog"
         ogUrl={SITE_URL}
         ogImage={`${SITE_URL}/ogp.jpg`}
         ogSiteName={returnTitle()}
         twCard="summary_large_image"
         twTitle={returnTitle()}
-        twDescription={returnDiscription("Watatakuのブログです。")}
+        twDescription={returnDiscription("ABOUTページです。")}
         twImage={`${SITE_URL}/ogp.jpg`}
       />
       <main className="min-h-[calc(100vh_-_200px)]">
@@ -50,7 +50,9 @@ const About: NextPage = () => {
             SNS and blogs.I hope you enjoy the site.
           </p>
           <div className="h-8"></div>
-          <Link href={"/"}>記事一覧へ戻る</Link>
+          <Link href={"/"} className="hover:border-b hover:border-black">
+            記事一覧へ戻る
+          </Link>
         </div>
       </main>
     </>
