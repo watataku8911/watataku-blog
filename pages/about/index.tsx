@@ -2,10 +2,26 @@ import React from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import MyNextSEO from "../../components/MyNextSEO";
+import { SITE_URL, returnDiscription, returnTitle } from "../../libs/const";
 
 const About: NextPage = () => {
   return (
     <>
+      <MyNextSEO
+        title={returnTitle()}
+        description={returnDiscription("Watatakuのブログです。")}
+        ogTitle={returnTitle()}
+        ogDescription={returnDiscription("Watatakuのブログです。")}
+        ogType="blog"
+        ogUrl={SITE_URL}
+        ogImage={`${SITE_URL}/ogp.jpg`}
+        ogSiteName={returnTitle()}
+        twCard="summary_large_image"
+        twTitle={returnTitle()}
+        twDescription={returnDiscription("Watatakuのブログです。")}
+        twImage={`${SITE_URL}/ogp.jpg`}
+      />
       <main className="min-h-[calc(100vh_-_200px)]">
         <Image
           className="w-40 aspect-square my-6 m-auto"
