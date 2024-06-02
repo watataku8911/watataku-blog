@@ -59,6 +59,14 @@ const Header = () => {
             handleClose={handleClose}
           />
           <RSSComponent url={"/feed"} />
+          <Link
+            className="hover:scale-125"
+            href="/about"
+            aria-label="プロフィール"
+          >
+            <IconUser className="block dark:hidden" />
+            <IconUserWhite className="hidden dark:block" />
+          </Link>
           <Switch />
         </nav>
       </div>

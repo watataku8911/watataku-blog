@@ -6,6 +6,8 @@ type Props = {
 
 const TwitterShare = (props: Props) => {
   return (
+    // 青い鳥(#1da1f2) ホバー(#2388c7)
+    // 新(#000)　ホバー(#535657)
     <p>
       <a
         href={props.url}

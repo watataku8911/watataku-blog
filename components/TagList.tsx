@@ -11,7 +11,7 @@ const TagList = (props: Props) => {
   return (
     <ul className="flex flex-wrap justify-venter gap-2.5">
       {props.blog.tags.map((tag: Tags) => (
-        <li className="flex items-center justify-center" key={tag.id}>
+        <li className="flex items-center gap-1 justify-center" key={tag.id}>
           <IconTag className="dark:fill-white" />
           <Link
             className="text-blue-800 leading-6 dark:border-[#ff36ab] dark:text-[#ff36ab] hover:border-b"

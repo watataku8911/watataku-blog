@@ -24,24 +24,24 @@ const Modal = (props: Props) => {
         <h2 className="text-2xl font-bold mb-5 dark:text-white">
           {props.title}
         </h2>
-        <div className="flex justify-around flex-wrap w-full">
+        <ul className="text-left grid grid-cols-3 maxsp:grid-cols-2 ">
           {props.tags.map((tag) => {
             return (
-              <div
+              <li
                 key={tag.id}
-                className="w-[30%] h-6 flex items-center justify-center"
+                className="flex items-center gap-1 justify-center"
               >
                 <IconTag className="fill-white" />
                 <Link
-                  className="text-blue-800 border-blue-800 dark:border-[#ff36ab] dark:text-[#ff36ab] hover:border-b"
+                  className="inline-block text-blue-800 border-blue-800 dark:border-[#ff36ab] dark:text-[#ff36ab] hover:border-b"
                   href={`/search/${tag.id}/page/1`}
                 >
                   {tag.tag_name}
                 </Link>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </div>
   );
