@@ -85,7 +85,7 @@
 }
 
 .markdown img {
-  @apply max-w-full;
+  @apply max-w-full h-auto object-cover align-bottom;
 }
 
 .markdown blockquote {
